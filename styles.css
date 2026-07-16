@@ -1,14 +1,14 @@
 :root {
-  --color-bg: #f7f6f2;
-  --color-surface: #fbfaf7;
-  --color-bg-elevated: #ffffff;
-  --color-text: #181818;
-  --color-text-muted: rgba(24, 24, 24, 0.62);
-  --color-border: rgba(1, 105, 111, 0.18);
+  --color-bg: #f6f3ed;
+  --color-surface: #fbf8f2;
+  --color-surface-strong: #f0ece3;
+  --color-text: #171717;
+  --color-text-muted: rgba(23, 23, 23, 0.64);
+  --color-border: rgba(1, 105, 111, 0.16);
   --color-accent: #01696f;
-  --color-accent-strong: #014f54;
+  --color-accent-strong: #014e53;
   --color-danger: #9b2c2c;
-  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.06);
+  --shadow-soft: 0 14px 36px rgba(0, 0, 0, 0.06);
   --content-width: 760px;
   --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -21,6 +21,7 @@
 
 html {
   color-scheme: light;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -28,15 +29,20 @@ body {
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  line-height: 1.6;
-}
-
-main {
-  display: block;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 a {
   color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
 
 button,
@@ -45,9 +51,143 @@ textarea {
   font: inherit;
 }
 
+.site-header {
+  width: min(calc(100% - 2rem), 1100px);
+  margin: 0 auto;
+  padding: 1rem 0 0;
+}
+
+.site-header nav,
+.site-header .nav,
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+main,
+.site-main {
+  width: min(calc(100% - 2rem), 1100px);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+article,
+.prose,
+.content-shell,
+.page-shell {
+  width: min(100%, var(--content-width));
+}
+
+p,
+li {
+  max-width: 72ch;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 5vw, 4.4rem);
+  max-width: 14ch;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin-top: 3rem;
+}
+
+h3 {
+  font-size: 1rem;
+  margin-top: 2.2rem;
+  color: var(--color-text-muted);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
+p {
+  margin: 0 0 1.25rem;
+  font-size: 1.06rem;
+}
+
+ul,
+ol {
+  margin: 0 0 1.25rem 1.25rem;
+}
+
+li + li {
+  margin-top: 0.45rem;
+}
+
+.hero,
+.intro-block {
+  padding: 1rem 0 2rem;
+}
+
+.eyebrow,
+.kicker {
+  display: inline-block;
+  margin-bottom: 1.15rem;
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-block,
+.content-section {
+  padding: 1.2rem 0;
+}
+
+.cta-row,
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+button,
+.button,
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+
+button:hover,
+.button:hover,
+.cta-button:hover,
+button:focus-visible,
+.button:focus-visible,
+.cta-button:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  outline: none;
+}
+
 #bot-container {
   width: min(100%, var(--content-width));
-  margin: 0 auto;
+  margin: 2rem 0 0;
 }
 
 .bot-shell {
@@ -81,7 +221,7 @@ textarea {
   min-height: 8rem;
   padding: 1rem;
   border: 1px solid var(--color-border);
-  background: var(--color-bg-elevated);
+  background: #fffdf9;
 }
 
 .briefing-entry {
@@ -95,7 +235,7 @@ textarea {
 .architect-status,
 .architect-error {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   line-height: 1.4;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -126,7 +266,7 @@ textarea {
 
 .briefing-copy {
   display: grid;
-  gap: 0.85rem;
+  gap: 0.9rem;
 }
 
 .architect-input-wrapper {
@@ -142,7 +282,7 @@ textarea {
   max-height: 13.75rem;
   padding: 0.85rem 0.95rem;
   border: 1px solid var(--color-border);
-  background: var(--color-bg-elevated);
+  background: #fffdf9;
   color: var(--color-text);
   resize: none;
   overflow-y: auto;
@@ -175,6 +315,7 @@ textarea {
 .architect-submit:focus-visible {
   background: var(--color-accent);
   color: #ffffff;
+  outline: none;
 }
 
 .architect-submit:disabled,
@@ -182,7 +323,37 @@ textarea {
   cursor: wait;
 }
 
+.site-footer,
+footer {
+  width: min(calc(100% - 2rem), 1100px);
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.site-footer p,
+footer p {
+  margin: 0 0 0.85rem;
+}
+
 @media (max-width: 720px) {
+  main,
+  .site-main,
+  .site-header,
+  .site-footer,
+  footer {
+    width: min(calc(100% - 1.25rem), 100%);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
   .architect-input-wrapper {
     grid-template-columns: 1fr;
   }
