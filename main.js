@@ -207,10 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  if (trigger) {
-    trigger.addEventListener('click', renderPanel);
-  } else {
     renderPanel();
+
+  if (trigger) {
+    trigger.style.display = 'none';
   }
 
   console.log('Sovereign chassis ready for', siteId, 'with context', sessionContext);
