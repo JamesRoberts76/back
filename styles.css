@@ -205,11 +205,148 @@ button:focus-visible,
 
 /* Architect panel */
 .architect-panel {
-  margin-top: 2rem;
-  padding: 1.1rem;
-  border: 1px solid rgba(1, 105, 111, 0.14);
-  background: rgba(255, 255, 255, 0.48);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03);
+  margin-top: 2.5rem;
+  padding: 1.35rem;
+  border: 1px solid rgba(1, 105, 111, 0.16);
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.05);
+}
+
+.briefing-display {
+  min-height: 9rem;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid rgba(1, 105, 111, 0.12);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.briefing-entry {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.briefing-label,
+.briefing-kicker,
+.architect-meta,
+.architect-status,
+.architect-error {
+  margin: 0;
+  font-size: 0.74rem;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.briefing-label,
+.briefing-kicker,
+.architect-meta,
+.architect-status {
+  color: rgba(17, 24, 39, 0.5);
+}
+
+.architect-error {
+  color: #9f2f2f;
+}
+
+.briefing-question,
+.briefing-answer,
+.briefing-copy {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.briefing-question p,
+.briefing-answer p,
+.briefing-copy p {
+  margin: 0;
+}
+
+.briefing-question p:last-child {
+  color: rgba(17, 24, 39, 0.78);
+  font-size: 0.96rem;
+}
+
+.briefing-copy p {
+  color: rgba(17, 24, 39, 0.9);
+  line-height: 1.72;
+  font-size: 0.98rem;
+}
+
+.architect-input-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.8rem;
+  align-items: end;
+  margin-top: 1.1rem;
+}
+
+.architect-input {
+  width: 100%;
+  min-height: 3.3rem;
+  max-height: 13rem;
+  padding: 0.95rem 1.05rem;
+  border: 1px solid rgba(1, 105, 111, 0.16);
+  background: rgba(255, 255, 255, 0.9);
+  color: inherit;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.55;
+}
+
+.architect-input::placeholder {
+  color: rgba(17, 24, 39, 0.42);
+}
+
+.architect-input:focus {
+  outline: none;
+  border-color: #01696f;
+  box-shadow: 0 0 0 1px rgba(1, 105, 111, 0.85);
+}
+
+.architect-submit {
+  min-width: 7.25rem;
+  height: 3.1rem;
+  padding: 0 1.05rem;
+  border: 1px solid #01696f;
+  background: transparent;
+  color: #01696f;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.architect-submit:hover,
+.architect-submit:focus-visible {
+  background: #01696f;
+  color: #ffffff;
+  outline: none;
+}
+
+.architect-panel[data-loading="true"] {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.architect-submit:disabled,
+.architect-input:disabled {
+  cursor: wait;
+}
+
+.architect-meta {
+  padding-top: 0.15rem;
+}
+
+@media (max-width: 720px) {
+  .architect-panel {
+    margin-top: 2rem;
+  }
+
+  .architect-input-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .architect-submit {
+    width: 100%;
+  }
 }
 
 .briefing-display {
