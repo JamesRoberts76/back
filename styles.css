@@ -362,3 +362,127 @@ footer p {
     width: 100%;
   }
 }
+/* Architect panel */
+.architect-panel {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid rgba(1, 105, 111, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.briefing-display {
+  min-height: 8rem;
+  padding: 1rem;
+  border: 1px solid rgba(1, 105, 111, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.briefing-entry {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.briefing-label,
+.briefing-kicker,
+.architect-meta,
+.architect-status,
+.architect-error {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.briefing-label,
+.briefing-kicker,
+.architect-meta,
+.architect-status {
+  color: rgba(17, 24, 39, 0.62);
+}
+
+.architect-error {
+  color: #9f2f2f;
+}
+
+.briefing-question,
+.briefing-answer,
+.briefing-copy {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.briefing-question p,
+.briefing-answer p,
+.briefing-copy p {
+  margin: 0;
+}
+
+.architect-input-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+  margin-top: 0.9rem;
+}
+
+.architect-input {
+  width: 100%;
+  min-height: 3rem;
+  max-height: 13rem;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid rgba(1, 105, 111, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  color: inherit;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+.architect-input::placeholder {
+  color: rgba(17, 24, 39, 0.5);
+}
+
+.architect-input:focus {
+  outline: none;
+  border-color: #01696f;
+  box-shadow: 0 0 0 1px #01696f;
+}
+
+.architect-submit {
+  min-width: 7rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid #01696f;
+  background: transparent;
+  color: #01696f;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+}
+
+.architect-submit:hover,
+.architect-submit:focus-visible {
+  background: #01696f;
+  color: #ffffff;
+  outline: none;
+}
+
+.architect-panel[data-loading="true"] {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+.architect-submit:disabled,
+.architect-input:disabled {
+  cursor: wait;
+}
+
+@media (max-width: 720px) {
+  .architect-input-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .architect-submit {
+    width: 100%;
+  }
+}
