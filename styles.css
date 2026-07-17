@@ -212,9 +212,145 @@ button:focus-visible,
   box-shadow: var(--shadow-soft);
 }
 
+/* Architect panel */
+.architect-panel {
+  margin-top: 1.75rem;
+  padding: 1rem;
+  border: 1px solid rgba(1, 105, 111, 0.16);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.briefing-display {
+  min-height: 8rem;
+  padding: 1rem;
+  border: 1px solid rgba(1, 105, 111, 0.12);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.briefing-entry {
+  display: grid;
+  gap: 1rem;
+}
+
+.briefing-label,
+.briefing-kicker,
+.architect-meta,
+.architect-status,
+.architect-error {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.briefing-label,
+.briefing-kicker,
+.architect-meta,
+.architect-status {
+  color: rgba(17, 24, 39, 0.52);
+}
+
+.architect-error {
+  color: #9f2f2f;
+}
+
+.briefing-question,
+.briefing-answer,
+.briefing-copy {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.briefing-question p,
+.briefing-answer p,
+.briefing-copy p {
+  margin: 0;
+}
+
+.briefing-question p:last-child {
+  color: rgba(17, 24, 39, 0.72);
+  font-size: 0.95rem;
+}
+
+.briefing-copy p {
+  color: rgba(17, 24, 39, 0.9);
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.architect-input-wrapper {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+  margin-top: 1rem;
+}
+
+.architect-input {
+  width: 100%;
+  min-height: 3rem;
+  max-height: 13rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(1, 105, 111, 0.16);
+  background: rgba(255, 255, 255, 0.86);
+  color: inherit;
+  resize: none;
+  overflow-y: auto;
+  line-height: 1.55;
+}
+
+.architect-input::placeholder {
+  color: rgba(17, 24, 39, 0.42);
+}
+
+.architect-input:focus {
+  outline: none;
+  border-color: #01696f;
+  box-shadow: 0 0 0 1px rgba(1, 105, 111, 0.9);
+}
+
+.architect-submit {
+  min-width: 7rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid #01696f;
+  background: transparent;
+  color: #01696f;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+}
+
+.architect-submit:hover,
+.architect-submit:focus-visible {
+  background: #01696f;
+  color: #ffffff;
+  outline: none;
+}
+
 .architect-panel[data-loading="true"] {
-  opacity: 0.5;
+  opacity: 0.55;
   cursor: wait;
+}
+
+.architect-submit:disabled,
+.architect-input:disabled {
+  cursor: wait;
+}
+
+.architect-meta {
+  padding-top: 0.1rem;
+}
+
+@media (max-width: 720px) {
+  .architect-input-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .architect-submit {
+    width: 100%;
+  }
 }
 
 .briefing-display {
