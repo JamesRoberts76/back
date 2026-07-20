@@ -3,97 +3,147 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>back.guide</title>
-  <meta name="description" content="A field guide to the shielded back: philosophy, diagnostic logic, and the Sequential Friction Protocol.">
+  <title>The Back — Sovereign Field Guide</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="network-config.js" defer></script>
-  <script src="main.js" defer></script>
 </head>
-<body data-network-node="true" data-site-id="back.guide" data-session-context="back">
+<body>
   <header class="site-header">
-    <nav class="site-nav" aria-label="Primary">
-      <a href="/" class="site-mark">back.guide</a>
-      <a href="https://linktr.ee/yourhandle" class="contact-link" target="_blank" rel="noopener noreferrer">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <span class="network-brand">SOVEREIGN NETWORK</span>
+      <nav>
+        <a href="#matrix">Spinal Calculator</a>
+        <a href="#trajectory">Trajectory</a>
+        <a href="#about-james">About James</a>
+        <a href="#chat" class="chat-trigger-nav">Consult James</a>
+      </nav>
+    </div>
   </header>
 
-  <main id="sovereign-chassis">
-    <section class="hero-block">
-      <p class="eyebrow">Field Manual</p>
-      <h1>The back is not supposed to become a shield.</h1>
-      <p class="standfirst">
-        The modern male back often hardens into a broad defensive plate: less a living structure, more a held position. This guide exists to help a man notice that change and begin to reverse it.
-      </p>
+  <main class="content-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <h1 id="hero-title">The back is a system.</h1>
+      <p id="hero-intro" class="hero-intro">When fascial slabs fuse into a shield, movement ceases. Here is how to unspool spinal tension without buying a protocol, a course, or a recurring app subscription.</p>
     </section>
 
-    <section id="philosophy" class="content-block" data-component="philosophy">
-      <div class="section-label">Philosophy</div>
-      <div class="section-body">
-        <p>
-          The back is not merely a stack of bones with muscles pinned onto it. In lived experience, it behaves more like a layered grid of fascial slabs: sheets that should glide, rotate, and transmit force cleanly from skull to pelvis.
-        </p>
-        <p>
-          Under machine-age conditions, those slabs begin to fuse. Hours at a desk, the fixed posture of transport, the endless forward bias of screens, and the social habit of holding oneself together in public all encourage the same result: the back ceases to behave like a responsive structure and starts behaving like a shield.
-        </p>
-        <p>
-          This shield is often mistaken for strength. It is not strength. It is compliance under tension. Circulation narrows, segmentation fades, and movement becomes less articulate than it ought to be.
-        </p>
+    <!-- Interactive Chat Interface Component -->
+    <section id="chat" class="chat-workbench">
+      <div class="chat-box-wrapper">
+        <div class="chat-header">
+          <span class="bot-identity">JAMES — ARCHITECT</span>
+          <span class="status-indicator">Online</span>
+        </div>
+        <div id="briefing-display" class="chat-output">
+          Tell me what the system is doing today. Locked between L4 and L5, locked in the shoulders, or holding a persistent pull down the leg?
+        </div>
+        <div class="chat-input-area">
+          <textarea id="architect-input" placeholder="Input query..."></textarea>
+          <button id="send-btn">Consult the Architect →</button>
+        </div>
       </div>
     </section>
 
-    <section id="diagnostic" class="content-block" data-component="diagnostic">
-      <div class="section-label">Diagnostic</div>
-      <div class="section-body">
-        <p>
-          Begin at the base of the skull. Feel for the chock: a hard, blocking seam where the head no longer seems to sit freely on the spine.
-        </p>
-        <p>
-          Then run your hand down the line of the spine. If it feels less like a chain of distinct segments and more like a single held rod, the back has already lost part of its native articulation.
-        </p>
-        <p>
-          Finally, check the tissue behind and above the ears: the Periauricular Ring. If this area feels cabled, switched on, or permanently recruited, it often means the wider back structure is operating as one defensive sheet rather than a coordinated grid.
-        </p>
-        <p>
-          You do not need mysticism here. Your hands are enough. The question is simple: does the back feel alive, segmented, and conversational, or broad, mute, and armoured?
-        </p>
-      </div>
-    </section>
+    <!-- Core Content Sections (Domain-Specific Back Tool) -->
+    <section class="editorial-sections">
+      <article id="matrix" class="editorial-block">
+        <span class="block-number">01</span>
+        <h2>THE SPINAL LOAD &amp; GUARDING CALCULATOR</h2>
+        <p>A distressed back responds by locking specific spinal segments to protect the nervous system. Select your primary restriction zone to calculate your mechanical load profile:</p>
+        
+        <div class="interactive-matrix">
+          <!-- Anatomical SVG Reference Pane -->
+          <div class="matrix-visual-container">
+            <svg class="skeleton-map" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="100" cy="40" rx="18" ry="22" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+              <line x1="100" y1="62" x2="100" y2="90" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+              <path id="node-thoracic" d="M 90 90 L 110 90 L 108 150 L 92 150 Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1"/>
+              <rect id="node-lumbar" x="91" y="152" width="18" height="35" rx="3" fill="var(--accent-color)" opacity="0.8" stroke="currentColor" stroke-width="1"/>
+              <path id="node-pelvis" d="M 75 190 Q 100 215 125 190 L 115 220 Q 100 230 85 220 Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="1"/>
+              <line x1="90" y1="225" x2="80" y2="300" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+              <line x1="110" y1="225" x2="120" y2="300" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+            </svg>
+            <span class="visual-caption">Back mechanics &amp; segmental locking</span>
+          </div>
 
-    <section id="protocol" class="content-block" data-component="protocol" data-diagnostic-trigger="protocol">
-      <div class="section-label">Actionable Tool</div>
-      <div class="section-body">
-        <h2>Sequential Friction Protocol</h2>
-        <p>
-          The primary method is simple. Use a rough vertical surface to create controlled friction against the back. The point is not to stretch the whole system theatrically. The point is to persuade one slab at a time to oscillate, yield, and begin gliding again.
-        </p>
-        <p>
-          Work in sequence, not in panic. Short passes. Repeated contact. Enough pressure to create conversation, not enough to turn the exercise into punishment.
-        </p>
-        <p>
-          Over time, the back may begin to unspool. The shield softens. Circulation improves. The spine regains a sense of segments. What returns is not “flexibility” in the generic sense, but structural honesty.
-        </p>
-        <button class="protocol-trigger" type="button" data-diagnostic-trigger="chat-open">
-          Open the Architect interface
-        </button>
-        <p class="boundary-note">
-          This is not medical advice. It is a report on lived experience, structural patterning, and practical self-observation.
-        </p>
-      </div>
-    </section>
+          <div class="matrix-triggers">
+            <button class="matrix-btn active" data-target="lumber-spine">Lower Lumbar (L4-S1)</button>
+            <button class="matrix-btn" data-target="thoracic-cage">Mid-Back (T-Spine)</button>
+            <button class="matrix-btn" data-target="sacroiliac">Sacroiliac Joint</button>
+          </div>
+          <div id="matrix-display" class="matrix-panel">
+            <strong>Lower Lumbar (L4-S1) Profile:</strong> Characterized by morning compression and difficulty bending forward. The erector spinae are locked in chronic concentric tension, preventing normal disc gliding.
+          </div>
+        </div>
+      </article>
 
-    <section id="bot-container" data-state="lazy-load" aria-label="Architect interface">
-      <div id="sovereign-bot-interface"></div>
+      <article id="trajectory" class="editorial-block">
+        <span class="block-number">02</span>
+        <h2>THE TRAJECTORY: 1 DAY TO 6 MONTHS</h2>
+        <p>What the intervention actually looks like across the timeline when you stop managing symptoms and start resetting geometry.</p>
+        
+        <div class="timeline-grid">
+          <div class="timeline-item">
+            <span class="time-label">Day 1</span>
+            <p>Immediate drop in acute guarding. The nervous system registers that it doesn't need to brace the lower spine against every movement.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-label">Day 5</span>
+            <p>Gliding planes begin to rehydrate. Morning stiffness window shortens from an hour to ten minutes.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-label">Day 7</span>
+            <p>The first full cycle of unspooled posterior chain movement without compensatory shoulder hiking.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-label">Month 1</span>
+            <p>The baseline shift. The back stops being the primary thing you think about when you get out of a chair.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-label">Month 3</span>
+            <p>Tissue adaptation. The fascial shield has softened enough to permit normal rotational range without shearing.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="time-label">Month 6</span>
+            <p>Structural baseline. Re-injury patterns break because the everyday movement habits have fundamentally changed.</p>
+          </div>
+        </div>
+      </article>
+
+      <article id="about-james" class="editorial-block">
+        <span class="block-number">03</span>
+        <h2>ABOUT JAMES &amp; THE METHODOLOGY</h2>
+        <p>Operated independently from Tenerife, Canary Islands. Built on decades of international travel, hospitality operations, and structural observation—away from the noise of corporate clinics and wellness algorithms.</p>
+        <div class="about-card">
+          <p>After hosting thousands of guests and operating independent service businesses, the realization was simple: people don't need another generic app tracking their steps or locking them into monthly subscriptions. They need uncompromised, direct access to expert mechanical logic that respects their intelligence and time.</p>
+        </div>
+      </article>
+
+      <article class="editorial-block conversion-banner">
+        <span class="block-number">04</span>
+        <h2>DIRECT ACCESS — €60 FOR 365 DAYS</h2>
+        <p class="conversion-intro">The encyclopedia entries are completely free because structural mechanics shouldn't be paywalled. But reading a guide doesn't answer what your specific spine is doing tonight.</p>
+        
+        <div class="conversion-box">
+          <h3>No Auto-Renew. No Hidden Traps.</h3>
+          <p>You pay sixty euros once. Your access remains active for a full 365 days (tracked cleanly with zero background tracking pixels or cookies). When the year ends, your access simply expires unless you choose to renew manually.</p>
+          <a href="#chat" class="conversion-cta">Unlock 365 Days of Access (€60) →</a>
+        </div>
+      </article>
     </section>
   </main>
 
-  <footer class="footer-sovereign">
-    <div class="legal-notice">
-      <p>© 2026 Dry Holidays SL (B67894493)</p>
-      <p>
-        Contact is handled through
-        <a href="https://linktr.ee/yourhandle" target="_blank" rel="noopener noreferrer">Linktree</a>.
-      </p>
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>Operated by James Roberts, Tenerife. Independent of every clinic, in both directions.</p>
+      <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms &amp; 365-Day Access</a>
+        <a href="#refund">Refund Policy</a>
+      </div>
     </div>
   </footer>
+
+  <script src="site-config.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
