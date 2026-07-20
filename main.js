@@ -219,3 +219,32 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('Network config loaded:', window.NETWORK_CONFIG.version);
   }
 });
+
+
+document.addEventListener('click', (e) => {
+  if (e.target.matches('.matrix-btn')) {
+    document.querySelectorAll('.matrix-btn').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    
+    const target = e.target.getAttribute('data-target');
+    const display = document.getElementById('matrix-display');
+    
+    // Back Guide specific handlers
+    if (target === 'lumber-spine') {
+      display.innerHTML = "<strong>Lower Lumbar (L4-S1) Profile:</strong> Characterized by morning compression and difficulty bending forward. The erector spinae are locked in chronic concentric tension, preventing normal disc gliding.";
+    } else if (target === 'thoracic-cage') {
+      display.innerHTML = "<strong>Mid-Back (T-Spine) Profile:</strong> Ribcage rotation is frozen, forcing the cervical spine and lower lumbar to over-rotate during everyday movement, resulting in cumulative joint shear.";
+    } else if (target === 'sacroiliac') {
+      display.innerHTML = "<strong>Sacroiliac Joint Profile:</strong> One-sided pelvic shear locking the hip socket. Weight-bearing shifts entirely to one leg, creating compensatory lateral trunk lean.";
+    }
+    
+    // Slab Fascia Guide specific handlers
+    else if (target === 'thoracolumbar') {
+      display.innerHTML = "<strong>Thoracolumbar Adhesion Profile:</strong> The superficial and deep layers of the back fascia have fused, preventing independent sliding between the latissimus dorsi and lumbar spine during twisting.";
+    } else if (target === 'iliotibial') {
+      display.innerHTML = "<strong>IT Band / Lateral Line Profile:</strong> Lateral fascial sheets are locked under high tension, pulling the knee tracking outward and restricting hip internal rotation.";
+    } else if (target === 'deep-front') {
+      display.innerHTML = "<strong>Deep Front Line Profile:</strong> Psoas and respiratory diaphragm restriction pulling the body into a guarded, forward-folded posture, restricting full inhalation mechanics.";
+    }
+  }
+});
