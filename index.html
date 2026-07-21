@@ -164,7 +164,8 @@
             color: var(--text-primary);
         }
 
-        .map-grid {
+        /* High-Impact Visual Cards for Adhesions & Timeline */
+        .visual-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 1.25rem;
@@ -172,29 +173,50 @@
         }
 
         @media (min-width: 600px) {
-            .map-grid {
+            .visual-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        .map-card {
+        .visual-card {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
-            padding: 1.5rem;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
         }
 
-        .map-card h3 {
+        .visual-card .diagram-box {
+            width: 100%;
+            height: 150px;
+            background-color: #121216;
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-card .diagram-box svg {
+            max-height: 120px;
+            width: auto;
+        }
+
+        .visual-card h3 {
             font-size: 1.1rem;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.4rem;
         }
 
-        .map-card p {
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
+        .visual-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
         }
 
         .illustration-card {
@@ -208,7 +230,7 @@
 
         .visual-frame {
             width: 100%;
-            height: 140px;
+            height: 160px;
             background-color: #121216;
             border: 1px solid var(--surface-border);
             border-radius: 4px;
@@ -221,43 +243,8 @@
         }
 
         .visual-frame svg {
-            max-height: 100px;
+            max-height: 130px;
             width: auto;
-        }
-
-        .timeline-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-row {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .timeline-row .stage-tag {
-            font-size: 0.8rem;
-            color: var(--accent-color);
-            font-family: monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-row h4 {
-            font-size: 1.05rem;
-            color: var(--text-primary);
-        }
-
-        .timeline-row p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
         }
 
         .cta-box {
@@ -360,20 +347,47 @@
             <p>Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
         </section>
 
+        <!-- Adhesion Map Section with Built-In Visual Illustrations -->
         <section id="adhesions">
             <h2>The Adhesion Map: The Two Core Problem Zones</h2>
-            <p>Fascial failure doesn't happen evenly—it concentrates heavily in two primary loading zones. In each zone, you are dealing with a combination of two distinct structural problems: <strong>the broad laminar slab</strong> and <strong>deep focal anchor points</strong>.</p>
+            <p>Fascial failure doesn't happen evenly—it concentrates heavily in two primary loading zones. In each zone, you face a combination of two distinct structural traps: <strong>the broad laminar slab</strong> and <strong>deep focal anchor points</strong>.</p>
             
-            <div class="map-grid">
-                <div class="map-card">
+            <div class="visual-grid">
+                <!-- Zone 1 Illustration Card -->
+                <div class="visual-card">
+                    <div class="diagram-box">
+                        <svg viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Upper torso / skull base outline representation -->
+                            <path d="M70 20 C85 20 90 35 80 50 C70 65 50 65 40 50 C30 35 35 20 50 20 Z" fill="none" stroke="#232328" stroke-width="1.5"/>
+                            <!-- Yoke slab over shoulders -->
+                            <rect x="35" y="45" width="70" height="20" rx="3" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                            <!-- Skull base anchor point -->
+                            <circle cx="70" cy="30" r="6" fill="#8b3a3a"/>
+                            <text x="70" y="33" fill="#f4f4f6" font-size="7" text-anchor="middle">Anchor</text>
+                        </svg>
+                    </div>
                     <h3>1. The Shoulder &amp; Yoke Zone</h3>
-                    <p><strong>The Slab:</strong> The heavy upper-back yoke that pins your shoulder blades flat against the ribcage.</p>
-                    <p><strong>The Anchor:</strong> Deep focal adhesion rings right at the base of the skull and neck junction, choking upper rotation and pulling the head forward.</p>
+                    <p><strong>The Slab:</strong> The heavy upper-back yoke pinning shoulder blades flat against the ribs.</p>
+                    <p><strong>The Anchor:</strong> Focal adhesion rings at the skull-neck junction, choking upper rotation.</p>
                 </div>
-                <div class="map-card">
+
+                <!-- Zone 2 Illustration Card -->
+                <div class="visual-card">
+                    <div class="diagram-box">
+                        <svg viewBox="0 0 140 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Lower lumbar / rib cage representation -->
+                            <rect x="40" y="20" width="60" height="65" rx="4" fill="none" stroke="#232328" stroke-width="1.5"/>
+                            <!-- Back slab plate -->
+                            <rect x="45" y="30" width="50" height="40" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="3 2"/>
+                            <!-- Floating rib anchors -->
+                            <circle cx="50" cy="70" r="5" fill="#8b3a3a"/>
+                            <circle cx="90" cy="70" r="5" fill="#8b3a3a"/>
+                            <text x="70" y="53" fill="#d4af37" font-size="8" text-anchor="middle">BACK SLAB</text>
+                        </svg>
+                    </div>
                     <h3>2. The Lower Back &amp; Rib Base</h3>
-                    <p><strong>The Slab:</strong> The dense mid-to-lower back plate generating the dull, unyielding "pastry" ache across the lumbar spine.</p>
-                    <p><strong>The Anchor:</strong> Glued-down floating rib junctions that lock your breathing apparatus and waistline into a rigid box.</p>
+                    <p><strong>The Slab:</strong> The dense mid-to-lower back plate generating the dull "pastry" lumbar ache.</p>
+                    <p><strong>The Anchor:</strong> Glued-down floating rib junctions locking your breathing into a rigid box.</p>
                 </div>
             </div>
         </section>
@@ -416,33 +430,65 @@
             </div>
         </section>
 
+        <!-- 6-Month Timeline Section with Structured SVG Profile Illustrations -->
         <section id="timeline">
             <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
             <p>True structural unspooling begins directly with your back architecture, but as the months progress, the cascading release transforms your entire physical presence.</p>
             
-            <div class="timeline-stack">
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 1 — The Back Baseline Lock</span>
-                    <h4>Targeting the Primary Slab</h4>
-                    <p>Breaking the initial grip of the lower back plate and the skull-neck choke. Immediate cessation of deep, localized back deadweight.</p>
+            <div class="visual-grid">
+                <!-- Month 1 -->
+                <div class="visual-card">
+                    <div class="diagram-box">
+                        <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Slumped profile outline -->
+                            <path d="M55 25 C58 25 62 28 60 32 C58 35 50 38 48 45 C45 52 48 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <!-- Heavy compression slab overlay -->
+                            <path d="M52 35 C65 35 75 55 60 95" fill="none" stroke="#8b3a3a" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 1</span>
+                    <h3>The Baseline Lock</h3>
+                    <p>Breaking the initial grip of the lower back plate and skull-neck choke. Zeroing out deadweight.</p>
                 </div>
 
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 2 — Sash Line Unraveling</span>
-                    <h4>Multi-Directional Release</h4>
-                    <p>The elastic bands begin shifting horizontally and diagonally across your ribs and torso. Breathing volume expands as floating ribs unfreeze.</p>
+                <!-- Month 2 -->
+                <div class="visual-card">
+                    <div class="diagram-box">
+                        <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M52 24 C55 24 59 27 58 31 C56 35 48 38 46 45 C44 53 47 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <!-- Unraveling sash lines -->
+                            <path d="M50 34 C60 35 70 55 58 95" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 2</span>
+                    <h3>Sash Line Unraveling</h3>
+                    <p>Elastic bands shift diagonally across ribs. Breathing volume expands as ribs unfreeze.</p>
                 </div>
 
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 3 to 4 — Structural Integration</span>
-                    <h4>Spine &amp; Shoulder Realignment</h4>
-                    <p>The upper yoke unpins. The shoulder blades drop back into their natural track, and the structural tension across the entire spine neutralizes.</p>
+                <!-- Month 3-4 -->
+                <div class="visual-card">
+                    <div class="diagram-box">
+                        <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M48 23 C52 23 55 26 55 30 C55 34 46 38 44 45 C42 54 45 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M48 33 C55 36 62 55 55 95" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 3 - 4</span>
+                    <h3>Structural Integration</h3>
+                    <p>Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</p>
                 </div>
 
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 5 to 6 — Full Body Cascade</span>
-                    <h4>Complete 4D Volume Reclamation</h4>
-                    <p>With the core back slab fully unspooled, significant cascading changes hit the rest of your frame: the neck elongates, jawline tension drops, and true 4D posture is restored.</p>
+                <!-- Month 5-6 -->
+                <div class="visual-card">
+                    <div class="diagram-box">
+                        <svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M45 22 C48 22 52 25 52 29 C52 33 44 37 42 45 C40 55 42 70 45 95" fill="none" stroke="#d4af37" stroke-width="2.5"/>
+                            <path d="M45 32 C50 36 55 55 52 95" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 5 - 6</span>
+                    <h3>Full Body Cascade</h3>
+                    <p>Neck elongates, jawline tension drops, and true 4D posture and volume are fully restored.</p>
                 </div>
             </div>
         </section>
