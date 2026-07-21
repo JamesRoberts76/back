@@ -43,9 +43,13 @@
             margin-bottom: 3rem;
             border-bottom: 1px solid var(--surface-border);
             padding-bottom: 1.5rem;
+        }
+
+        .header-top {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
+            margin-bottom: 1rem;
         }
 
         .logo {
@@ -57,14 +61,20 @@
             text-decoration: none;
         }
 
-        .network-link {
+        .nav-tabs {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs a {
             font-size: 0.85rem;
             color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.2s ease;
         }
 
-        .network-link:hover {
+        .nav-tabs a:hover {
             color: var(--accent-color);
         }
 
@@ -276,9 +286,31 @@
             margin-top: 4rem;
             font-size: 0.85rem;
             color: var(--text-secondary);
+        }
+
+        .footer-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
         }
 
         .pricing-tag {
@@ -291,8 +323,15 @@
 
 <div class="container">
     <header>
-        <a href="#" class="logo">Back.Guide</a>
-        <a href="#" class="network-link">Sovereign Network Hub</a>
+        <div class="header-top">
+            <a href="#" class="logo">Back.Guide</a>
+            <nav class="nav-tabs">
+                <a href="#protocol">Protocol</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#legal">Legal &amp; Terms</a>
+            </nav>
+        </div>
     </header>
 
     <main>
@@ -303,7 +342,7 @@
             <p>Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
         </section>
 
-        <section>
+        <section id="protocol">
             <h2>The Architectural Reality: The Wound Golf Ball &amp; Sash Lines</h2>
             <p>Think of an old-school wound golf ball bound tightly with high-tension rubber bands under immense compression. When it finally starts to unravel, those bands don't just snap in one place—they snake and shift across your back in every direction: horizontal bands, vertical lines, and sweeping diagonal sashes.</p>
             <p>Your torso is built on this exact multi-directional network of triangles, diamonds, and braces. Under years of compression, those structural lines lock solid:</p>
@@ -347,7 +386,7 @@
             </div>
         </section>
 
-        <section>
+        <section id="timeline">
             <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
             <p>True unspooling mimics nature. Just like a tight fern frond opening to the light, your skeletal structure shifts from chronic 2D compression into full 4D volume over time.</p>
             
@@ -365,7 +404,7 @@
                     <p>Initial release at hairline &amp; scalp.</p>
                 </div>
                 <div class="timeline-card">
-                    <div class="placeholder-img">[ Profile Photo: M4 ]</div>
+                    <div class="placeholder-img">[ Profile Photo: M4 ]<span>
                     <span class="fern-stage">Stage III: Extending</span>
                     <h4>Month 4</h4>
                     <p>Neck opens, jawline defines.</p>
@@ -379,23 +418,46 @@
             </div>
         </section>
 
-        <section>
-            <h2>The Sovereign Network Hub</h2>
-            <p>Brought to you by the Sovereign Network. When you are ready to address the root architecture of your entire frame, engage the assistant to go deeper.</p>
+        <section id="pricing">
+            <h2>The Sovereign Network Hub &amp; Pricing Policy</h2>
+            <p>Brought to you by James. Engineered with dry British precision and absolute respect for your time. When you are ready to address the root architecture of your entire frame, engage the assistant to go deeper.</p>
             
             <div class="cta-box">
                 <h3>Unlock Your Frame</h3>
                 <p>Direct, uncompromised access to the complete network remedies and unspooling protocols.</p>
                 <div class="pricing-tag">€60 / 365 Days — Zero Auto-Renewals</div>
+                <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
                 <br>
                 <a href="#" class="btn">Access Network Remedies</a>
             </div>
         </section>
+
+        <section id="legal" style="margin-top: 4rem; border-top: 1px solid var(--surface-border); padding-top: 2rem;">
+            <h2>Terms, Conditions &amp; Policies</h2>
+            
+            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Terms &amp; Conditions</h3>
+            <p style="font-size: 0.95rem;">By accessing and utilizing back.guide and the Sovereign Network, you operate under your own sovereign authority. All protocols are educational architectural frameworks for self-treatment and do not constitute formal medical treatment or diagnosis.</p>
+
+            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Privacy Policy</h3>
+            <p style="font-size: 0.95rem;">Absolute data privacy is foundational. We employ zero tracking pixels, no intrusive third-party cookies, and do not harvest or sell user data. What you build and test on your frame remains strictly private.</p>
+
+            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Refund Policy</h3>
+            <p style="font-size: 0.95rem;">Due to the immediate, uncompromised digital nature of the Sovereign Network guides and unspooling frameworks, annual access fees are final upon activation. Review the diagnostic criteria and mirror tests thoroughly before securing access.</p>
+        </section>
     </main>
 
     <footer>
-        <div>Part of the Sovereign Network Ecosystem</div>
-        <div>Minimalist Architecture &bull; No Tracking Pixels</div>
+        <div class="footer-content">
+            <div>Part of the Sovereign Network Ecosystem &bull; Built by James</div>
+            <div class="footer-links">
+                <a href="#protocol">Protocol</a>
+                <a href="#pricing">Pricing Policy</a>
+                <a href="#legal">Privacy</a>
+                <a href="#legal">Terms</a>
+                <a href="#legal">Refunds</a>
+            </div>
+        </div>
+        <div style="font-size: 0.8rem; color: var(--text-secondary);">Minimalist Architecture &bull; No Tracking Pixels &bull; Absolute Sovereignty</div>
     </footer>
 </div>
 
