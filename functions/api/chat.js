@@ -1,732 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Back.Guide | Slab Fascia &amp; Back Adhesions</title>
-    <style>
-        :root {
-            --bg-color: #0c0c0e;
-            --surface-color: #141417;
-            --surface-border: #232328;
-            --text-primary: #f4f4f6;
-            --text-secondary: #9a9a9f;
-            --accent-color: #d4af37;
-            --accent-hover: #e5c158;
-            --danger-color: #8b3a3a;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --max-width: 720px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            padding: clamp(1rem, 3vw, 2rem) 1rem;
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M50 95 V25 C50 15 65 10 75 15 C85 20 80 35 65 40 M50 75 C40 75 30 70 25 60 C20 50 30 40 45 45 M50 55 C60 55 70 50 75 40'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.06;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            width: 100%;
-            max-width: var(--max-width);
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 1.5rem;
-        }
-
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-tabs a {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-            cursor: pointer;
-        }
-
-        .nav-tabs a:hover {
-            color: var(--accent-color);
-        }
-
-        section {
-            margin-bottom: 3.5rem;
-        }
-
-        h1 {
-            font-size: clamp(1.8rem, 4vw, 2.25rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: clamp(1.2rem, 3vw, 1.35rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
-            letter-spacing: -0.01em;
-            color: var(--text-primary);
-            border-left: 3px solid var(--accent-color);
-            padding-left: 0.75rem;
-        }
-
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: clamp(0.98rem, 2vw, 1.05rem);
-        }
-
-        .lead {
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 1.25rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        ul li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        ul li strong {
-            color: var(--text-primary);
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .comparison-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .comparison-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .fan-canvas {
-            width: 100%;
-            height: 220px;
-            background-color: #121216;
-            border: 1px solid var(--surface-border);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .fan-canvas svg {
-            max-height: 190px;
-            width: auto;
-        }
-
-        .comparison-card h3 {
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .comparison-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
-        }
-
-        .visual-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .visual-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .visual-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .visual-card h3 {
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 0.4rem;
-        }
-
-        .visual-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .cta-box {
-            background-color: var(--surface-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 6px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .cta-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: background-color 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Immersive Chat Drawer & Modal Styles */
-        .chat-drawer {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            right: 1.5rem;
-            width: 380px;
-            max-width: calc(100vw - 2rem);
-            height: 520px;
-            background-color: var(--surface-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 8px 8px 0 0;
-            flex-direction: column;
-            z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-        }
-
-        .chat-drawer.active {
-            display: flex;
-        }
-
-        .chat-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--surface-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #101013;
-        }
-
-        .chat-header h4 {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .chat-close {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 1.25rem;
-            cursor: pointer;
-        }
-
-        .chat-close:hover {
-            color: var(--text-primary);
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .message {
-            padding: 0.75rem 1rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            max-width: 85%;
-            line-height: 1.4;
-        }
-
-        .message.system {
-            background-color: #1c1c22;
-            color: var(--text-primary);
-            align-self: flex-start;
-            border-left: 2px solid var(--accent-color);
-        }
-
-        .message.user {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            align-self: flex-end;
-            font-weight: 500;
-        }
-
-        .chat-input-area {
-            padding: 0.75rem;
-            border-top: 1px solid var(--surface-border);
-            display: flex;
-            gap: 0.5rem;
-            background-color: #101013;
-        }
-
-        .chat-input {
-            flex: 1;
-            background-color: var(--bg-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 4px;
-            padding: 0.5rem 0.75rem;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            outline: none;
-        }
-
-        .chat-input:focus {
-            border-color: var(--accent-color);
-        }
-
-        .chat-send {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            border: none;
-            border-radius: 4px;
-            padding: 0.5rem 1rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .chat-send:hover {
-            background-color: var(--accent-hover);
-        }
-
-        footer {
-            border-top: 1px solid var(--surface-border);
-            padding-top: 2rem;
-            margin-top: 4rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .pricing-tag {
-            font-family: monospace;
-            color: var(--accent-color);
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <div class="header-top">
-            <a href="#" class="logo">Back.Guide</a>
-            <nav class="nav-tabs">
-                <a href="#adhesions">Adhesions</a>
-                <a href="#protocol">Protocol</a>
-                <a href="#origin">The Origin</a>
-                <a href="#timeline">Timeline</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#legal">Legal &amp; Terms</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <!-- Opening Section -->
-        <section>
-            <h1>Slab Fascia &amp; Back Adhesions</h1>
-            <p class="lead">Most persistent back pain is not a mysterious pathology or a failing disc. It is structural deadweight—the exact sensation of a heavy, laminated sheet of fascia pressing down on your frame.</p>
-            
-            <div class="card" style="border-left: 3px solid var(--accent-color);">
-                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">What is Fascia?</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 0;">Fascia is the continuous connective tissue matrix wrapping your frame like a flexible silk stocking. Under years of load and gravity, it dehydrates, fuses, and bakes solid into rigid plates—flattening your physical volume into a compressed 2D cage.</p>
-            </div>
-
-            <p>Mainstream medicine misses this completely because doctors treat isolated parts—checking bones, joints, and skin separately while ignoring the continuous matrix binding the torso together. Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
-        </section>
-
-        <!-- Before & After Architecture -->
-        <section>
-            <h2>The Architecture of the Shift: Before &amp; After</h2>
-            <p>Under chronic compression, your back and ribs act like a flattened, lifeless accordion locked tight against movement. True recovery is not stretching; it is <strong>fanning out</strong>. As the fascial sheets unspool, your entire torso expands dynamically in three dimensions.</p>
-            
-            <div class="comparison-grid">
-                <div class="comparison-card" style="border-color: var(--danger-color);">
-                    <div class="fan-canvas">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="45" y="25" width="70" height="110" rx="6" fill="none" stroke="#8b3a3a" stroke-width="2"/>
-                            <line x1="45" y1="50" x2="115" y2="50" stroke="#8b3a3a" stroke-width="1.5"/>
-                            <line x1="45" y1="75" x2="115" y2="75" stroke="#8b3a3a" stroke-width="2"/>
-                            <line x1="45" y1="100" x2="115" y2="100" stroke="#8b3a3a" stroke-width="1.5"/>
-                            <line x1="80" y1="25" x2="80" y2="135" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="3 3"/>
-                            <text x="80" y="148" fill="#8b3a3a" font-size="9" font-family="monospace" text-anchor="middle">LAMINATED SLAB</text>
-                        </svg>
-                    </div>
-                    <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">BEFORE: THE 2D LOCKED CAGE</span>
-                    <h3>Flattened &amp; Dehydrated</h3>
-                    <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
-                </div>
-
-                <div class="comparison-card" style="border-color: var(--accent-color);">
-                    <div class="fan-canvas">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M80 20 C105 25 125 50 120 80 C115 110 100 135 80 140 C60 135 45 110 40 80 C35 50 55 25 80 20 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <path d="M80 80 L45 45 M80 80 L115 45 M80 80 L38 80 M80 80 L122 80 M80 80 L50 120 M80 80 L110 120" stroke="#d4af37" stroke-width="1.2" stroke-dasharray="2 2"/>
-                            <circle cx="80" cy="80" r="14" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <text x="80" y="148" fill="#d4af37" font-size="9" font-family="monospace" text-anchor="middle">3D FANNED VOLUME</text>
-                        </svg>
-                    </div>
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">AFTER: THE 3D FANNED TORSO</span>
-                    <h3>Expanded &amp; Sovereign</h3>
-                    <p>Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 3D volume.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Origin Section -->
-        <section id="origin">
-            <h2>The Origin: Built From Experience, Not Theory</h2>
-            <div class="card">
-                <p>I sat in consulting rooms across decades, watched medical professionals shrug, and dropped money on thousands of scripted massages that treated muscle like loose meat while missing the laminated plates entirely. I have visited sports physios, chiropractors, acupuncturists, nutritionists, and countless specialists.</p>
-                <p>This guide is not academic theory. It is a hard-earned, experience-led process designed entirely for self-treatment, synthesizing clinical precision with deep tissue mechanics and structural awareness into an absolute, self-guided protocol.</p>
-                <p style="margin-bottom: 0;">You need absolute sovereignty over your own frame.</p>
-            </div>
-        </section>
-
-        <!-- Adhesion Map Section -->
-        <section id="adhesions">
-            <h2>The Adhesion Map: The Two Core Problem Zones</h2>
-            <p>Fascial failure doesn't happen evenly—it concentrates heavily in two primary loading zones. In each zone, you face a combination of two distinct structural traps: <strong>the broad laminar slab</strong> and <strong>deep focal anchor points</strong>.</p>
-            
-            <div class="visual-grid">
-                <div class="visual-card">
-                    <h3>1. The Shoulder &amp; Yoke Zone</h3>
-                    <p><strong>The Slab:</strong> The heavy upper-back yoke pinning shoulder blades flat against the ribs.</p>
-                    <p><strong>The Anchor:</strong> Focal adhesion rings at the skull-neck junction, choking upper rotation.</p>
-                </div>
-                <div class="visual-card">
-                    <h3>2. The Lower Back &amp; Rib Base</h3>
-                    <p><strong>The Slab:</strong> The dense mid-to-lower back plate generating the dull lumbar ache.</p>
-                    <p><strong>The Anchor:</strong> Glued-down floating rib junctions locking your breathing into a rigid box.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Protocol Section -->
-        <section id="protocol">
-            <h2>The Self-Treatment Protocol</h2>
-            <p>When you begin unspooling these tension lines, you will feel the bands sliding across your body like sashes. If you have ever felt like you wanted a steamroller to run over your back and then sideways just to crack the pastry open, you already understand what unspooling requires.</p>
-            
-            <div class="card">
-                <ul>
-                    <li><strong>1. Leveraging Gravity in Motion:</strong> You don't need a clinical environment or a fixed setup. When walking up hills, climbing stairs, or navigating uneven streets, let natural body weight resistance shear laminated fascia against your frame.</li>
-                    <li><strong>2. The Mirror and Floating Rib Sequence:</strong> Locate primary tension points—back rolls, rib junctions, and old scars. Apply precise, two-handed pressure against the bone, moving in opposition (sideways, upward, and rotational) to unlaminate sheets and free lower floating ribs.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 6-Month Timeline -->
-        <section id="timeline">
-            <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
-            <p>True structural unspooling begins directly with your back architecture, transitioning your frame from a flat 2D cage into an expanded 3D fanned volume as the months progress.</p>
-            
-            <div class="visual-grid">
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 1</span>
-                    <h3>The Baseline Lock</h3>
-                    <p>Breaking the initial grip of the lower back plate and skull-neck choke. Zeroing out deadweight.</p>
-                </div>
-
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 2</span>
-                    <h3>Sash Line Unraveling</h3>
-                    <p>Elastic bands shift diagonally across ribs. Breathing volume expands as ribs unfreeze.</p>
-                </div>
-
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 3 - 4</span>
-                    <h3>Structural Integration</h3>
-                    <p>Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</p>
-                </div>
-
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 5 - 6</span>
-                    <h3>Full Body Cascade</h3>
-                    <p>Neck elongates, jawline tension drops, and true 3D fanned posture and volume are fully restored.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing & Final Concrete CTA -->
-        <section id="pricing">
-            <h2>The Sovereign Network Hub &amp; Pricing Policy</h2>
-            <p>Engineered with dry British precision and absolute respect for your time. When you are ready to address the root architecture of your entire frame, engage the assistant to go deeper.</p>
-            
-            <div class="cta-box">
-                <h3>Unlock Your Frame</h3>
-                <p>Direct, uncompromised access to the complete network remedies and unspooling protocols.</p>
-                <div class="pricing-tag">€60 / 365 Days — Zero Auto-Renewals</div>
-                <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
-                <br>
-                <button class="btn" id="openChatBtn">Secure Full Access Now</button>
-            </div>
-        </section>
-
-        <section id="legal" style="margin-top: 4rem; border-top: 1px solid var(--surface-border); padding-top: 2rem;">
-            <h2>Terms, Conditions &amp; Policies</h2>
-            
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Terms &amp; Conditions</h3>
-            <p style="font-size: 0.95rem;">By accessing and utilizing back.guide and the Sovereign Network, you operate under your own sovereign authority. All protocols are educational architectural frameworks for self-treatment and do not constitute formal medical treatment or diagnosis.</p>
-
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Privacy Policy</h3>
-            <p style="font-size: 0.95rem;">Absolute data privacy is foundational. We employ zero tracking pixels, no intrusive third-party cookies, and do not harvest or sell user data. What you build and test on your frame remains strictly private.</p>
-
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Refund Policy</h3>
-            <p style="font-size: 0.95rem;">Due to the immediate, uncompromised digital nature of the Sovereign Network guides and unspooling frameworks, annual access fees are final upon activation. Review the diagnostic criteria and mirror tests thoroughly before securing access.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div>Part of the Sovereign Network Ecosystem &bull; Built by James</div>
-            <div class="footer-links">
-                <a href="#adhesions">Adhesions</a>
-                <a href="#protocol">Protocol</a>
-                <a href="#origin">The Origin</a>
-                <a href="#pricing">Pricing Policy</a>
-                <a href="#legal">Privacy</a>
-                <a href="#legal">Terms</a>
-                <a href="#legal">Refunds</a>
-            </div>
-        </div>
-        <div style="font-size: 0.8rem; color: var(--text-secondary);">Minimalist Architecture &bull; No Tracking Pixels &bull; Absolute Sovereignty</div>
-    </footer>
-</div>
-
-<!-- Immersive Chat Drawer Component -->
-<div class="chat-drawer" id="chatDrawer">
-    <div class="chat-header">
-        <h4>The Architect &bull; Practice Companion</h4>
-        <button class="chat-close" id="closeChatBtn">&times;</button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="message system">Architect online. State your primary tension zone or query regarding your frame architecture.</div>
-    </div>
-    <div class="chat-input-area">
-        <input type="text" class="chat-input" id="chatInput" placeholder="Ask about unspooling or protocol..." />
-        <button class="chat-send" id="chatSend">Send</button>
-    </div>
-</div>
-
-<script>
-    (function() {
-        const btn = document.getElementById('openChatBtn');
-        const drawer = document.getElementById('chatDrawer');
-        const closeBtn = document.getElementById('closeChatBtn');
-        const sendBtn = document.getElementById('chatSend');
-        const inputField = document.getElementById('chatInput');
-        const messagesContainer = document.getElementById('chatMessages');
-
-        let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('sovereign_user_uuid', userUuid);
-
-        function toggleChat() {
-            drawer.classList.toggle('active');
-            if (drawer.classList.contains('active')) {
-                inputField.focus();
-            }
-        }
-
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            toggleChat();
-        });
-
-        closeBtn.addEventListener('click', () => {
-            drawer.classList.remove('active');
-        });
-
-        async function handleSendMessage() {
-            const text = inputField.value.trim();
-            if (!text) return;
-
-            // Append user message
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user';
-            userMsg.textContent = text;
-            messagesContainer.appendChild(userMsg);
-            inputField.value = '';
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-            // Append loading indicator
-            const loadingMsg = document.createElement('div');
-            loadingMsg.className = 'message system';
-            loadingMsg.textContent = 'Analyzing architecture...';
-            messagesContainer.appendChild(loadingMsg);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-
-            try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        siteId: 'back.guide',
-                        message: text,
-                        uuid: userUuid
-                    })
-                });
-
-                const data = await response.json();
-                loadingMsg.remove();
-
-                const systemMsg = document.createElement('div');
-                systemMsg.className = 'message system';
-                systemMsg.textContent = data.message || 'Error processing request.';
-                messagesContainer.appendChild(systemMsg);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            } catch (err) {
-                loadingMsg.remove();
-                const errorMsg = document.createElement('div');
-                errorMsg.className = 'message system';
-                errorMsg.textContent = 'Connection error. Check your network or worker bindings.';
-                messagesContainer.appendChild(errorMsg);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            }
-        }
-
-        sendBtn.addEventListener('click', handleSendMessage);
-        inputField.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleSendMessage();
-            }
-        });
-    })();
-</script>
-
-</body>
-</html>
+const SITE_CONFIG = {
+  "back.guide": {
+    mode: "practice-companion",
+    prompt: "You are the Architect for back.guide. Focus: stepwise explorations of back fascia. Use simple language, concrete sensations, and a sober, practical tone."
+  },
+  "backfascianetwork.pages.dev": {
+    mode: "diagnostic",
+    prompt: "You are the Architect. Focus: fascial geometry and unspooling rigid back tissue. Use plain language, precision, and a sober tone."
+  },
+  "slabfascia.guide": {
+    mode: "tissue-restoration",
+    prompt: "You are the Architect for slabfascia.guide. Focus: slab friction, gliding planes, and restoring fluid movement in dense tissue. Prioritize experiential cues over anatomy jargon."
+  }
+};
+
+export async function onRequestPost({ request, env }) {
+  if (!env.OPENAI_API_KEY || !String(env.OPENAI_API_KEY).trim()) {
+    return new Response(JSON.stringify({
+      message: "Configuration error: Missing OPENAI_API_KEY."
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return new Response(JSON.stringify({
+      message: "Invalid JSON payload."
+    }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  const { siteId, message, uuid } = body;
+
+  if (!siteId || !SITE_CONFIG[siteId]) {
+    return new Response(JSON.stringify({
+      message: "Forbidden: Invalid or missing siteId."
+    }), {
+      status: 403,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  if (!message || !String(message).trim()) {
+    return new Response(JSON.stringify({
+      message: "Bad Request: Message cannot be empty."
+    }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+
+  const config = SITE_CONFIG[siteId];
+  const systemPrompt = `${config.prompt} Respond in a sober, professional tone.`;
+
+  try {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${env.OPENAI_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          { role: "system", content: systemPrompt },
+          { role: "user", content: String(message).trim() }
+        ]
+      })
+    });
+
+    const text = await response.text();
+
+    if (!response.ok) {
+      return new Response(JSON.stringify({
+        message: `OpenAI error (${response.status}): ${text}`
+      }), {
+        status: 502,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    const data = JSON.parse(text);
+    const reply = data.choices?.[0]?.message?.content;
+
+    if (!reply) {
+      return new Response(JSON.stringify({
+        message: "Error: Received empty response from model."
+      }), {
+        status: 502,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    return new Response(JSON.stringify({
+      message: reply,
+      uuid: uuid || crypto.randomUUID()
+    }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({
+      message: `Internal server error: ${e.message || "Unknown error"}`
+    }), {
+      status: 502,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+}
