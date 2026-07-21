@@ -35,20 +35,20 @@
             position: relative;
         }
 
-        /* Subtle Background Watermark Fern */
+        /* Distinct, Clean Watermark Fern */
         body::before {
             content: "";
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='0.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v20M17 5c-2.5 0-5 2-5 5s2.5 5 5 5M7 9c2.5 0 5 2 5 5s-2.5 5-5 5'/%3E%3C/svg%3E");
+            width: 450px;
+            height: 450px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M50 95 V25 C50 15 65 10 75 15 C85 20 80 35 65 40 M50 75 C40 75 30 70 25 60 C20 50 30 40 45 45 M50 55 C60 55 70 50 75 40'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.03;
+            opacity: 0.06;
             pointer-events: none;
             z-index: 0;
         }
@@ -197,7 +197,6 @@
             margin-bottom: 0.75rem;
         }
 
-        /* Visual Illustration Boxes */
         .illustration-card {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
@@ -226,7 +225,6 @@
             width: auto;
         }
 
-        /* Timeline Grid for Progress */
         .timeline-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -356,6 +354,13 @@
         <section>
             <h1>The 2D Compression Trap</h1>
             <p class="lead">Most back pain isn't a mysterious pathology or a failing disc. It is a structural deadweight—the exact sensation of a heavy, laminated sheet of fascia pressing down on your frame, flattening your torso into a rigid 2D layer.</p>
+            
+            <!-- What is Fascia? Definition Block -->
+            <div class="card" style="border-left: 3px solid var(--accent-color);">
+                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">What is Fascia?</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 0;">Fascia is the continuous, high-tension connective tissue matrix that wraps every muscle, bone, and organ in your body. It is designed to act like a flexible silk stocking. But under years of gravity, load, and repetitive strain, it dehydrates, fuses together, and bakes solid into rigid plates—shrinking your physical volume from 4D down into a flat, compressed 2D cage.</p>
+            </div>
+
             <p>If you have ever felt like you wanted a steamroller to run over your back and then sideways just to crack the pastry open, you already understand what chronic fascial lamination feels like. Mainstream medicine misses this entirely because doctors treat isolated parts—checking bones, joints, or skin separately while completely ignoring the continuous fascial matrix that binds the entire torso together.</p>
             <p>Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
         </section>
@@ -364,13 +369,10 @@
             <h2>The Architectural Reality: The Wound Golf Ball &amp; Sash Lines</h2>
             <p>Think of an old-school wound golf ball bound tightly with high-tension rubber bands under immense compression. When it finally starts to unravel, those bands don't just snap in one place—they snake and shift across your back in every direction: horizontal bands, vertical lines, and sweeping diagonal sashes.</p>
             
-            <!-- Illustration: Wound Golf Ball & Diagonal Sashes -->
             <div class="illustration-card">
                 <div class="visual-frame">
                     <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Golf ball core outline -->
                         <circle cx="100" cy="60" r="35" fill="none" stroke="#232328" stroke-width="2"/>
-                        <!-- Winding tension lines crossing diagonally and horizontally -->
                         <path d="M70 30 Q100 60 130 90" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4 2"/>
                         <path d="M130 30 Q100 60 70 90" fill="none" stroke="#d4af37" stroke-width="1.5"/>
                         <path d="M60 60 Q100 40 140 60" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="2 2"/>
@@ -421,14 +423,12 @@
 
         <section id="timeline">
             <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
-            <p>True structural unspooling begins directly with your back architecture, but as the months progress, the cascading release transforms your entire physical presence. Using clear profile outlines of structural progression:</p>
+            <p>True structural unspooling begins directly with your back architecture, but as the months progress, the cascading release transforms your entire physical presence.</p>
             
             <div class="timeline-grid">
-                <!-- Month 1 -->
                 <div class="timeline-card">
                     <div class="visual-frame" style="height: 130px;">
                         <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Slumped profile outline (head forward, compressed back slab) -->
                             <path d="M55 25 C58 25 62 28 60 32 C58 35 50 38 48 45 C45 52 48 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
                             <path d="M52 35 C65 35 75 55 60 95" fill="none" stroke="#232328" stroke-width="1.5" stroke-dasharray="2 2"/>
                         </svg>
@@ -438,11 +438,9 @@
                     <p>Breaking the initial grip of the lower back plate and skull-neck choke. Zeroing out deadweight.</p>
                 </div>
 
-                <!-- Month 2 -->
                 <div class="timeline-card">
                     <div class="visual-frame" style="height: 130px;">
                         <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Slightly opening profile outline -->
                             <path d="M52 24 C55 24 59 27 58 31 C56 35 48 38 46 45 C44 53 47 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
                             <path d="M50 34 C60 35 70 55 58 95" fill="none" stroke="#9a9a9f" stroke-width="1.5"/>
                         </svg>
@@ -452,11 +450,9 @@
                     <p>Elastic bands shift diagonally across ribs. Breathing volume expands as ribs unfreeze.</p>
                 </div>
 
-                <!-- Month 4 -->
                 <div class="timeline-card">
                     <div class="visual-frame" style="height: 130px;">
                         <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Upright profile outline, shoulders dropping back -->
                             <path d="M48 23 C52 23 55 26 55 30 C55 34 46 38 44 45 C42 54 45 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
                             <path d="M48 33 C55 36 62 55 55 95" fill="none" stroke="#d4af37" stroke-width="1.5"/>
                         </svg>
@@ -466,11 +462,9 @@
                     <p>Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</p>
                 </div>
 
-                <!-- Month 6 -->
                 <div class="timeline-card">
                     <div class="visual-frame" style="height: 130px;">
                         <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Fully upright 4D profile outline, elongated neck -->
                             <path d="M45 22 C48 22 52 25 52 29 C52 33 44 37 42 45 C40 55 42 70 45 95" fill="none" stroke="#d4af37" stroke-width="2.5"/>
                             <path d="M45 32 C50 36 55 55 52 95" fill="none" stroke="#d4af37" stroke-width="1.5"/>
                         </svg>
