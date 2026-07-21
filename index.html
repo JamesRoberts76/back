@@ -143,6 +143,7 @@
             color: var(--text-primary);
         }
 
+        /* Clean Text-Driven Map Grid (No Weak Graphics) */
         .map-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -163,64 +164,24 @@
             padding: 1.5rem;
         }
 
-        .illustration-box {
-            width: 100%;
-            height: 180px;
-            background-color: #121216;
-            border: 1px solid var(--surface-border);
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+        .map-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 0.5rem;
         }
 
-        /* Pure CSS Minimalist Brand Illustrations */
-        .ill-shoulder::before {
-            content: "";
-            width: 80px;
-            height: 40px;
-            border: 2px solid var(--accent-color);
-            border-radius: 40px 40px 0 0;
-            position: absolute;
-            top: 50px;
-        }
-        .ill-shoulder::after {
-            content: "";
-            width: 40px;
-            height: 10px;
-            background-color: var(--danger-color);
-            position: absolute;
-            top: 45px;
-            border-radius: 4px;
+        .map-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
         }
 
-        .ill-back::before {
-            content: "";
-            width: 60px;
-            height: 70px;
-            border: 2px solid var(--accent-color);
-            position: absolute;
-            top: 40px;
-            border-radius: 4px;
-        }
-        .ill-back::after {
-            content: "";
-            width: 50px;
-            height: 4px;
-            background-color: var(--accent-color);
-            position: absolute;
-            top: 70px;
-        }
-
-        /* Timeline Stacked Layout to Prevent Squashing */
+        /* Clean Architectural Timeline (Stacked, Content-Focused) */
         .timeline-stack {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1.25rem;
             margin-bottom: 1.5rem;
         }
 
@@ -228,78 +189,26 @@
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
-            padding: 1.25rem;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        @media (min-width: 550px) {
-            .timeline-row {
-                grid-template-columns: 140px 1fr;
-            }
-        }
-
-        .timeline-graphic {
-            width: 100%;
-            height: 120px;
-            background-color: #121216;
-            border: 1px solid var(--surface-border);
-            border-radius: 4px;
+            padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            gap: 0.5rem;
         }
 
-        /* Fern Unfurling & Frame Progression CSS Art */
-        .ill-fern-1 {
-            width: 12px;
-            height: 40px;
-            border: 2px solid var(--accent-color);
-            border-radius: 12px 12px 0 0;
-            border-bottom: none;
-        }
-        .ill-fern-2 {
-            width: 24px;
-            height: 45px;
-            border: 2px solid var(--accent-color);
-            border-radius: 20px 20px 0 0;
-            border-bottom: none;
-            transform: rotate(-10deg);
-        }
-        .ill-fern-3 {
-            width: 40px;
-            height: 50px;
-            border: 2px solid var(--accent-color);
-            border-radius: 30px 30px 0 0;
-            border-bottom: none;
-        }
-        .ill-fern-4 {
-            width: 55px;
-            height: 50px;
-            border: 2px solid var(--accent-color);
-            border-radius: 40px 40px 0 0;
-            border-bottom: none;
-        }
-
-        .timeline-info h4 {
-            font-size: 1.05rem;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .timeline-info .fern-stage {
+        .timeline-row .stage-tag {
             font-size: 0.8rem;
             color: var(--accent-color);
             font-family: monospace;
-            margin-bottom: 0.5rem;
-            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
         }
 
-        .timeline-info p {
+        .timeline-row h4 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .timeline-row p {
             font-size: 0.95rem;
             margin-bottom: 0;
         }
@@ -415,16 +324,14 @@
             
             <div class="map-grid">
                 <div class="map-card">
-                    <div class="illustration-box ill-shoulder"></div>
                     <h3>1. The Shoulder &amp; Yoke Zone</h3>
-                    <p><strong>The Slab:</strong> The heavy upper-back yoke that pins your shoulder blades flat.</p>
-                    <p><strong>The Anchor:</strong> Deep focal adhesion rings right at the base of the skull and neck junction, choking upper rotation.</p>
+                    <p><strong>The Slab:</strong> The heavy upper-back yoke that pins your shoulder blades flat against the ribcage.</p>
+                    <p><strong>The Anchor:</strong> Deep focal adhesion rings right at the base of the skull and neck junction, choking upper rotation and pulling the head forward.</p>
                 </div>
                 <div class="map-card">
-                    <div class="illustration-box ill-back"></div>
                     <h3>2. The Lower Back &amp; Rib Base</h3>
-                    <p><strong>The Slab:</strong> The dense mid-to-lower back plate generating the dull "pastry" ache.</p>
-                    <p><strong>The Anchor:</strong> Glued-down floating rib junctions that lock your breathing and waistline into a rigid box.</p>
+                    <p><strong>The Slab:</strong> The dense mid-to-lower back plate generating the dull, unyielding "pastry" ache across the lumbar spine.</p>
+                    <p><strong>The Anchor:</strong> Glued-down floating rib junctions that lock your breathing apparatus and waistline into a rigid box.</p>
                 </div>
             </div>
         </section>
@@ -443,50 +350,31 @@
 
         <section id="timeline">
             <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
-            <p>True unspooling mimics nature. Just like a tight fern frond opening to the light, your skeletal structure shifts from chronic 2D compression into full 4D volume over time.</p>
+            <p>True structural unspooling begins directly with your back architecture, but as the months progress, the cascading release transforms your entire physical presence.</p>
             
             <div class="timeline-stack">
                 <div class="timeline-row">
-                    <div class="timeline-graphic">
-                        <div class="ill-fern-1"></div>
-                    </div>
-                    <div class="timeline-info">
-                        <span class="fern-stage">Stage I: Fiddlehead</span>
-                        <h4>Month 1 — The Baseline Lock</h4>
-                        <p>Locked skull ring, severe neck choke, and downward fascial drag flattening the torso.</p>
-                    </div>
+                    <span class="stage-tag">Month 1 — The Back Baseline Lock</span>
+                    <h4>Targeting the Primary Slab</h4>
+                    <p>Breaking the initial grip of the lower back plate and the skull-neck choke. Immediate cessation of deep, localized back deadweight.</p>
                 </div>
 
                 <div class="timeline-row">
-                    <div class="timeline-graphic">
-                        <div class="ill-fern-2"></div>
-                    </div>
-                    <div class="timeline-info">
-                        <span class="fern-stage">Stage II: Initial Uncoiling</span>
-                        <p>Initial release at the hairline and scalp. The upper yoke begins to yield.</p>
-                    </div>
+                    <span class="stage-tag">Month 2 — Sash Line Unraveling</span>
+                    <h4>Multi-Directional Release</h4>
+                    <p>The elastic bands begin shifting horizontally and diagonally across your ribs and torso. Breathing volume expands as floating ribs unfreeze.</p>
                 </div>
 
                 <div class="timeline-row">
-                    <div class="timeline-graphic">
-                        <div class="ill-fern-3"></div>
-                    </div>
-                    <div class="timeline-info">
-                        <span class="fern-stage">Stage III: Extending &amp; Opening</span>
-                        <h4>Month 4 — Structural Integration</h4>
-                        <p>The neck opens up, the jawline sharpens, and the lower back slab breaks apart.</p>
-                    </div>
+                    <span class="stage-tag">Month 3 to 4 — Structural Integration</span>
+                    <h4>Spine &amp; Shoulder Realignment</h4>
+                    <p>The upper yoke unpins. The shoulder blades drop back into their natural track, and the structural tension across the entire spine neutralizes.</p>
                 </div>
 
                 <div class="timeline-row">
-                    <div class="timeline-graphic">
-                        <div class="ill-fern-4"></div>
-                    </div>
-                    <div class="timeline-info">
-                        <span class="fern-stage">Stage IV: Full Frond</span>
-                        <h4>Month 6 — Complete Reclamation</h4>
-                        <p>Complete unspooling achieved. True 4D head-on-neck architecture fully restored.</p>
-                    </div>
+                    <span class="stage-tag">Month 5 to 6 — Full Body Cascade</span>
+                    <h4>Complete 4D Volume Reclamation</h4>
+                    <p>With the core back slab fully unspooled, significant cascading changes hit the rest of your frame: the neck elongates, jawline tension drops, and true 4D posture is restored.</p>
                 </div>
             </div>
         </section>
