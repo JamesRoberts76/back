@@ -197,38 +197,73 @@
             margin-bottom: 0.75rem;
         }
 
-        .timeline-stack {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .timeline-row {
+        /* Visual Illustration Boxes */
+        .illustration-card {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
-        .timeline-row .stage-tag {
-            font-size: 0.8rem;
+        .visual-frame {
+            width: 100%;
+            height: 180px;
+            background-color: #121216;
+            border: 1px dashed var(--surface-border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-frame svg {
+            max-height: 140px;
+            width: auto;
+        }
+
+        /* Timeline Grid for Progress */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .timeline-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .timeline-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .timeline-card h4 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-card .stage-tag {
+            font-size: 0.75rem;
             color: var(--accent-color);
             font-family: monospace;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.5rem;
         }
 
-        .timeline-row h4 {
-            font-size: 1.1rem;
-            color: var(--text-primary);
-        }
-
-        .timeline-row p {
-            font-size: 0.95rem;
+        .timeline-card p {
+            font-size: 0.9rem;
             margin-bottom: 0;
         }
 
@@ -328,6 +363,23 @@
         <section id="protocol">
             <h2>The Architectural Reality: The Wound Golf Ball &amp; Sash Lines</h2>
             <p>Think of an old-school wound golf ball bound tightly with high-tension rubber bands under immense compression. When it finally starts to unravel, those bands don't just snap in one place—they snake and shift across your back in every direction: horizontal bands, vertical lines, and sweeping diagonal sashes.</p>
+            
+            <!-- Illustration: Wound Golf Ball & Diagonal Sashes -->
+            <div class="illustration-card">
+                <div class="visual-frame">
+                    <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Golf ball core outline -->
+                        <circle cx="100" cy="60" r="35" fill="none" stroke="#232328" stroke-width="2"/>
+                        <!-- Winding tension lines crossing diagonally and horizontally -->
+                        <path d="M70 30 Q100 60 130 90" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="4 2"/>
+                        <path d="M130 30 Q100 60 70 90" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                        <path d="M60 60 Q100 40 140 60" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <path d="M85 20 Q110 60 85 100" fill="none" stroke="#9a9a9f" stroke-width="1"/>
+                    </svg>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0;">Multi-directional tension bands unwinding across the architectural frame.</p>
+            </div>
+
             <p>Your torso is built on this exact multi-directional network of triangles, diamonds, and braces. Under years of compression, those structural lines lock solid:</p>
             <div class="card">
                 <ul>
@@ -369,31 +421,63 @@
 
         <section id="timeline">
             <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
-            <p>True structural unspooling begins directly with your back architecture, but as the months progress, the cascading release transforms your entire physical presence.</p>
+            <p>True structural unspooling begins directly with your back architecture, but as the months progress, the cascading release transforms your entire physical presence. Using clear profile outlines of structural progression:</p>
             
-            <div class="timeline-stack">
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 1 — The Back Baseline Lock</span>
-                    <h4>Targeting the Primary Slab</h4>
-                    <p>Breaking the initial grip of the lower back plate and the skull-neck choke. Immediate cessation of deep, localized back deadweight.</p>
+            <div class="timeline-grid">
+                <!-- Month 1 -->
+                <div class="timeline-card">
+                    <div class="visual-frame" style="height: 130px;">
+                        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Slumped profile outline (head forward, compressed back slab) -->
+                            <path d="M55 25 C58 25 62 28 60 32 C58 35 50 38 48 45 C45 52 48 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M52 35 C65 35 75 55 60 95" fill="none" stroke="#232328" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <span class="stage-tag">Month 1</span>
+                    <h4>The Baseline Lock</h4>
+                    <p>Breaking the initial grip of the lower back plate and skull-neck choke. Zeroing out deadweight.</p>
                 </div>
 
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 2 — Sash Line Unraveling</span>
-                    <h4>Multi-Directional Release</h4>
-                    <p>The elastic bands begin shifting horizontally and diagonally across your ribs and torso. Breathing volume expands as floating ribs unfreeze.</p>
+                <!-- Month 2 -->
+                <div class="timeline-card">
+                    <div class="visual-frame" style="height: 130px;">
+                        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Slightly opening profile outline -->
+                            <path d="M52 24 C55 24 59 27 58 31 C56 35 48 38 46 45 C44 53 47 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M50 34 C60 35 70 55 58 95" fill="none" stroke="#9a9a9f" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="stage-tag">Month 2</span>
+                    <h4>Sash Line Unraveling</h4>
+                    <p>Elastic bands shift diagonally across ribs. Breathing volume expands as ribs unfreeze.</p>
                 </div>
 
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 3 to 4 — Structural Integration</span>
-                    <h4>Spine &amp; Shoulder Realignment</h4>
-                    <p>The upper yoke unpins. The shoulder blades drop back into their natural track, and the structural tension across the entire spine neutralizes.</p>
+                <!-- Month 4 -->
+                <div class="timeline-card">
+                    <div class="visual-frame" style="height: 130px;">
+                        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Upright profile outline, shoulders dropping back -->
+                            <path d="M48 23 C52 23 55 26 55 30 C55 34 46 38 44 45 C42 54 45 70 45 95" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M48 33 C55 36 62 55 55 95" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="stage-tag">Month 3 to 4</span>
+                    <h4>Structural Integration</h4>
+                    <p>Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</p>
                 </div>
 
-                <div class="timeline-row">
-                    <span class="stage-tag">Month 5 to 6 — Full Body Cascade</span>
-                    <h4>Complete 4D Volume Reclamation</h4>
-                    <p>With the core back slab fully unspooled, significant cascading changes hit the rest of your frame: the neck elongates, jawline tension drops, and true 4D posture is restored.</p>
+                <!-- Month 6 -->
+                <div class="timeline-card">
+                    <div class="visual-frame" style="height: 130px;">
+                        <svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Fully upright 4D profile outline, elongated neck -->
+                            <path d="M45 22 C48 22 52 25 52 29 C52 33 44 37 42 45 C40 55 42 70 45 95" fill="none" stroke="#d4af37" stroke-width="2.5"/>
+                            <path d="M45 32 C50 36 55 55 52 95" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span class="stage-tag">Month 5 to 6</span>
+                    <h4>Full Body Cascade</h4>
+                    <p>Neck elongates, jawline tension drops, and true 4D posture and volume are fully restored.</p>
                 </div>
             </div>
         </section>
