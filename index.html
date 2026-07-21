@@ -164,6 +164,58 @@
             color: var(--text-primary);
         }
 
+        /* Before & After Fan Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .comparison-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .comparison-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .comparison-card .fan-frame {
+            width: 100%;
+            height: 200px;
+            background-color: #121216;
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .comparison-card .fan-frame svg {
+            max-height: 160px;
+            width: auto;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .comparison-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
         .visual-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -199,7 +251,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Clean Typographic & Accent Visual Cards (Replacing Broken SVGs) */
         .feature-banner {
             background-color: var(--surface-color);
             border: 1px solid var(--accent-color);
@@ -321,10 +372,49 @@
             <p>Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
         </section>
 
-        <!-- The 3D Fan vs. 2D Flattened Back Architecture -->
-        <section class="feature-banner">
-            <h3>The Architecture of the Shift: The 2D Flat Back vs. The 3D Fanned Torso</h3>
-            <p>Under chronic compression, your back and ribs act like a flattened, lifeless 2D accordion—locked tight and refusing to yield. True recovery is not stretching; it is <strong>fanning out</strong>. As the fascial sheets unspool, your back expands dynamically in three dimensions (front-to-back and side-to-side), restoring full physiological volume to your entire frame.</p>
+        <!-- Before & After: The 2D Flattened Back vs. The 3D Fanned Back -->
+        <section>
+            <h2>The Architecture of the Shift: Before &amp; After</h2>
+            <p>Under chronic compression, your back and ribs act like a flattened, lifeless 2D accordion—locked tight and refusing to yield. True recovery is not stretching; it is <strong>fanning out</strong>. As the fascial sheets unspool, your back expands dynamically in three dimensions.</p>
+            
+            <div class="comparison-grid">
+                <!-- Before: 2D Flattened Back -->
+                <div class="comparison-card" style="border-color: var(--danger-color);">
+                    <div class="fan-frame">
+                        <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Male back outline - compressed 2D slab -->
+                            <path d="M40 30 C50 25 70 25 80 30 C90 45 95 90 90 130 C85 140 35 140 30 130 C25 90 30 45 40 30 Z" fill="none" stroke="#8b3a3a" stroke-width="2"/>
+                            <!-- Flattened, vertical squashed grid lines -->
+                            <line x1="60" y1="35" x2="60" y2="125" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="3 3"/>
+                            <line x1="45" y1="60" x2="75" y2="60" stroke="#8b3a3a" stroke-width="1.5"/>
+                            <line x1="42" y1="85" x2="78" y2="85" stroke="#8b3a3a" stroke-width="1.5"/>
+                            <line x1="45" y1="110" x2="75" y2="110" stroke="#8b3a3a" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.25rem;">BEFORE: THE 2D LOCKED CAGE</span>
+                    <h3>Flattened &amp; Dehydrated</h3>
+                    <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
+                </div>
+
+                <!-- After: 3D Fanned Back -->
+                <div class="comparison-card" style="border-color: var(--accent-color);">
+                    <div class="fan-frame">
+                        <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Male back outline - expanded 3D fanned volume -->
+                            <path d="M35 28 C48 22 72 22 85 28 C98 45 105 90 98 132 C90 142 30 142 22 132 C15 90 22 45 35 28 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <!-- Multi-directional fanned expansion lines (Fan shape) -->
+                            <path d="M60 40 Q40 70 30 110" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                            <path d="M60 40 Q60 70 60 120" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M60 40 Q80 70 90 110" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                            <path d="M60 40 Q25 50 20 75" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 2"/>
+                            <path d="M60 40 Q95 50 100 75" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; display: block; margin-bottom: 0.25rem;">AFTER: THE 3D FANNED TORSO</span>
+                    <h3>Expanded &amp; Sovereign</h3>
+                    <p>Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 4D volume.</p>
+                </div>
+            </div>
         </section>
 
         <section id="adhesions">
