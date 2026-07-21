@@ -283,120 +283,142 @@
             background-color: var(--accent-hover);
         }
 
-        /* Immersive Chat Drawer & Modal Styles */
-        .chat-drawer {
+        /* Immersive Full-Screen Portal Interface (Replacing Chatbot Drawer) */
+        .immersive-portal {
             display: none;
             position: fixed;
-            bottom: 0;
-            right: 1.5rem;
-            width: 380px;
-            max-width: calc(100vw - 2rem);
-            height: 520px;
-            background-color: var(--surface-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 8px 8px 0 0;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--bg-color);
+            z-index: 2000;
             flex-direction: column;
-            z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            overflow-y: auto;
         }
 
-        .chat-drawer.active {
+        .immersive-portal.active {
             display: flex;
         }
 
-        .chat-header {
-            padding: 1rem;
-            border-bottom: 1px solid var(--surface-border);
+        .portal-header {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 2rem 1rem 1.5rem 1rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #101013;
+            border-bottom: 1px solid var(--surface-border);
         }
 
-        .chat-header h4 {
-            font-size: 0.95rem;
-            color: var(--text-primary);
-            letter-spacing: 0.05em;
+        .portal-title {
+            font-size: 0.9rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
+            color: var(--accent-color);
+            font-weight: 600;
         }
 
-        .chat-close {
+        .portal-exit {
             background: none;
-            border: none;
+            border: 1px solid var(--surface-border);
             color: var(--text-secondary);
-            font-size: 1.25rem;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .chat-close:hover {
+        .portal-exit:hover {
+            border-color: var(--accent-color);
             color: var(--text-primary);
         }
 
-        .chat-messages {
+        .portal-body {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
             flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
+            padding: 2rem 1rem;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1.5rem;
         }
 
-        .message {
-            padding: 0.75rem 1rem;
+        .portal-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .portal-message {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
             border-radius: 6px;
-            font-size: 0.9rem;
-            max-width: 85%;
-            line-height: 1.4;
+            padding: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
-        .message.system {
-            background-color: #1c1c22;
+        .portal-message.system {
+            border-left: 3px solid var(--accent-color);
             color: var(--text-primary);
-            align-self: flex-start;
-            border-left: 2px solid var(--accent-color);
         }
 
-        .message.user {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
+        .portal-message.user {
+            background-color: #121216;
+            border-color: var(--accent-color);
+            color: var(--text-primary);
             align-self: flex-end;
-            font-weight: 500;
+            width: 85%;
         }
 
-        .chat-input-area {
-            padding: 0.75rem;
+        .portal-input-container {
+            position: sticky;
+            bottom: 0;
+            background-color: var(--bg-color);
+            padding: 1rem 0 2rem 0;
             border-top: 1px solid var(--surface-border);
             display: flex;
-            gap: 0.5rem;
-            background-color: #101013;
+            gap: 0.75rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .chat-input {
+        .portal-textarea {
             flex: 1;
-            background-color: var(--bg-color);
+            background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
-            border-radius: 4px;
-            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            padding: 0.85rem 1rem;
             color: var(--text-primary);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            font-family: var(--font-main);
+            resize: none;
+            height: 54px;
             outline: none;
         }
 
-        .chat-input:focus {
+        .portal-textarea:focus {
             border-color: var(--accent-color);
         }
 
-        .chat-send {
+        .portal-submit {
             background-color: var(--accent-color);
             color: var(--bg-color);
-            border: none;
-            border-radius: 4px;
-            padding: 0.5rem 1rem;
             font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            padding: 0 1.75rem;
             cursor: pointer;
+            transition: background-color 0.2s ease;
         }
 
-        .chat-send:hover {
+        .portal-submit:hover {
             background-color: var(--accent-hover);
         }
 
@@ -593,7 +615,7 @@
                 <div class="pricing-tag">€60 / 365 Days — Zero Auto-Renewals</div>
                 <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
                 <br>
-                <button class="btn" id="openChatBtn" type="button">Secure Full Access Now</button>
+                <button class="btn" id="openPortalBtn" type="button">Secure Full Access Now</button>
             </div>
         </section>
 
@@ -628,67 +650,73 @@
     </footer>
 </div>
 
-<!-- Immersive Chat Drawer Component -->
-<div class="chat-drawer" id="chatDrawer">
-    <div class="chat-header">
-        <h4>The Architect &bull; Practice Companion</h4>
-        <button class="chat-close" id="closeChatBtn" type="button">&times;</button>
+<!-- Immersive Full-Screen Practice Portal (Replacing Chatbot Drawer) -->
+<div class="immersive-portal" id="immersivePortal">
+    <div class="portal-header">
+        <div class="portal-title">Sovereign Network &bull; Architectural Study</div>
+        <button class="portal-exit" id="closePortalBtn" type="button">Return to Guide</button>
     </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="message system">Architect online. State your primary tension zone or query regarding your frame architecture.</div>
+    <div class="portal-body">
+        <div class="portal-feed" id="portalFeed">
+            <div class="portal-message system">
+                <strong>The Architect:</strong> Sovereign session initialized. This study maintains continuous context across the network matrix. State your primary tension zone or query regarding your frame architecture.
+            </div>
+        </div>
     </div>
-    <div class="chat-input-area">
-        <input type="text" class="chat-input" id="chatInput" placeholder="Ask about unspooling or protocol..." />
-        <button class="chat-send" id="chatSend" type="button">Send</button>
+    <div class="portal-input-container">
+        <div style="width: 100%; max-width: var(--max-width); margin: 0 auto; display: flex; gap: 0.75rem; padding: 0 1rem;">
+            <textarea class="portal-textarea" id="portalInput" placeholder="Describe your structural restriction or query..."></textarea>
+            <button class="portal-submit" id="portalSubmit" type="button">Engage</button>
+        </div>
     </div>
 </div>
 
 <script>
     (function() {
-        const btn = document.getElementById('openChatBtn');
-        const drawer = document.getElementById('chatDrawer');
-        const closeBtn = document.getElementById('closeChatBtn');
-        const sendBtn = document.getElementById('chatSend');
-        const inputField = document.getElementById('chatInput');
-        const messagesContainer = document.getElementById('chatMessages');
+        const openBtn = document.getElementById('openPortalBtn');
+        const portal = document.getElementById('immersivePortal');
+        const closeBtn = document.getElementById('closePortalBtn');
+        const submitBtn = document.getElementById('portalSubmit');
+        const inputField = document.getElementById('portalInput');
+        const feedContainer = document.getElementById('portalFeed');
 
         let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
         localStorage.setItem('sovereign_user_uuid', userUuid);
 
-        function toggleChat(e) {
+        function togglePortal(e) {
             if (e) e.preventDefault();
-            drawer.classList.toggle('active');
-            if (drawer.classList.contains('active')) {
+            portal.classList.toggle('active');
+            if (portal.classList.contains('active')) {
                 inputField.focus();
             }
         }
 
-        if (btn) {
-            btn.addEventListener('click', toggleChat);
+        if (openBtn) {
+            openBtn.addEventListener('click', togglePortal);
         }
 
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
-                drawer.classList.remove('active');
+                portal.classList.remove('active');
             });
         }
 
-        async function handleSendMessage() {
+        async function handlePortalMessage() {
             const text = inputField.value.trim();
             if (!text) return;
 
-            const userMsg = document.createElement('div');
-            userMsg.className = 'message user';
-            userMsg.textContent = text;
-            messagesContainer.appendChild(userMsg);
+            const userDiv = document.createElement('div');
+            userDiv.className = 'portal-message user';
+            userDiv.textContent = text;
+            feedContainer.appendChild(userDiv);
             inputField.value = '';
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
 
-            const loadingMsg = document.createElement('div');
-            loadingMsg.className = 'message system';
-            loadingMsg.textContent = 'Analyzing architecture...';
-            messagesContainer.appendChild(loadingMsg);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'portal-message system';
+            loadingDiv.innerHTML = '<strong>The Architect:</strong> Analyzing structural framework across network matrix...';
+            feedContainer.appendChild(loadingDiv);
+            portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
 
             try {
                 const response = await fetch('/api/chat', {
@@ -702,31 +730,32 @@
                 });
 
                 const data = await response.json();
-                loadingMsg.remove();
+                loadingDiv.remove();
 
-                const systemMsg = document.createElement('div');
-                systemMsg.className = 'message system';
-                systemMsg.textContent = data.message || 'Error processing request.';
-                messagesContainer.appendChild(systemMsg);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                const systemDiv = document.createElement('div');
+                systemDiv.className = 'portal-message system';
+                systemDiv.innerHTML = `<strong>The Architect:</strong> ${data.message || 'Error processing request.'}`;
+                feedContainer.appendChild(systemDiv);
+                portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
             } catch (err) {
-                loadingMsg.remove();
-                const errorMsg = document.createElement('div');
-                errorMsg.className = 'message system';
-                errorMsg.textContent = 'Connection error. Check your network or worker bindings.';
-                messagesContainer.appendChild(errorMsg);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                loadingDiv.remove();
+                const errDiv = document.createElement('div');
+                errDiv.className = 'portal-message system';
+                errDiv.innerHTML = '<strong>The Architect:</strong> Connection error across network matrix. Verify worker bindings.';
+                feedContainer.appendChild(errDiv);
+                portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
             }
         }
 
-        if (sendBtn) {
-            sendBtn.addEventListener('click', handleSendMessage);
+        if (submitBtn) {
+            submitBtn.addEventListener('click', handlePortalMessage);
         }
 
         if (inputField) {
-            inputField.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    handleSendMessage();
+            inputField.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    handlePortalMessage();
                 }
             });
         }
