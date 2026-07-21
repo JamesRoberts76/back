@@ -92,6 +92,7 @@
             color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.2s ease;
+            cursor: pointer;
         }
 
         .nav-tabs a:hover {
@@ -274,9 +275,128 @@
             text-decoration: none;
             margin-top: 1rem;
             transition: background-color 0.2s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* Immersive Chat Drawer & Modal Styles */
+        .chat-drawer {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            right: 1.5rem;
+            width: 380px;
+            max-width: calc(100vw - 2rem);
+            height: 520px;
+            background-color: var(--surface-color);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px 8px 0 0;
+            flex-direction: column;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .chat-drawer.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--surface-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #101013;
+        }
+
+        .chat-header h4 {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+
+        .chat-close:hover {
+            color: var(--text-primary);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .message {
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            max-width: 85%;
+            line-height: 1.4;
+        }
+
+        .message.system {
+            background-color: #1c1c22;
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-left: 2px solid var(--accent-color);
+        }
+
+        .message.user {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            align-self: flex-end;
+            font-weight: 500;
+        }
+
+        .chat-input-area {
+            padding: 0.75rem;
+            border-top: 1px solid var(--surface-border);
+            display: flex;
+            gap: 0.5rem;
+            background-color: #101013;
+        }
+
+        .chat-input {
+            flex: 1;
+            background-color: var(--bg-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            padding: 0.5rem 0.75rem;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .chat-send {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .chat-send:hover {
             background-color: var(--accent-hover);
         }
 
@@ -473,7 +593,7 @@
                 <div class="pricing-tag">€60 / 365 Days — Zero Auto-Renewals</div>
                 <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
                 <br>
-                <a href="#" class="btn">Secure Full Access Now</a>
+                <button class="btn" id="openChatBtn" type="button">Secure Full Access Now</button>
             </div>
         </section>
 
@@ -507,6 +627,111 @@
         <div style="font-size: 0.8rem; color: var(--text-secondary);">Minimalist Architecture &bull; No Tracking Pixels &bull; Absolute Sovereignty</div>
     </footer>
 </div>
+
+<!-- Immersive Chat Drawer Component -->
+<div class="chat-drawer" id="chatDrawer">
+    <div class="chat-header">
+        <h4>The Architect &bull; Practice Companion</h4>
+        <button class="chat-close" id="closeChatBtn" type="button">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message system">Architect online. State your primary tension zone or query regarding your frame architecture.</div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Ask about unspooling or protocol..." />
+        <button class="chat-send" id="chatSend" type="button">Send</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const btn = document.getElementById('openChatBtn');
+        const drawer = document.getElementById('chatDrawer');
+        const closeBtn = document.getElementById('closeChatBtn');
+        const sendBtn = document.getElementById('chatSend');
+        const inputField = document.getElementById('chatInput');
+        const messagesContainer = document.getElementById('chatMessages');
+
+        let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
+        localStorage.setItem('sovereign_user_uuid', userUuid);
+
+        function toggleChat(e) {
+            if (e) e.preventDefault();
+            drawer.classList.toggle('active');
+            if (drawer.classList.contains('active')) {
+                inputField.focus();
+            }
+        }
+
+        if (btn) {
+            btn.addEventListener('click', toggleChat);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => {
+                drawer.classList.remove('active');
+            });
+        }
+
+        async function handleSendMessage() {
+            const text = inputField.value.trim();
+            if (!text) return;
+
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = text;
+            messagesContainer.appendChild(userMsg);
+            inputField.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            const loadingMsg = document.createElement('div');
+            loadingMsg.className = 'message system';
+            loadingMsg.textContent = 'Analyzing architecture...';
+            messagesContainer.appendChild(loadingMsg);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        siteId: 'back.guide',
+                        message: text,
+                        uuid: userUuid
+                    })
+                });
+
+                const data = await response.json();
+                loadingMsg.remove();
+
+                const systemMsg = document.createElement('div');
+                systemMsg.className = 'message system';
+                systemMsg.textContent = data.message || 'Error processing request.';
+                messagesContainer.appendChild(systemMsg);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            } catch (err) {
+                loadingMsg.remove();
+                const errorMsg = document.createElement('div');
+                errorMsg.className = 'message system';
+                errorMsg.textContent = 'Connection error. Check your network or worker bindings.';
+                messagesContainer.appendChild(errorMsg);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        }
+
+        if (sendBtn) {
+            sendBtn.addEventListener('click', handleSendMessage);
+        }
+
+        if (inputField) {
+            inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSendMessage();
+                }
+            });
+        }
+    })();
+</script>
 
 </body>
 </html>
