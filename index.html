@@ -164,10 +164,11 @@
             color: var(--text-primary);
         }
 
+        /* Gold-Standard Before & After Grid */
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 1.25rem;
+            gap: 1.5rem;
             margin-bottom: 1.5rem;
         }
 
@@ -181,31 +182,31 @@
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
-            padding: 1.25rem;
+            padding: 1.5rem;
             text-align: center;
         }
 
-        .comparison-card .fan-frame {
+        .fan-canvas {
             width: 100%;
-            height: 200px;
+            height: 220px;
             background-color: #121216;
             border: 1px solid var(--surface-border);
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.25rem;
             position: relative;
             overflow: hidden;
         }
 
-        .comparison-card .fan-frame svg {
-            max-height: 160px;
+        .fan-canvas svg {
+            max-height: 190px;
             width: auto;
         }
 
         .comparison-card h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
@@ -372,21 +373,25 @@
             <p>Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
         </section>
 
-        <!-- Before & After: The 2D Flattened Back vs. The 3D Fanned Back -->
+        <!-- Gold-Standard Before & After: 2D Locked Cage vs. 3D Fanned Back (Front & Back View Schematics) -->
         <section>
             <h2>The Architecture of the Shift: Before &amp; After</h2>
-            <p>Under chronic compression, your back and ribs act like a flattened, lifeless 2D accordion—locked tight and refusing to yield. True recovery is not stretching; it is <strong>fanning out</strong>. As the fascial sheets unspool, your back expands dynamically in three dimensions.</p>
+            <p>Under chronic compression, your back and ribs act like a flattened, lifeless 2D accordion—locked tight and refusing to yield. True recovery is not stretching; it is <strong>fanning out</strong>. As the fascial sheets unspool, your entire torso expands dynamically in three dimensions.</p>
             
             <div class="comparison-grid">
-                <!-- Before: 2D Flattened Back -->
+                <!-- Before: 2D Flattened Back (Locked Cage) -->
                 <div class="comparison-card" style="border-color: var(--danger-color);">
-                    <div class="fan-frame">
-                        <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M40 30 C50 25 70 25 80 30 C90 45 95 90 90 130 C85 140 35 140 30 130 C25 90 30 45 40 30 Z" fill="none" stroke="#8b3a3a" stroke-width="2"/>
-                            <line x1="60" y1="35" x2="60" y2="125" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="3 3"/>
-                            <line x1="45" y1="60" x2="75" y2="60" stroke="#8b3a3a" stroke-width="1.5"/>
-                            <line x1="42" y1="85" x2="78" y2="85" stroke="#8b3a3a" stroke-width="1.5"/>
-                            <line x1="45" y1="110" x2="75" y2="110" stroke="#8b3a3a" stroke-width="1.5"/>
+                    <div class="fan-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Torso outline compressed (2D block) -->
+                            <rect x="45" y="25" width="70" height="110" rx="6" fill="none" stroke="#8b3a3a" stroke-width="2"/>
+                            <!-- Internal compressed squashed horizontal plates -->
+                            <line x1="45" y1="50" x2="115" y2="50" stroke="#8b3a3a" stroke-width="1.5"/>
+                            <line x1="45" y1="75" x2="115" y2="75" stroke="#8b3a3a" stroke-width="2"/>
+                            <line x1="45" y1="100" x2="115" y2="100" stroke="#8b3a3a" stroke-width="1.5"/>
+                            <!-- Center vertical crush line -->
+                            <line x1="80" y1="25" x2="80" y2="135" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="3 3"/>
+                            <text x="80" y="148" fill="#8b3a3a" font-size="9" font-family="monospace" text-anchor="middle">LAMINATED SLAB</text>
                         </svg>
                     </div>
                     <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.25rem;">BEFORE: THE 2D LOCKED CAGE</span>
@@ -394,16 +399,17 @@
                     <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
                 </div>
 
-                <!-- After: 3D Fanned Back -->
+                <!-- After: 3D Fanned Torso (Expanded Volume) -->
                 <div class="comparison-card" style="border-color: var(--accent-color);">
-                    <div class="fan-frame">
-                        <svg viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M35 28 C48 22 72 22 85 28 C98 45 105 90 98 132 C90 142 30 142 22 132 C15 90 22 45 35 28 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <path d="M60 40 Q40 70 30 110" fill="none" stroke="#d4af37" stroke-width="1.5"/>
-                            <path d="M60 40 Q60 70 60 120" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <path d="M60 40 Q80 70 90 110" fill="none" stroke="#d4af37" stroke-width="1.5"/>
-                            <path d="M60 40 Q25 50 20 75" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 2"/>
-                            <path d="M60 40 Q95 50 100 75" fill="none" stroke="#d4af37" stroke-width="1" stroke-dasharray="2 2"/>
+                    <div class="fan-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Outer expanded 3D fanned frame -->
+                            <path d="M80 20 C105 25 125 50 120 80 C115 110 100 135 80 140 C60 135 45 110 40 80 C35 50 55 25 80 20 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <!-- 3D Fan expansion ribs radiating outward -->
+                            <path d="M80 80 L45 45 M80 80 L115 45 M80 80 L38 80 M80 80 L122 80 M80 80 L50 120 M80 80 L110 120" stroke="#d4af37" stroke-width="1.2" stroke-dasharray="2 2"/>
+                            <!-- Central open core -->
+                            <circle cx="80" cy="80" r="14" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <text x="80" y="148" fill="#d4af37" font-size="9" font-family="monospace" text-anchor="middle">3D FANNED VOLUME</text>
                         </svg>
                     </div>
                     <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; display: block; margin-bottom: 0.25rem;">AFTER: THE 3D FANNED TORSO</span>
