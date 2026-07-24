@@ -596,33 +596,13 @@
         }
 
         /* Footer */
-        footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            border-top: 1px solid var(--surface-border);
-            padding-top: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        footer div {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        footer a {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        footer a:hover {
-            color: var(--text-primary);
-        }
+        <footer>
+            <span>Operated by James Roberts, Tenerife. Specialist node of compressed.guide.</span>
+            <div>
+                <a href="https://compressed.guide">Master Hub</a>
+                <a href="#">Privacy & Terms</a>
+            </div>
+        </footer>
 
         @media (max-width: 640px) {
             .trajectory-item {
@@ -668,7 +648,7 @@
             </div>
         </header>
 
-        <!-- Active Chat Portal Integration -->
+        <!-- Active Chat Portal -->
         <div class="chat-portal-section">
             <div class="chat-portal-header">
                 <div class="architect-info">
@@ -681,10 +661,10 @@
             </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message assistant">
-                    Where is your back locked today? Your first consultation is free—let's check your crown tension and unspool that initial restriction.
+                    Where is your back locked today? When I first discovered how the fascia in my own back was tied directly into a much larger chain reaction, the results were phenomenal. Let's unspool that initial restriction together and check your crown condition.
                 </div>
             </div>
-            <!-- Short Prompt Suggestions tied to the 7-Step Cards -->
+            <!-- Short Prompt Suggestions -->
             <div class="chat-suggestions" id="chatSuggestions">
                 <button class="suggestion-chip" data-prompt="Card 01: Walk me through setup and unweighting.">Card 01: Setup &amp; Unweighting</button>
                 <button class="suggestion-chip" data-prompt="Card 02: How do I identify my lower slab or upper yoke?">Card 02: Slab Identification</button>
@@ -963,7 +943,7 @@
         const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
         let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('sovereyn_user_uuid', userUuid);
+        localStorage.setItem('sovereign_user_uuid', userUuid);
 
         let chatHistory = JSON.parse(localStorage.getItem('back_guide_chat')) || [];
 
@@ -999,27 +979,26 @@
             }
 
             setTimeout(() => {
-                let responseText = "Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that triggers a chain reaction across your frame—and we check how your crown feels to track it. Let's unspool it.";
+                let responseText = "When I first discovered how the fascia in my own back was tied directly into a much larger chain reaction, the results were phenomenal. Let's unspool that restriction together and track your crown condition.";
                 
                 const lowerText = text.toLowerCase();
                 
-                // Match specifically to the 7-card sequence and user terms
                 if (lowerText.includes('card 01') || lowerText.includes('setup') || lowerText.includes('unweighting') || lowerText.includes('pelvis')) {
-                    responseText = "Card 01 Protocol: Reset your pelvis and unhook your lower spine. Stand tall and let vertical compression lift off before addressing the slab.";
+                    responseText = "Card 01 (Setup & Unweighting): Let's start right. Reset your pelvis and unhook your lower spine from office chair compression. When I first worked through this chain reaction, getting the unweighting right made all the difference.";
                 } else if (lowerText.includes('card 02') || lowerText.includes('slab identification') || lowerText.includes('isolate') || lowerText.includes('plate') || lowerText.includes('yoke')) {
-                    responseText = "Card 02 Protocol: Isolate your restriction. Locate whether the dense plate sits across your lower lumbar or locks into your upper shoulder yoke.";
+                    responseText = "Card 02 (Slab Identification): We need to find where the concrete has set. Isolate whether your restriction lives in the dense lower plate or locks across your upper yoke. Pinpointing that anchor point is step one.";
                 } else if (lowerText.includes('card 03') || lowerText.includes('opposition') || lowerText.includes('two-handed') || lowerText.includes('counter-pressure')) {
-                    responseText = "Card 03 Protocol: Apply precise two-handed counter-pressure against the bone. Lock your hand placement firmly before attempting any shear.";
+                    responseText = "Card 03 (Opposition Mechanics): Apply precise two-handed counter-pressure against the bone. Fascia demands structural respect—lock your hand placement firmly before attempting any shear.";
                 } else if (lowerText.includes('card 04') || lowerText.includes('lateral shear') || lowerText.includes('glide') || lowerText.includes('shear')) {
-                    responseText = "Card 04 Protocol: Shear the laminated fascia sideways across your rib base. Uncouple the stuck layers without sliding over skin.";
+                    responseText = "Card 04 (Lateral Shear & Glide): Now we shear the laminated fascia sideways across your rib base. This is where users usually notice that phenomenal shift as the stuck layers uncouple from the chain.";
                 } else if (lowerText.includes('card 05') || lowerText.includes('breath') || lowerText.includes('thoracic') || lowerText.includes('ribs')) {
-                    responseText = "Card 05 Protocol: Inhale deep into your floating ribs. Expand internal thoracic volume while holding your mechanical opposition pressure.";
+                    responseText = "Card 05 (Breath Integration): Inhale deep into your floating ribs. Expand your internal thoracic volume while maintaining your mechanical opposition pressure. Let the breathing do the heavy lifting.";
                 } else if (lowerText.includes('card 06') || lowerText.includes('neck') || lowerText.includes('skull') || lowerText.includes('cervical')) {
-                    responseText = "Card 06 Protocol: Uncouple your upper traps from the base of your skull. Clear the cervical drag choking upward rotation.";
+                    responseText = "Card 06 (Neck Uncoupling): Uncouple your upper traps from the base of your skull. Because the back fascia operates as one continuous chain, clearing this cervical drag opens up the whole upper frame.";
                 } else if (lowerText.includes('card 07') || lowerText.includes('crown') || lowerText.includes('verification') || lowerText.includes('lift')) {
-                    responseText = "Card 07 Protocol: Check your crown. How does the top of your head feel right now? That vertical lightness is our only tracking metric.";
-                } else if (lowerText.includes('hello') || lowerText.includes('hi')) {
-                    responseText = "Let's get straight to work. Select a card above or describe where your back is locked up so we can check your crown tension.";
+                    responseText = "Card 07 (Crown Verification): Check your crown. How does the top of your head feel right now? That effortless vertical lightness is our only tracking metric. No counters, just clean structural feedback.";
+                } else if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('help')) {
+                    responseText = "Good to have you here. Pick a card above or tell me where your back is locking up. When you feel how the back chain reacts as a single system, the results speak for themselves.";
                 }
 
                 appendMessage(responseText, 'assistant');
