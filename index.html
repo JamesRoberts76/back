@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Back.Guide | Slab Fascia &amp; Back Adhesions</title>
+    <title>BACK.GUIDE // SLAB FASCIA & BACK ADHESIONS</title>
     <style>
         :root {
             --bg-color: #0c0c0e;
             --surface-color: #141417;
-            --surface-border: #232328;
-            --text-primary: #f4f4f6;
-            --text-secondary: #9a9a9f;
-            --accent-color: #d4af37;
-            --accent-hover: #e5c158;
-            --danger-color: #8b3a3a;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --max-width: 720px;
+            --surface-border: #222226;
+            --text-primary: #ededed;
+            --text-muted: #88888d;
+            --accent-gold: #d4af37;
+            --accent-gold-dim: rgba(212, 175, 55, 0.1);
+            --accent-green: #2ecc71;
+            --accent-green-dim: rgba(46, 204, 113, 0.1);
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
 
         * {
@@ -27,728 +27,560 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-primary);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            padding: clamp(1rem, 3vw, 2rem) 1rem;
+            font-family: var(--font-mono);
+            min-height: 100vh;
             display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 450px;
-            height: 450px;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none' stroke='%23d4af37' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M50 95 V25 C50 15 65 10 75 15 C85 20 80 35 65 40 M50 75 C40 75 30 70 25 60 C20 50 30 40 45 45 M50 55 C60 55 70 50 75 40'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.06;
-            pointer-events: none;
-            z-index: 0;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem 1.5rem;
+            line-height: 1.5;
+            background-image: radial-gradient(circle at 85% 10%, rgba(212, 175, 55, 0.03) 0%, transparent 40%),
+                              radial-gradient(circle at 15% 90%, rgba(212, 175, 55, 0.02) 0%, transparent 50%);
+            background-attachment: fixed;
         }
 
         .container {
+            max-width: 840px;
             width: 100%;
-            max-width: var(--max-width);
-            position: relative;
-            z-index: 1;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
 
-        header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 1.5rem;
-        }
-
-        .header-top {
+        /* Top Nav */
+        .top-nav {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 1rem;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
+            align-items: center;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
             text-transform: uppercase;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 1rem;
+        }
+
+        .brand-logo {
+            font-weight: 700;
             color: var(--text-primary);
+            letter-spacing: 0.15em;
             text-decoration: none;
         }
 
-        .nav-tabs {
+        .nav-links {
             display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
+            gap: 1.5rem;
         }
 
-        .nav-tabs a {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .nav-links a {
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s ease;
-            cursor: pointer;
+            transition: color 0.2s;
         }
 
-        .nav-tabs a:hover {
-            color: var(--accent-color);
+        .nav-links a:hover {
+            color: var(--text-primary);
         }
 
-        section {
-            margin-bottom: 3.5rem;
+        /* Hero Header */
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
         }
 
         h1 {
-            font-size: clamp(1.8rem, 4vw, 2.25rem);
+            font-size: 1.75rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: clamp(1.2rem, 3vw, 1.35rem);
-            font-weight: 600;
-            margin-bottom: 1rem;
             letter-spacing: -0.01em;
             color: var(--text-primary);
-            border-left: 3px solid var(--accent-color);
-            padding-left: 0.75rem;
         }
 
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: clamp(0.98rem, 2vw, 1.05rem);
+        .site-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            line-height: 1.6;
         }
 
-        .lead {
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
-            color: var(--text-primary);
-            margin-bottom: 2rem;
-        }
-
-        .card {
+        /* Active Chat Portal (Integrated) */
+        .chat-portal-section {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
-            padding: 1.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 1.25rem;
-        }
-
-        ul li {
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        ul li::before {
-            content: "—";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        ul li strong {
-            color: var(--text-primary);
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .comparison-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .comparison-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .fan-canvas {
-            width: 100%;
-            height: 220px;
-            background-color: #121216;
-            border: 1px solid var(--surface-border);
-            border-radius: 4px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.25rem;
-            position: relative;
+            flex-direction: column;
             overflow: hidden;
         }
 
-        .fan-canvas svg {
-            max-height: 190px;
-            width: auto;
+        .chat-portal-header {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--surface-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-transform: uppercase;
         }
 
-        .comparison-card h3 {
-            font-size: 1.15rem;
+        .architect-info {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
-        .comparison-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0;
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--accent-green);
+            font-size: 0.7rem;
         }
 
-        .visual-grid {
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+        }
+
+        .chat-messages {
+            height: 380px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 85%;
+            padding: 0.85rem 1.15rem;
+            font-size: 0.875rem;
+            border-radius: 6px;
+            line-height: 1.5;
+        }
+
+        .message.assistant {
+            background-color: #1a1a1f;
+            border: 1px solid #2a2a30;
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-top-left-radius: 2px;
+        }
+
+        .message.user {
+            background-color: #222228;
+            color: var(--text-primary);
+            align-self: flex-end;
+            border-top-right-radius: 2px;
+        }
+
+        .chat-input-area {
+            padding: 1rem;
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--surface-border);
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            flex: 1;
+            background-color: var(--bg-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            padding: 0.6rem 0.85rem;
+            transition: border-color 0.2s;
+        }
+
+        .chat-input-wrapper:focus-within {
+            border-color: var(--accent-gold);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .chat-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .send-btn {
+            background-color: var(--accent-gold);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 4px;
+            padding: 0.6rem 1.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .send-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Section Block Typography */
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+        }
+
+        /* Protocol Grid */
+        .protocol-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
         }
 
-        @media (min-width: 600px) {
-            .visual-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .visual-card {
+        .protocol-box {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1.25rem;
             display: flex;
             flex-direction: column;
+            gap: 0.5rem;
         }
 
-        .visual-card h3 {
-            font-size: 1.1rem;
+        .protocol-box-num {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .protocol-box-title {
+            font-size: 0.95rem;
+            font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid var(--surface-border);
-            padding-bottom: 0.4rem;
         }
 
-        .visual-card p {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+        .protocol-box-desc {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .cta-box {
+        /* Trajectory Timeline */
+        .trajectory-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .trajectory-item {
             background-color: var(--surface-color);
-            border: 1px solid var(--accent-color);
-            border-radius: 6px;
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .cta-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-primary);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            font-weight: 600;
-            padding: 0.75rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: background-color 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        /* Immersive Full-Screen Portal Interface */
-        .immersive-portal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: var(--bg-color);
-            z-index: 2000;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .immersive-portal.active {
-            display: flex;
-        }
-
-        .portal-header {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 2rem 1rem 1.5rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--surface-border);
-        }
-
-        .portal-title {
-            font-size: 0.9rem;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .portal-exit {
-            background: none;
             border: 1px solid var(--surface-border);
-            color: var(--text-secondary);
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
+            border-radius: 6px;
+            padding: 1rem 1.25rem;
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .trajectory-day {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .trajectory-text {
             font-size: 0.85rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
-        .portal-exit:hover {
-            border-color: var(--accent-color);
-            color: var(--text-primary);
-        }
-
-        .portal-body {
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            flex: 1;
-            padding: 2rem 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .portal-feed {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .portal-message {
+        /* Methodology Text Block */
+        .text-block {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1.5rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .portal-message.system {
-            border-left: 3px solid var(--accent-color);
-            color: var(--text-primary);
-        }
-
-        .portal-message.user {
-            background-color: #121216;
-            border-color: var(--accent-color);
-            color: var(--text-primary);
-            align-self: flex-end;
-            width: 85%;
-        }
-
-        .portal-input-container {
-            position: sticky;
-            bottom: 0;
-            background-color: var(--bg-color);
-            padding: 1rem 0 2rem 0;
-            border-top: 1px solid var(--surface-border);
-            display: flex;
-            gap: 0.75rem;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        .portal-textarea {
-            flex: 1;
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 0.85rem 1rem;
-            color: var(--text-primary);
-            font-size: 1rem;
-            font-family: var(--font-main);
-            resize: none;
-            height: 54px;
-            outline: none;
-        }
-
-        .portal-textarea:focus {
-            border-color: var(--accent-color);
-        }
-
-        .portal-submit {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            padding: 0 1.75rem;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-
-        .portal-submit:hover {
-            background-color: var(--accent-hover);
-        }
-
-        footer {
-            border-top: 1px solid var(--surface-border);
-            padding-top: 2rem;
-            margin-top: 4rem;
             font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .footer-content {
+            color: var(--text-muted);
+            line-height: 1.7;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            flex-direction: column;
             gap: 1rem;
         }
 
-        .footer-links {
+        /* Direct Access / Payment Card */
+        .access-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .access-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .access-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-gold);
+            color: var(--bg-color);
+            border: none;
+            border-radius: 4px;
+            padding: 0.75rem 1.75rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            border-top: 1px solid var(--surface-border);
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        footer div {
             display: flex;
             gap: 1.5rem;
-            flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: var(--text-secondary);
+        footer a {
+            color: var(--text-muted);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.2s;
         }
 
-        .footer-links a:hover {
-            color: var(--accent-color);
+        footer a:hover {
+            color: var(--text-primary);
         }
 
-        .pricing-tag {
-            font-family: monospace;
-            color: var(--accent-color);
+        @media (max-width: 640px) {
+            .trajectory-item {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                gap: 0.75rem;
+                align-items: flex-start;
+            }
+            footer {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="header-top">
-            <a href="https://compressed.guide" class="logo">Back.Guide</a>
-            <nav class="nav-tabs">
-                <a href="#adhesions">Adhesions</a>
-                <a href="#protocol">Protocol</a>
-                <a href="#origin">The Origin</a>
-                <a href="#timeline">Timeline</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#legal">Legal &amp; Terms</a>
-            </nav>
+    <div class="container">
+        <!-- Top Nav -->
+        <nav class="top-nav">
+            <a href="https://compressed.guide" class="brand-logo">Back.Guide</a>
+            <div class="nav-links">
+                <a href="#protocols">Protocols</a>
+                <a href="#about">About Node</a>
+                <a href="#access">Consult James</a>
+                <a href="https://compressed.guide">Master Hub</a>
+            </div>
+        </nav>
+
+        <!-- Hero Header -->
+        <header>
+            <h1>Slab Fascia &amp; Back Adhesions.</h1>
+            <div class="site-subtitle">
+                Most persistent back pain is not a mysterious pathology or a failing disc. It is structural deadweight—the exact sensation of a heavy, laminated sheet of fascia pressing down on your frame. Your first session solving an immediate restriction is free.
+            </div>
+        </header>
+
+        <!-- Active Chat Portal Integration -->
+        <div class="chat-portal-section">
+            <div class="chat-portal-header">
+                <div class="architect-info">
+                    <span>James — Architect</span>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message assistant">
+                    What's locked in your back today? Your first session is free. Let's isolate that lower-back slab or upper yoke and unspool it properly.
+                </div>
+            </div>
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Describe your back restriction..." autofocus>
+                </div>
+                <button class="send-btn" id="sendBtn">Consult the Architect</button>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <!-- Opening Section -->
+        <!-- Protocol Card Section -->
+        <section id="protocols">
+            <div class="section-title">01 / The Back Protocol Card</div>
+            <div class="protocol-grid">
+                <div class="protocol-box">
+                    <div class="protocol-box-num">#1</div>
+                    <div class="protocol-box-title">Slab Identification</div>
+                    <div class="protocol-box-desc">Isolate the heavy upper-back yoke or dense lower-back plate pinning your spine without narrative buildup.</div>
+                </div>
+                <div class="protocol-box">
+                    <div class="protocol-box-num">#2</div>
+                    <div class="protocol-box-title">Mechanical Unspooling</div>
+                    <div class="protocol-box-desc">Apply precise two-handed opposition pressure against bone, shearing laminated fascia free from the rib base.</div>
+                </div>
+                <div class="protocol-box">
+                    <div class="protocol-box-num">#3</div>
+                    <div class="protocol-box-title">3D Volume Verification</div>
+                    <div class="protocol-box-desc">Confirm your torso expands dynamically in three dimensions rather than moving as a flattened 2D accordion cage.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trajectory Section -->
         <section>
-            <h1>Slab Fascia &amp; Back Adhesions</h1>
-            <p class="lead">Most persistent back pain is not a mysterious pathology or a failing disc. It is structural deadweight—the exact sensation of a heavy, laminated sheet of fascia pressing down on your frame.</p>
-            
-            <div class="card" style="border-left: 3px solid var(--accent-color);">
-                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-bottom: 0.5rem;">What is Fascia?</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 0;">Fascia is the continuous connective tissue matrix wrapping your frame like a flexible silk stocking. Under years of load and gravity, it dehydrates, fuses, and bakes solid into rigid plates—flattening your physical volume into a compressed 2D cage.</p>
+            <div class="section-title">02 / The Reclamation Trajectory: 1 Day to 6 Months</div>
+            <div class="site-subtitle" style="font-size: 0.85rem; margin-top: -0.5rem;">
+                Moving from a rigid back slab to an expanded, fanned 3D torso.
             </div>
-
-            <p>Mainstream medicine misses this completely because doctors treat isolated parts—checking bones, joints, and skin separately while ignoring the continuous matrix binding the torso together. Meanwhile, traveling the world and dropping money on 90-minute massages gets you nowhere. Therapists follow scripted routines, treating muscle like loose meat while remaining entirely blind to the laminated sheets beneath.</p>
-        </section>
-
-        <!-- Before & After Architecture -->
-        <section>
-            <h2>The Architecture of the Shift: Before &amp; After</h2>
-            <p>Under chronic compression, your back and ribs act like a flattened, lifeless accordion locked tight against movement. True recovery is not stretching; it is <strong>fanning out</strong>. As the fascial sheets unspool, your entire torso expands dynamically in three dimensions.</p>
-            
-            <div class="comparison-grid">
-                <div class="comparison-card" style="border-color: var(--danger-color);">
-                    <div class="fan-canvas">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="45" y="25" width="70" height="110" rx="6" fill="none" stroke="#8b3a3a" stroke-width="2"/>
-                            <line x1="45" y1="50" x2="115" y2="50" stroke="#8b3a3a" stroke-width="1.5"/>
-                            <line x1="45" y1="75" x2="115" y2="75" stroke="#8b3a3a" stroke-width="2"/>
-                            <line x1="45" y1="100" x2="115" y2="100" stroke="#8b3a3a" stroke-width="1.5"/>
-                            <line x1="80" y1="25" x2="80" y2="135" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="3 3"/>
-                            <text x="80" y="148" fill="#8b3a3a" font-size="9" font-family="monospace" text-anchor="middle">LAMINATED SLAB</text>
-                        </svg>
-                    </div>
-                    <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">BEFORE: THE 2D LOCKED CAGE</span>
-                    <h3>Flattened &amp; Dehydrated</h3>
-                    <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
+            <div class="trajectory-list">
+                <div class="trajectory-item">
+                    <div class="trajectory-day">Day 1</div>
+                    <div class="trajectory-text">Initial release of the lower-back plate and skull-neck junction choke. Heavy deadweight begins to lift.</div>
                 </div>
-
-                <div class="comparison-card" style="border-color: var(--accent-color);">
-                    <div class="fan-canvas">
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M80 20 C105 25 125 50 120 80 C115 110 100 135 80 140 C60 135 45 110 40 80 C35 50 55 25 80 20 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <path d="M80 80 L45 45 M80 80 L115 45 M80 80 L38 80 M80 80 L122 80 M80 80 L50 120 M80 80 L110 120" stroke="#d4af37" stroke-width="1.2" stroke-dasharray="2 2"/>
-                            <circle cx="80" cy="80" r="14" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <text x="80" y="148" fill="#d4af37" font-size="9" font-family="monospace" text-anchor="middle">3D FANNED VOLUME</text>
-                        </svg>
-                    </div>
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">AFTER: THE 3D FANNED TORSO</span>
-                    <h3>Expanded &amp; Sovereign</h3>
-                    <p>Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 3D volume.</p>
+                <div class="trajectory-item">
+                    <div class="trajectory-day">Day 7</div>
+                    <div class="trajectory-text">Sash lines across the rib cage start shifting diagonally. Breathing volume deepens noticeably.</div>
+                </div>
+                <div class="trajectory-item">
+                    <div class="trajectory-day">Day 21</div>
+                    <div class="trajectory-text">Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</div>
+                </div>
+                <div class="trajectory-item">
+                    <div class="trajectory-day">Month 3</div>
+                    <div class="trajectory-text">Rib junctions unfreeze, replacing the rigid box feeling with fluid multi-directional torso mobility.</div>
+                </div>
+                <div class="trajectory-item">
+                    <div class="trajectory-day">Month 6</div>
+                    <div class="trajectory-text">Fully restored 3D fanned volume. Daily back fatigue breaks because your base geometry has changed.</div>
                 </div>
             </div>
         </section>
 
-        <!-- Origin Section -->
-        <section id="origin">
-            <h2>The Origin: Built From Experience, Not Theory</h2>
-            <div class="card">
-                <p>I sat in consulting rooms across decades, watched medical professionals shrug, and dropped money on thousands of scripted massages that treated muscle like loose meat while missing the laminated plates entirely. I have visited sports physios, chiropractors, acupuncturists, nutritionists, and countless specialists.</p>
-                <p>This guide is not academic theory. It is a hard-earned, experience-led process designed entirely for self-treatment, synthesizing clinical precision with deep tissue mechanics and structural awareness into an absolute, self-guided protocol.</p>
-                <p style="margin-bottom: 0;">You need absolute sovereignty over your own frame.</p>
+        <!-- About & Methodology -->
+        <section id="about">
+            <div class="section-title">03 / About the Methodology</div>
+            <div class="text-block">
+                <p>This is not academic theory or mainstream medicine treating parts in isolation. It is an experience-led self-treatment protocol built after decades of navigating consulting rooms and ineffective massages.</p>
+                <p>You need absolute sovereignty over your own frame, free from scripted routines and corporate wellness algorithms.</p>
             </div>
         </section>
 
-        <!-- Adhesion Map Section -->
-        <section id="adhesions">
-            <h2>The Adhesion Map: The Two Core Problem Zones</h2>
-            <p>Fascial failure doesn't happen evenly—it concentrates heavily in two primary loading zones. In each zone, you face a combination of two distinct structural traps: <strong>the broad laminar slab</strong> and <strong>deep focal anchor points</strong>.</p>
-            
-            <div class="visual-grid">
-                <div class="visual-card">
-                    <h3>1. The Shoulder &amp; Yoke Zone</h3>
-                    <p><strong>The Slab:</strong> The heavy upper-back yoke pinning shoulder blades flat against the ribs.</p>
-                    <p><strong>The Anchor:</strong> Focal adhesion rings at the skull-neck junction, choking upper rotation.</p>
+        <!-- Direct Access Payment Card -->
+        <section id="access">
+            <div class="section-title">04 / Direct Access — Full Network Access</div>
+            <div class="access-card">
+                <div class="access-title">No Auto-Renew. No Hidden Traps.</div>
+                <div class="access-desc">
+                    The first problem-solving session is free. Full annual network access across all specialist nodes is €60 / $65 / £50 for 365 days, with no auto-renewal. Tracked cleanly with zero background tracking pixels or cookies.
                 </div>
-                <div class="visual-card">
-                    <h3>2. The Lower Back &amp; Rib Base</h3>
-                    <p><strong>The Slab:</strong> The dense mid-to-lower back plate generating the dull lumbar ache.</p>
-                    <p><strong>The Anchor:</strong> Glued-down floating rib junctions locking your breathing into a rigid box.</p>
-                </div>
+                <button class="cta-btn">Unlock 365 Days of Access (€60 / $65 / £50) —</button>
             </div>
         </section>
+    </div>
 
-        <!-- Protocol Section -->
-        <section id="protocol">
-            <h2>The Self-Treatment Protocol</h2>
-            <p>When you begin unspooling these tension lines, you will feel the bands sliding across your body like sashes. If you have ever felt like you wanted a steamroller to run over your back and then sideways just to crack the pastry open, you already understand what unspooling requires.</p>
-            
-            <div class="card">
-                <ul>
-                    <li><strong>1. Leveraging Gravity in Motion:</strong> You don't need a clinical environment or a fixed setup. When walking up hills, climbing stairs, or navigating uneven streets, let natural body weight resistance shear laminated fascia against your frame.</li>
-                    <li><strong>2. The Mirror and Floating Rib Sequence:</strong> Locate primary tension points—back rolls, rib junctions, and old scars. Apply precise, two-handed pressure against the bone, moving in opposition (sideways, upward, and rotational) to unlaminate sheets and free lower floating ribs.</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 6-Month Timeline -->
-        <section id="timeline">
-            <h2>The Anatomy of Reclamation: A 6-Month Timeline</h2>
-            <p>True structural unspooling begins directly with your back architecture, transitioning your frame from a flat 2D cage into an expanded 3D fanned volume as the months progress.</p>
-            
-            <div class="visual-grid">
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 1</span>
-                    <h3>The Baseline Lock</h3>
-                    <p>Breaking the initial grip of the lower back plate and skull-neck choke. Zeroing out deadweight.</p>
-                </div>
-
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 2</span>
-                    <h3>Sash Line Unraveling</h3>
-                    <p>Elastic bands shift diagonally across ribs. Breathing volume expands as ribs unfreeze.</p>
-                </div>
-
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 3 - 4</span>
-                    <h3>Structural Integration</h3>
-                    <p>Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</p>
-                </div>
-
-                <div class="visual-card">
-                    <span style="font-size: 0.75rem; color: var(--accent-color); font-family: monospace; margin-bottom: 0.25rem;">MONTH 5 - 6</span>
-                    <h3>Full Body Cascade</h3>
-                    <p>Neck elongates, jawline tension drops, and true 3D fanned posture and volume are fully restored.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing & Final Concrete CTA -->
-        <section id="pricing">
-            <h2>The Sovereign Network Hub &amp; Pricing Policy</h2>
-            <p>Engineered with dry British precision and absolute respect for your time. Your first session solving an immediate restriction is entirely free. When you are ready to address the root architecture of your entire frame, engage the assistant below.</p>
-            
-            <div class="cta-box">
-                <h3>Unlock Your Frame</h3>
-                <p>Direct, uncompromised access to the complete network remedies and unspooling protocols.</p>
-                <div class="pricing-tag">€60 / $65 / £50 for 365 Days — Zero Auto-Renewals</div>
-                <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
-                <br>
-                <button class="btn" id="openPortalBtn" type="button">Secure Full Access Now</button>
-            </div>
-        </section>
-
-        <section id="legal" style="margin-top: 4rem; border-top: 1px solid var(--surface-border); padding-top: 2rem;">
-            <h2>Terms, Conditions &amp; Policies</h2>
-            
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Terms &amp; Conditions</h3>
-            <p style="font-size: 0.95rem;">By accessing and utilizing back.guide and the Sovereign Network, you operate under your own sovereign authority. All protocols are educational architectural frameworks for self-treatment and do not constitute formal medical treatment or diagnosis.</p>
-
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Privacy Policy</h3>
-            <p style="font-size: 0.95rem;">Absolute data privacy is foundational. We employ zero tracking pixels, no intrusive third-party cookies, and do not harvest or sell user data. What you build and test on your frame remains strictly private.</p>
-
-            <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 1.5rem; margin-bottom: 0.5rem;">Refund Policy</h3>
-            <p style="font-size: 0.95rem;">Due to the immediate, uncompromised digital nature of the Sovereign Network guides and unspooling frameworks, annual access fees are final upon activation. Review the diagnostic criteria and mirror tests thoroughly before securing access.</p>
-        </section>
-    </main>
-
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div>Part of the Sovereign Network Ecosystem &bull; Built by James Roberts, Tenerife</div>
-            <div class="footer-links">
-                <a href="#adhesions">Adhesions</a>
-                <a href="#protocol">Protocol</a>
-                <a href="#origin">The Origin</a>
-                <a href="#pricing">Pricing Policy</a>
-                <a href="#legal">Privacy</a>
-                <a href="#legal">Terms</a>
-                <a href="#legal">Refunds</a>
-            </div>
+        <span>Operated by James Roberts, Tenerife. Specialist node of compressed.guide.</span>
+        <div>
+            <a href="https://compressed.guide">Master Hub</a>
+            <a href="#access">Privacy & Terms</a>
         </div>
-        <div style="font-size: 0.8rem; color: var(--text-secondary);">Minimalist Architecture &bull; No Tracking Pixels &bull; Absolute Sovereignty</div>
     </footer>
-</div>
 
-<!-- Immersive Full-Screen Practice Portal -->
-<div class="immersive-portal" id="immersivePortal">
-    <div class="portal-header">
-        <div class="portal-title">Sovereign Network &bull; Architectural Study (Back Node)</div>
-        <button class="portal-exit" id="closePortalBtn" type="button">Return to Guide</button>
-    </div>
-    <div class="portal-body">
-        <div class="portal-feed" id="portalFeed">
-            <div class="portal-message system">
-                <strong>James — Architect:</strong> What’s locked in your back today? Your first session is free. Let's isolate that lower-back slab or upper yoke and unspool it properly.
-            </div>
-        </div>
-    </div>
-    <div class="portal-input-container">
-        <div style="width: 100%; max-width: var(--max-width); margin: 0 auto; display: flex; gap: 0.75rem; padding: 0 1rem;">
-            <textarea class="portal-textarea" id="portalInput" placeholder="Describe your back restriction or slab tension..."></textarea>
-            <button class="portal-submit" id="portalSubmit" type="button">Engage</button>
-        </div>
-    </div>
-</div>
+    <script>
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
 
-<script>
-    (function() {
-        const openBtn = document.getElementById('openPortalBtn');
-        const portal = document.getElementById('immersivePortal');
-        const closeBtn = document.getElementById('closePortalBtn');
-        const submitBtn = document.getElementById('portalSubmit');
-        const inputField = document.getElementById('portalInput');
-        const feedContainer = document.getElementById('portalFeed');
+        function appendMessage(text, sender) {
+            const div = document.createElement('div');
+            div.className = `message ${sender}`;
+            div.textContent = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
 
-        let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('sovereign_user_uuid', userUuid);
-
-        function togglePortal(e) {
+        function handleSend(e) {
             if (e) e.preventDefault();
-            portal.classList.toggle('active');
-            if (portal.classList.contains('active')) {
-                inputField.focus();
-            }
-        }
-
-        if (openBtn) {
-            openBtn.addEventListener('click', togglePortal);
-        }
-
-        // Also allow header links or other triggers to open portal if needed
-        document.querySelectorAll('a[href="#pricing"]').forEach(el => {
-            el.addEventListener('click', (e) => {
-                // Let smooth scroll happen, or bind directly if preferred
-            });
-        });
-
-        if (closeBtn) {
-            closeBtn.addEventListener('click', () => {
-                portal.classList.remove('active');
-            });
-        }
-
-        async function handlePortalMessage() {
-            const text = inputField.value.trim();
+            const text = chatInput.value.trim();
             if (!text) return;
 
-            const userDiv = document.createElement('div');
-            userDiv.className = 'portal-message user';
-            userDiv.textContent = text;
-            feedContainer.appendChild(userDiv);
-            inputField.value = '';
-            portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
-
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'portal-message system';
-            loadingDiv.innerHTML = '<strong>James — Architect:</strong> Analyzing back fascia matrix...';
-            feedContainer.appendChild(loadingDiv);
-            portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
+            appendMessage(text, 'user');
+            chatInput.value = '';
 
             setTimeout(() => {
-                loadingDiv.remove();
-                const systemDiv = document.createElement('div');
-                systemDiv.className = 'portal-message system';
-                systemDiv.innerHTML = `<strong>James — Architect:</strong> Fair enough. Ten years at a desk usually welds the lower back slab down solid. Let's unspool that tension point properly.`;
-                feedContainer.appendChild(systemDiv);
-                portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
-            }, 700);
+                appendMessage("Fair enough. Ten years at a desk usually welds the lower back slab down solid. Let's unspool that tension point properly.", 'assistant');
+            }, 600);
         }
 
-        if (submitBtn) {
-            submitBtn.addEventListener('click', handlePortalMessage);
-        }
-
-        if (inputField) {
-            inputField.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault();
-                    handlePortalMessage();
-                }
-            });
-        }
-    })();
-</script>
-
+        sendBtn.addEventListener('click', handleSend);
+        chatInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                handleSend(e);
+            }
+        });
+    </script>
 </body>
 </html>
