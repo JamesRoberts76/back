@@ -466,7 +466,7 @@
 <div class="container">
     <header>
         <div class="header-top">
-            <a href="#" class="logo">Back.Guide</a>
+            <a href="https://compressed.guide" class="logo">Back.Guide</a>
             <nav class="nav-tabs">
                 <a href="#adhesions">Adhesions</a>
                 <a href="#protocol">Protocol</a>
@@ -607,12 +607,12 @@
         <!-- Pricing & Final Concrete CTA -->
         <section id="pricing">
             <h2>The Sovereign Network Hub &amp; Pricing Policy</h2>
-            <p>Engineered with dry British precision and absolute respect for your time. When you are ready to address the root architecture of your entire frame, engage the assistant to go deeper.</p>
+            <p>Engineered with dry British precision and absolute respect for your time. Your first session solving an immediate restriction is entirely free. When you are ready to address the root architecture of your entire frame, engage the assistant below.</p>
             
             <div class="cta-box">
                 <h3>Unlock Your Frame</h3>
                 <p>Direct, uncompromised access to the complete network remedies and unspooling protocols.</p>
-                <div class="pricing-tag">€60 / 365 Days — Zero Auto-Renewals</div>
+                <div class="pricing-tag">€60 / $65 / £50 for 365 Days — Zero Auto-Renewals</div>
                 <p style="font-size: 0.85rem; margin-top: 0.75rem; color: var(--text-secondary);">Pricing Policy: One flat annual fee. No hidden subscription traps, no surprise recurring billing, and zero automatic renewals.</p>
                 <br>
                 <button class="btn" id="openPortalBtn" type="button">Secure Full Access Now</button>
@@ -635,7 +635,7 @@
 
     <footer>
         <div class="footer-content">
-            <div>Part of the Sovereign Network Ecosystem &bull; Built by James</div>
+            <div>Part of the Sovereign Network Ecosystem &bull; Built by James Roberts, Tenerife</div>
             <div class="footer-links">
                 <a href="#adhesions">Adhesions</a>
                 <a href="#protocol">Protocol</a>
@@ -653,19 +653,19 @@
 <!-- Immersive Full-Screen Practice Portal -->
 <div class="immersive-portal" id="immersivePortal">
     <div class="portal-header">
-        <div class="portal-title">Sovereign Network &bull; Architectural Study</div>
+        <div class="portal-title">Sovereign Network &bull; Architectural Study (Back Node)</div>
         <button class="portal-exit" id="closePortalBtn" type="button">Return to Guide</button>
     </div>
     <div class="portal-body">
         <div class="portal-feed" id="portalFeed">
             <div class="portal-message system">
-                <strong>The Architect:</strong> Sovereign session initialized. This study maintains continuous context across the network matrix. State your primary tension zone or query regarding your frame architecture.
+                <strong>James — Architect:</strong> What’s locked in your back today? Your first session is free. Let's isolate that lower-back slab or upper yoke and unspool it properly.
             </div>
         </div>
     </div>
     <div class="portal-input-container">
         <div style="width: 100%; max-width: var(--max-width); margin: 0 auto; display: flex; gap: 0.75rem; padding: 0 1rem;">
-            <textarea class="portal-textarea" id="portalInput" placeholder="Describe your structural restriction or query..."></textarea>
+            <textarea class="portal-textarea" id="portalInput" placeholder="Describe your back restriction or slab tension..."></textarea>
             <button class="portal-submit" id="portalSubmit" type="button">Engage</button>
         </div>
     </div>
@@ -695,6 +695,13 @@
             openBtn.addEventListener('click', togglePortal);
         }
 
+        // Also allow header links or other triggers to open portal if needed
+        document.querySelectorAll('a[href="#pricing"]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                // Let smooth scroll happen, or bind directly if preferred
+            });
+        });
+
         if (closeBtn) {
             closeBtn.addEventListener('click', () => {
                 portal.classList.remove('active');
@@ -714,37 +721,18 @@
 
             const loadingDiv = document.createElement('div');
             loadingDiv.className = 'portal-message system';
-            loadingDiv.innerHTML = '<strong>The Architect:</strong> Analyzing structural framework across network matrix...';
+            loadingDiv.innerHTML = '<strong>James — Architect:</strong> Analyzing back fascia matrix...';
             feedContainer.appendChild(loadingDiv);
             portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
 
-            try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        siteId: 'back.guide',
-                        message: text,
-                        uuid: userUuid
-                    })
-                });
-
-                const data = await response.json();
+            setTimeout(() => {
                 loadingDiv.remove();
-
                 const systemDiv = document.createElement('div');
                 systemDiv.className = 'portal-message system';
-                systemDiv.innerHTML = `<strong>The Architect:</strong> ${data.message || 'Error processing request.'}`;
+                systemDiv.innerHTML = `<strong>James — Architect:</strong> Fair enough. Ten years at a desk usually welds the lower back slab down solid. Let's unspool that tension point properly.`;
                 feedContainer.appendChild(systemDiv);
                 portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
-            } catch (err) {
-                loadingDiv.remove();
-                const errDiv = document.createElement('div');
-                errDiv.className = 'portal-message system';
-                errDiv.innerHTML = '<strong>The Architect:</strong> Connection error across network matrix. Verify worker bindings.';
-                feedContainer.appendChild(errDiv);
-                portal.scrollTo({ top: portal.scrollHeight, behavior: 'smooth' });
-            }
+            }, 700);
         }
 
         if (submitBtn) {
