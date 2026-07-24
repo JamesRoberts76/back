@@ -512,6 +512,46 @@
             opacity: 0.9;
         }
 
+        /* Network Cross-Cluster Pill Bar */
+        .node-cluster-bar {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .cluster-title {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pill {
+            background-color: var(--bg-color);
+            border: 1px solid var(--surface-border);
+            color: var(--text-muted);
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .pill:hover {
+            color: var(--text-primary);
+            border-color: var(--text-muted);
+        }
+
         /* Footer */
         footer {
             display: flex;
@@ -581,7 +621,7 @@
         <header>
             <h1>Slab Fascia &amp; Back Adhesions.</h1>
             <div class="site-subtitle">
-                If you are a man aged 35 to 65 who has worked at a computer for 10 years or more, your frame is compressed. The back issue you feel is just the tiny, acute tip of the iceberg; fixing it triggers a complete chain reaction to a whole new body. Your first session solving an immediate restriction with James costs nothing.
+                If desk work has compressed your back, this guide helps you identify the slab and start unspooling the first restriction free. Your first consultation is free.
             </div>
         </header>
 
@@ -598,14 +638,14 @@
             </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message assistant">
-                    Where is your back locked today? Your first session is free—let's unspool that initial restriction.
+                    Where is your back locked today? Your first consultation is free—let's check your crown tension and unspool that initial restriction.
                 </div>
             </div>
-            <!-- Enhanced Short Prompt Suggestions (Situational, Physical, Conceptual) -->
+            <!-- Enhanced Short Prompt Suggestions -->
             <div class="chat-suggestions" id="chatSuggestions">
-                <button class="suggestion-chip" data-prompt="My lower back feels locked up from sitting all day.">Situational: Desk Lower-Back Lock</button>
-                <button class="suggestion-chip" data-prompt="How do I unspool my upper yoke and shoulder blade adhesions?">Physical: Upper Yoke Adhesion</button>
-                <button class="suggestion-chip" data-prompt="Explain how fixing this back issue triggers a full body chain reaction.">Conceptual: Frame Chain Reaction</button>
+                <button class="suggestion-chip" data-prompt="My lower back feels locked up from sitting all day.">Situational: Desk Lock</button>
+                <button class="suggestion-chip" data-prompt="How do I unspool my upper yoke and check my crown tension?">Physical: Upper Yoke</button>
+                <button class="suggestion-chip" data-prompt="Explain how tracking the crown condition drives the full body chain reaction.">Conceptual: Crown Feedback</button>
             </div>
             <div class="chat-input-area">
                 <div class="chat-input-wrapper">
@@ -636,7 +676,7 @@
                     </div>
                 </div>
                 <div class="evolution-desc">
-                    Moving from a flattened 2D desk cage to complete frame reclamation. Solving the back adhesion triggers a total cascading reset of your physical geometry.
+                    Moving from a flattened 2D desk cage to complete frame reclamation. We track your structural evolution through how your crown feels as your geometry resets.
                 </div>
             </div>
         </section>
@@ -658,7 +698,7 @@
                     </div>
                     <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">BEFORE: THE 2D LOCKED CAGE</span>
                     <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">Flattened &amp; Dehydrated</h3>
-                    <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
+                    <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight felt right up to the crown.</p>
                 </div>
 
                 <div class="comparison-card" style="border-color: var(--accent-gold);">
@@ -672,7 +712,7 @@
                     </div>
                     <span style="font-size: 0.75rem; color: var(--accent-gold); font-family: monospace; display: block; margin-bottom: 0.35rem;">AFTER: THE 3D FANNED TORSO</span>
                     <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">Expanded &amp; Sovereign</h3>
-                    <p>Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 3D volume.</p>
+                    <p>Dynamic multi-directional fanning. Unspooled fascial sheets, clear crown feedback, and open 3D volume.</p>
                 </div>
             </div>
         </section>
@@ -684,17 +724,17 @@
                 <div class="protocol-box">
                     <div class="protocol-box-num">#1</div>
                     <div class="protocol-box-title">Slab Identification</div>
-                    <div class="protocol-box-desc">Isolate the heavy upper-back yoke or dense lower-back plate pinning your spine without narrative buildup.</div>
+                    <div class="protocol-box-desc">Isolate the heavy upper-back yoke or dense lower-back plate pinning your spine.</div>
                 </div>
                 <div class="protocol-box">
                     <div class="protocol-box-num">#2</div>
                     <div class="protocol-box-title">Mechanical Unspooling</div>
-                    <div class="protocol-box-desc">Apply precise two-handed opposition pressure against bone, shearing laminated fascia free from the rib base.</div>
+                    <div class="protocol-box-desc">Apply precise two-handed opposition pressure against bone, shearing laminated fascia free.</div>
                 </div>
                 <div class="protocol-box">
                     <div class="protocol-box-num">#3</div>
-                    <div class="protocol-box-title">3D Volume Verification</div>
-                    <div class="protocol-box-desc">Confirm your torso expands dynamically in three dimensions rather than moving as a flattened 2D accordion cage.</div>
+                    <div class="protocol-box-title">Crown Verification</div>
+                    <div class="protocol-box-desc">Confirm your posture opens up through how light and balanced your crown feels.</div>
                 </div>
             </div>
         </section>
@@ -708,23 +748,36 @@
             <div class="trajectory-list">
                 <div class="trajectory-item">
                     <div class="trajectory-day">Day 1</div>
-                    <div class="trajectory-text">Initial release of the lower-back plate and skull-neck junction choke. Heavy deadweight begins to lift.</div>
+                    <div class="trajectory-text">Initial release of the lower-back plate. Noticeable shift in how the crown registers tension and vertical pressure.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Day 3</div>
-                    <div class="trajectory-text">Decompression takes hold; breathing deepens as floating rib junctions unfreeze from their box.</div>
+                    <div class="trajectory-text">Decompression takes hold; breathing deepens as floating rib junctions unfreeze, relieving upward neck strain.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Day 21</div>
-                    <div class="trajectory-text">Upper yoke unpins. Shoulder blades drop back into natural tracks, triggering postural stability.</div>
+                    <div class="trajectory-text">Upper yoke unpins. The crown feels noticeably lighter as shoulder blades drop back into natural tracks.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Month 3</div>
-                    <div class="trajectory-text">The chain reaction spreads across the whole frame—neck elongates, hip mechanics shift, and old posture breaks.</div>
+                    <div class="trajectory-text">The chain reaction stabilizes. The crown feels sovereign and balanced as daily fatigue loops break entirely.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Month 6</div>
-                    <div class="trajectory-text">Structured baseline. A completely reclaimed framework with permanent 3D fanned volume and zero daily fatigue loops.</div>
+                    <div class="trajectory-text">Structured baseline. A completely reclaimed framework with permanent 3D fanned volume and clear, effortless crown feedback.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Network Cross-Navigation -->
+        <section>
+            <div class="cluster-title">Related Network Nodes</div>
+            <div class="node-cluster-bar">
+                <div class="pill-grid">
+                    <a href="https://hunched.guide" class="pill">hunched.guide</a>
+                    <a href="https://flareup.guide" class="pill">flareup.guide</a>
+                    <a href="https://legs.guide" class="pill">legs.guide</a>
+                    <a href="https://compressed.guide" class="pill">compressed.guide (Hub)</a>
                 </div>
             </div>
         </section>
@@ -734,7 +787,7 @@
             <div class="section-title">05 / About James & The Methodology</div>
             <div class="text-block">
                 <p>Operated independently from Tenerife, Canary Islands. Built on decades of international travel, hospitality operations, and structural observation—away from the noise of corporate clinics and wellness algorithms.</p>
-                <p>After hosting thousands of guests and operating independent service businesses, the realization was simple: men aged 35–65 desk-bound for a decade don't need another generic app or scripted massage treating muscle like loose meat. They need direct access to expert mechanical logic that respects their intelligence and time.</p>
+                <p>After hosting thousands of guests and operating independent service businesses, the realization was simple: men desk-bound for a decade don't need another generic app or scripted massage. They need direct tracking of their crown condition and expert mechanical logic that respects their time.</p>
             </div>
         </section>
 
@@ -744,7 +797,7 @@
             <div class="access-card">
                 <div class="access-title">No Auto-Renew. No Hidden Traps.</div>
                 <div class="access-desc">
-                    Your first problem-solving session solving an immediate restriction with James costs nothing. Full annual network access is €60 / $65 / £50 for 365 days, with no auto-renewal. Tracked cleanly with zero background tracking pixels or cookies. Access simply expires when the year ends unless renewed manually.
+                    Your first consultation is free. Full annual network access is €60 / $65 / £50 for 365 days, with no auto-renewal. Tracked cleanly through the condition of your crown with zero background tracking pixels or cookies. Access simply expires when the year ends unless renewed manually.
                 </div>
                 <button class="cta-btn">Unlock 365 Days of Access (€60 / $65 / £50) —</button>
             </div>
@@ -766,12 +819,31 @@
         const sendBtn = document.getElementById('sendBtn');
         const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
+        let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
+        localStorage.setItem('sovereign_user_uuid', userUuid);
+
+        let chatHistory = JSON.parse(localStorage.getItem('back_guide_chat')) || [];
+
+        if (chatHistory.length > 0) {
+            chatMessages.innerHTML = '';
+            chatHistory.forEach(msg => {
+                const div = document.createElement('div');
+                div.className = `message ${msg.sender}`;
+                div.textContent = msg.text;
+                chatMessages.appendChild(div);
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
         function appendMessage(text, sender) {
             const div = document.createElement('div');
             div.className = `message ${sender}`;
             div.textContent = text;
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            chatHistory.push({ text, sender });
+            localStorage.setItem('back_guide_chat', JSON.stringify(chatHistory));
         }
 
         function handleSend(customText) {
@@ -784,7 +856,7 @@
             }
 
             setTimeout(() => {
-                appendMessage("Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that is just the catalyst—it triggers a chain reaction across your entire frame. Let's unspool it.", 'assistant');
+                appendMessage("Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that triggers a chain reaction across your frame—and we check how your crown feels to track it. Let's unspool it.", 'assistant');
             }, 600);
         }
 
@@ -795,7 +867,6 @@
             }
         });
 
-        // Handle suggestion chip clicks
         suggestionChips.forEach(chip => {
             chip.addEventListener('click', () => {
                 const promptText = chip.getAttribute('data-prompt');
