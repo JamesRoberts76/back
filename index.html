@@ -621,7 +621,7 @@
         <header>
             <h1>Slab Fascia &amp; Back Adhesions.</h1>
             <div class="site-subtitle">
-                If desk work has compressed your back, this guide helps you identify the slab and start unspooling the first restriction free. Your first consultation is free.
+                If desk work has compressed your back, this guide helps you identify the slab and start unspooling the first restriction. Your first consultation is free.
             </div>
         </header>
 
@@ -855,8 +855,20 @@
                 chatInput.value = '';
             }
 
+            // Varied contextual responses based on user input instead of returning a hardcoded duplicate string
             setTimeout(() => {
-                appendMessage("Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that triggers a chain reaction across your frame—and we check how your crown feels to track it. Let's unspool it.", 'assistant');
+                let responseText = "Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that triggers a chain reaction across your frame—and we check how your crown feels to track it. Let's unspool it.";
+                
+                const lowerText = text.toLowerCase();
+                if (lowerText.includes('sitting') || lowerText.includes('desk') || lowerText.includes('lower back')) {
+                    responseText = "The lower back plate takes the brunt of hours in an office chair. Let's shear that plate sideways against the rib base and see how your crown responds.";
+                } else if (lowerText.includes('upper yoke') || lowerText.includes('shoulder')) {
+                    responseText = "The upper yoke locks the shoulder blades flat against the ribs, choking rotation up to the neck. Let's unpin that yoke and free your breathing volume.";
+                } else if (lowerText.includes('crown') || lowerText.includes('feedback') || lowerText.includes('chain reaction')) {
+                    responseText = "Your crown is the ultimate barometer of spinal alignment. When the lower slab lets go, vertical pressure lifts straight off the top of your head.";
+                }
+
+                appendMessage(responseText, 'assistant');
             }, 600);
         }
 
