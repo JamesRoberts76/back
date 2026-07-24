@@ -406,18 +406,8 @@
             padding: 1.5rem;
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
             position: relative;
-        }
-
-        .safety-card-step {
-            position: absolute;
-            top: 1rem;
-            right: 1.25rem;
-            font-size: 0.7rem;
-            color: var(--accent-gold);
-            font-weight: 700;
-            letter-spacing: 0.1em;
+            height: 100%;
         }
 
         .safety-card-canvas {
@@ -430,6 +420,9 @@
             align-items: center;
             justify-content: center;
             position: relative;
+            margin-bottom: 1.25rem;
+            flex-shrink: 0; /* Prevents browser from compressing the illustration */
+            overflow: hidden; /* Keeps SVG elements cleanly inside the border */
         }
 
         .safety-card-canvas svg {
@@ -437,51 +430,33 @@
             width: auto;
         }
 
+        .safety-card-step {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.65rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            background-color: rgba(20, 20, 23, 0.9);
+            border: 1px solid var(--surface-border);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            z-index: 10;
+        }
+
         .safety-card-title {
             font-size: 1.05rem;
             font-weight: 600;
             color: var(--text-primary);
+            margin-bottom: 0.5rem;
         }
 
         .safety-card-desc {
             font-size: 0.95rem;
             color: var(--text-muted);
             line-height: 1.5;
-        }
-
-        /* Protocol Grid */
-        .protocol-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1rem;
-        }
-
-        .protocol-box {
-            background-color: var(--surface-color);
-            border: 1px solid var(--surface-border);
-            border-radius: 6px;
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .protocol-box-num {
-            font-size: 0.75rem;
-            color: var(--accent-gold);
-            font-weight: 600;
-        }
-
-        .protocol-box-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .protocol-box-desc {
-            font-size: 1rem;
-            color: var(--text-muted);
-            line-height: 1.5;
+            flex-grow: 1; /* Pushes the card height properly to encompass the text */
         }
 
         /* Trajectory Timeline */
@@ -785,8 +760,8 @@
             <div class="safety-cards-grid">
                 <!-- Card 1: Slab Identification -->
                 <div class="safety-card">
-                    <span class="safety-card-step">CARD 01</span>
                     <div class="safety-card-canvas">
+                        <div class="safety-card-step">CARD 01</div>
                         <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
                             <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
@@ -802,8 +777,8 @@
 
                 <!-- Card 2: Two-Handed Opposition Mechanics -->
                 <div class="safety-card">
-                    <span class="safety-card-step">CARD 02</span>
                     <div class="safety-card-canvas">
+                        <div class="safety-card-step">CARD 02</div>
                         <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
                             <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
@@ -820,8 +795,8 @@
 
                 <!-- Card 3: Crown Verification -->
                 <div class="safety-card">
-                    <span class="safety-card-step">CARD 03</span>
                     <div class="safety-card-canvas">
+                        <div class="safety-card-step">CARD 03</div>
                         <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="80" cy="28" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
                             <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
@@ -917,7 +892,7 @@
         const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
         let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('sovereyn_user_uuid', userUuid);
+        localStorage.setItem('sovereign_user_uuid', userUuid);
 
         let chatHistory = JSON.parse(localStorage.getItem('back_guide_chat')) || [];
 
