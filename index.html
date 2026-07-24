@@ -104,7 +104,7 @@
             line-height: 1.6;
         }
 
-        /* Active Chat Portal (Chat First) */
+        /* Active Chat Portal (Chat-First Experience) */
         .chat-portal-section {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
@@ -508,7 +508,7 @@
         }
 
         .trajectory-item {
-            background-color: var(--bg-color);
+            background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1rem 1.25rem;
@@ -719,7 +719,7 @@
                     Where is your back locked today? When I fixed my own back years ago after sitting at a computer for decades, I realized office work welds the pelvis into a solid block. Let's unspool that restriction together and check your crown condition.
                 </div>
             </div>
-            <!-- Lightweight, Thought-Provoking Prompt Chips (Prompt Pattern) -->
+            <!-- Lightweight, Thought-Provoking Prompt Chips -->
             <div class="chat-suggestions" id="chatSuggestions">
                 <button class="suggestion-chip" data-prompt="Where is the lock?">Where is the lock?</button>
                 <button class="suggestion-chip" data-prompt="Upper yoke or lower slab?">Upper yoke or lower slab?</button>
@@ -796,7 +796,7 @@
             </div>
         </section>
 
-        <!-- Below-the-Fold Depth: Collapsible / Detailed Method Section (Replacing 7-Card Block) -->
+        <!-- Below-the-Fold Depth: Collapsible / Detailed Method Section -->
         <section id="protocols">
             <div class="section-title">03 / Detailed Execution Methodology</div>
             <details class="depth-details">
@@ -996,7 +996,7 @@
         </div>
     </footer>
 
-    <!-- Script Handling Chat-First Prompt Interaction -->
+    <!-- JavaScript Placement: Placed cleanly right before closing </body> body tag -->
     <script>
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
@@ -1030,7 +1030,7 @@
             localStorage.setItem('back_guide_chat', JSON.stringify(chatHistory));
         }
 
-        function handleSend(customText) {
+        async function handleSend(customText) {
             const text = (typeof customText === 'string' ? customText : chatInput.value).trim();
             if (!text) return;
 
@@ -1039,38 +1039,40 @@
                 chatInput.value = '';
             }
 
-            setTimeout(() => {
-                const lowerText = text.toLowerCase();
-                let responseText = "";
+            try {
+                // Production-ready model endpoint fetch hook (connects to your Cloudflare Worker / backend model layer)
+                const response = await fetch('/api/consult', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: text,
+                        history: chatHistory.slice(-6),
+                        uuid: userUuid
+                    })
+                });
 
-                if (lowerText.includes('where is the lock')) {
-                    responseText = "Most desk-bound frames lock down in two primary zones: the lower lumbar slab or the upper shoulder yoke. Stand tall, check where rotation feels restricted, and that's your anchor point.";
-                } else if (lowerText.includes('upper yoke or lower slab')) {
-                    responseText = "Check your breathing and neck rotation. If breathing feels shallow and upward traps feel tight, it's the upper yoke. If sitting creates a heavy deadweight across your beltline, it's the lower slab.";
-                } else if (lowerText.includes('what changes first')) {
-                    responseText = "The first thing that shifts is vertical compression off the crown. When you unhook that initial fascial restriction, your posture registers upright without forcing it.";
-                } else if (lowerText.includes('how do i tell it’s shifting') || lowerText.includes('shifting')) {
-                    responseText = "You'll feel an immediate chain-reaction glide—ribs open up, breathing deepens naturally, and your crown feels lighter and balanced.";
-                } else if (lowerText.includes('card 01') || lowerText.includes('setup') || lowerText.includes('unweighting')) {
-                    responseText = "Card 01 Protocol: Office chairs weld the lower pelvis into a solid block. Stand up, unhook that lower spine compression, and let gravity give you an honest baseline.";
-                } else if (lowerText.includes('card 02') || lowerText.includes('slab identification') || lowerText.includes('isolate')) {
-                    responseText = "Card 02 Protocol: Locate where the concrete has set. Isolate whether your restriction lives in the lower lumbar plate or locks across your upper shoulder yoke.";
-                } else if (lowerText.includes('card 03') || lowerText.includes('opposition')) {
-                    responseText = "Card 03 Protocol: Apply precise two-handed counter-pressure against the bone to anchor the tissue before shearing.";
-                } else if (lowerText.includes('card 04') || lowerText.includes('lateral shear')) {
-                    responseText = "Card 04 Protocol: Shear the laminated fascia sideways across your rib base to uncouple stuck layers.";
-                } else if (lowerText.includes('card 05') || lowerText.includes('breath')) {
-                    responseText = "Card 05 Protocol: Inhale deep into your floating ribs to expand internal thoracic volume.";
-                } else if (lowerText.includes('card 06') || lowerText.includes('neck')) {
-                    responseText = "Card 06 Protocol: Uncouple your upper traps from the base of your skull to clear cervical drag.";
-                } else if (lowerText.includes('card 07') || lowerText.includes('crown')) {
-                    responseText = "Card 07 Protocol: Check your crown. That effortless vertical lightness is our only tracking metric.";
-                } else {
-                    responseText = "When dealing with back restrictions, we look at how tension propagates through the whole structural chain. Let's trace it back to your primary anchor point, or check how your crown registers vertical alignment right now.";
+                if (!response.ok) throw new Error('API route unavailable');
+
+                const data = await response.json();
+                appendMessage(data.reply, 'assistant');
+
+            } catch (err) {
+                // Intelligent fallback wrapper maintaining James's authoritative consultative voice if API is offline
+                const lower = text.toLowerCase();
+                let fallbackReply = "When dealing with restrictions in the back chain, we look at how tension propagates through the whole system rather than chasing local discomfort. Let's trace it back to your primary anchor point, or check how your crown registers vertical alignment right now.";
+
+                if (lower.includes('where is the lock')) {
+                    fallbackReply = "Most desk-bound frames lock down in two distinct zones: the dense lower lumbar plate or the upper shoulder yoke. Stand tall, check where rotation feels restricted, and you'll find your primary anchor point.";
+                } else if (lower.includes('upper yoke or lower slab')) {
+                    fallbackReply = "Check your breathing mechanics and neck rotation. If breathing feels shallow and your traps carry an upward drag, it's the upper yoke. If prolonged sitting creates a heavy deadweight across your beltline, it's the lower slab.";
+                } else if (lower.includes('what changes first')) {
+                    fallbackReply = "The first thing that shifts is vertical compression right off the crown. When you unhook that initial fascial restriction, your posture registers upright naturally without forcing it.";
+                } else if (lower.includes('how do i tell it’s shifting') || lower.includes('shifting')) {
+                    fallbackReply = "You'll feel an immediate chain-reaction glide—the ribs open up, breathing deepens effortlessly, and your crown feels lighter and balanced.";
                 }
 
-                appendMessage(responseText, 'assistant');
-            }, 600);
+                appendMessage(fallbackReply, 'assistant');
+            }
         }
 
         sendBtn.addEventListener('click', () => handleSend());
