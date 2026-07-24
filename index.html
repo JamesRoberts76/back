@@ -104,7 +104,7 @@
             line-height: 1.6;
         }
 
-        /* Active Chat Portal */
+        /* Active Chat Portal (Chat First) */
         .chat-portal-section {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
@@ -196,6 +196,7 @@
             border-top-right-radius: 2px;
         }
 
+        /* Lightweight, Thought-Provoking Prompt Chips */
         .chat-suggestions {
             padding: 0.75rem 1.25rem;
             background-color: #101013;
@@ -386,7 +387,41 @@
             color: var(--text-muted);
         }
 
-        /* Airline Safety Card Style Demonstration Cards (7-Step Execution Sequence) */
+        /* Below-the-Fold Depth: Collapsible / Detailed Method Section */
+        .depth-details {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .depth-summary {
+            padding: 1.25rem 1.5rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            background-color: #101013;
+        }
+
+        .depth-summary:hover {
+            color: var(--text-primary);
+        }
+
+        .depth-content {
+            padding: 1.5rem;
+            border-top: 1px solid var(--surface-border);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Airline Safety Card Style Demonstration Cards (7-Step Depth Sequence) */
         .safety-cards-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -406,7 +441,7 @@
         }
 
         .safety-card {
-            background-color: var(--surface-color);
+            background-color: var(--bg-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1.5rem;
@@ -418,7 +453,7 @@
 
         .safety-card-canvas {
             width: 100%;
-            height: 180px;
+            height: 160px;
             background-color: #111115;
             border: 1px solid var(--surface-border);
             border-radius: 4px;
@@ -432,7 +467,7 @@
         }
 
         .safety-card-canvas svg {
-            max-height: 150px;
+            max-height: 130px;
             width: auto;
         }
 
@@ -459,7 +494,7 @@
         }
 
         .safety-card-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
             line-height: 1.5;
             flex-grow: 1;
@@ -473,7 +508,7 @@
         }
 
         .trajectory-item {
-            background-color: var(--surface-color);
+            background-color: var(--bg-color);
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1rem 1.25rem;
@@ -654,7 +689,7 @@
             <a href="https://compressed.guide" class="brand-logo">Back.Guide</a>
             <div class="nav-links">
                 <a href="#evolution">The Shift</a>
-                <a href="#protocols">Protocols</a>
+                <a href="#protocols">Methodology</a>
                 <a href="#about">About James</a>
                 <a href="#access">Consult James</a>
             </div>
@@ -668,7 +703,7 @@
             </div>
         </header>
 
-        <!-- Active Chat Portal -->
+        <!-- Active Chat Portal (Chat-First Experience) -->
         <div class="chat-portal-section">
             <div class="chat-portal-header">
                 <div class="architect-info">
@@ -681,18 +716,15 @@
             </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message assistant">
-                    Where is your back locked today? When I fixed my own back years ago after long hours at a screen, I realized office work welds the pelvis into a solid block. Let's unspool that restriction together and check your crown condition.
+                    Where is your back locked today? When I fixed my own back years ago after sitting at a computer for decades, I realized office work welds the pelvis into a solid block. Let's unspool that restriction together and check your crown condition.
                 </div>
             </div>
-            <!-- Short Prompt Suggestions -->
+            <!-- Lightweight, Thought-Provoking Prompt Chips (Prompt Pattern) -->
             <div class="chat-suggestions" id="chatSuggestions">
-                <button class="suggestion-chip" data-prompt="Card 01: Walk me through setup and unweighting.">Card 01: Setup &amp; Unweighting</button>
-                <button class="suggestion-chip" data-prompt="Card 02: How do I identify my lower slab or upper yoke?">Card 02: Slab Identification</button>
-                <button class="suggestion-chip" data-prompt="Card 03: Show me the two-handed opposition mechanics.">Card 03: Opposition Mechanics</button>
-                <button class="suggestion-chip" data-prompt="Card 04: How do I perform lateral shear and gliding?">Card 04: Lateral Shear</button>
-                <button class="suggestion-chip" data-prompt="Card 05: Explain floating rib breath integration.">Card 05: Breath Integration</button>
-                <button class="suggestion-chip" data-prompt="Card 06: How do I uncouple neck tension from my skull?">Card 06: Neck Uncoupling</button>
-                <button class="suggestion-chip" data-prompt="Card 07: Let's check my crown feedback and vertical lift.">Card 07: Crown Verification</button>
+                <button class="suggestion-chip" data-prompt="Where is the lock?">Where is the lock?</button>
+                <button class="suggestion-chip" data-prompt="Upper yoke or lower slab?">Upper yoke or lower slab?</button>
+                <button class="suggestion-chip" data-prompt="What changes first?">What changes first?</button>
+                <button class="suggestion-chip" data-prompt="How do I tell it’s shifting?">How do I tell it’s shifting?</button>
             </div>
             <div class="chat-input-area">
                 <div class="chat-input-wrapper">
@@ -764,122 +796,130 @@
             </div>
         </section>
 
-        <!-- Airline Safety Card Style Demonstration Cards (7-Step Execution Sequence) -->
+        <!-- Below-the-Fold Depth: Collapsible / Detailed Method Section (Replacing 7-Card Block) -->
         <section id="protocols">
-            <div class="section-title">03 / 7-Step Execution Cards</div>
-            <div class="safety-cards-grid">
-                <!-- Card 1 -->
-                <div class="safety-card">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 01</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
-                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M70 95 L90 95 M80 95 L80 110" stroke="#d4af37" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">1. Setup &amp; Unweighting</div>
-                    <div class="safety-card-desc">
-                        Reset your pelvis and unhook the lower spine from seated compression before applying any localized pressure.
-                    </div>
-                </div>
+            <div class="section-title">03 / Detailed Execution Methodology</div>
+            <details class="depth-details">
+                <summary class="depth-summary">
+                    <span>View 7-Step Unspooling Protocol Reference Cards</span>
+                    <span>▾</span>
+                </summary>
+                <div class="depth-content">
+                    <div class="safety-cards-grid">
+                        <!-- Card 1 -->
+                        <div class="safety-card">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 01</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M70 95 L90 95 M80 95 L80 110" stroke="#d4af37" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">1. Setup &amp; Unweighting</div>
+                            <div class="safety-card-desc">
+                                Reset your pelvis and unhook the lower spine from seated compression before applying any localized pressure.
+                            </div>
+                        </div>
 
-                <!-- Card 2 -->
-                <div class="safety-card">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 02</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
-                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <rect x="70" y="55" width="20" height="35" rx="3" fill="rgba(212, 175, 55, 0.2)" stroke="#d4af37" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">2. Slab Identification</div>
-                    <div class="safety-card-desc">
-                        Isolate whether your primary restriction lives in the dense lower plate or the heavy upper shoulder yoke.
-                    </div>
-                </div>
+                        <!-- Card 2 -->
+                        <div class="safety-card">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 02</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <rect x="70" y="55" width="20" height="35" rx="3" fill="rgba(212, 175, 55, 0.2)" stroke="#d4af37" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">2. Slab Identification</div>
+                            <div class="safety-card-desc">
+                                Isolate whether your primary restriction lives in the dense lower plate or the heavy upper shoulder yoke.
+                            </div>
+                        </div>
 
-                <!-- Card 3 -->
-                <div class="safety-card">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 03</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
-                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M55 65 L72 65 M105 65 L88 65" stroke="#d4af37" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">3. Opposition Mechanics</div>
-                    <div class="safety-card-desc">
-                        Apply precise two-handed counter-pressure directly against bone to anchor the tissue before shearing.
-                    </div>
-                </div>
+                        <!-- Card 3 -->
+                        <div class="safety-card">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 03</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M55 65 L72 65 M105 65 L88 65" stroke="#d4af37" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">3. Opposition Mechanics</div>
+                            <div class="safety-card-desc">
+                                Apply precise two-handed counter-pressure directly against bone to anchor the tissue before shearing.
+                            </div>
+                        </div>
 
-                <!-- Card 4 -->
-                <div class="safety-card">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 04</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
-                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M65 70 L95 60 M65 80 L95 90" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="2 2"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">4. Lateral Shear &amp; Glide</div>
-                    <div class="safety-card-desc">
-                        Uncouple the laminated fascial sheets sideways across the rib base, breaking chronic surface adhesions.
-                    </div>
-                </div>
+                        <!-- Card 4 -->
+                        <div class="safety-card">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 04</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M65 70 L95 60 M65 80 L95 90" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="2 2"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">4. Lateral Shear &amp; Glide</div>
+                            <div class="safety-card-desc">
+                                Uncouple the laminated fascial sheets sideways across the rib base, breaking chronic surface adhesions.
+                            </div>
+                        </div>
 
-                <!-- Card 5 -->
-                <div class="safety-card">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 05</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
-                            <path d="M80 38 L80 90 M80 50 L55 65 M80 50 L105 65 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M60 50 C60 35 100 35 100 50" fill="none" stroke="#d4af37" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">5. Breath Integration</div>
-                    <div class="safety-card-desc">
-                        Inhale deeply into the floating ribs to expand internal thoracic volume while maintaining tissue shear.
-                    </div>
-                </div>
+                        <!-- Card 5 -->
+                        <div class="safety-card">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 05</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                                    <path d="M80 38 L80 90 M80 50 L55 65 M80 50 L105 65 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M60 50 C60 35 100 35 100 50" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">5. Breath Integration</div>
+                            <div class="safety-card-desc">
+                                Inhale deeply into the floating ribs to expand internal thoracic volume while maintaining tissue shear.
+                            </div>
+                        </div>
 
-                <!-- Card 6 -->
-                <div class="safety-card">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 06</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
-                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M70 20 L90 20 M80 15 L80 25" stroke="#d4af37" stroke-width="1.5"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">6. Neck Uncoupling</div>
-                    <div class="safety-card-desc">
-                        Release upward tension pulling from the upper traps into the base of the skull to clear cervical drag.
-                    </div>
-                </div>
+                        <!-- Card 6 -->
+                        <div class="safety-card">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 06</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M70 20 L90 20 M80 15 L80 25" stroke="#d4af37" stroke-width="1.5"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">6. Neck Uncoupling</div>
+                            <div class="safety-card-desc">
+                                Release upward tension pulling from the upper traps into the base of the skull to clear cervical drag.
+                            </div>
+                        </div>
 
-                <!-- Card 7 -->
-                <div class="safety-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; width: 100%;">
-                    <div class="safety-card-canvas">
-                        <div class="safety-card-step">CARD 07</div>
-                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="80" cy="28" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
-                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                            <path d="M80 12 L80 4 M72 14 L66 8 M88 14 L94 8" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="safety-card-title">7. Crown Verification</div>
-                    <div class="safety-card-desc">
-                        Verify your vertical alignment instantly. Track the condition of your crown as the sole metric of structural release.
+                        <!-- Card 7 -->
+                        <div class="safety-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; width: 100%;">
+                            <div class="safety-card-canvas">
+                                <div class="safety-card-step">CARD 07</div>
+                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M80 12 L80 4 M72 14 L66 8 M88 14 L94 8" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <div class="safety-card-title">7. Crown Verification</div>
+                            <div class="safety-card-desc">
+                                Verify your vertical alignment instantly. Track the condition of your crown as the sole metric of structural release.
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </details>
         </section>
 
         <!-- Trajectory Section -->
@@ -956,7 +996,7 @@
         </div>
     </footer>
 
-    <!-- Completely Refactored Open-Context Chat Logic -->
+    <!-- Script Handling Chat-First Prompt Interaction -->
     <script>
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
@@ -1003,28 +1043,30 @@
                 const lowerText = text.toLowerCase();
                 let responseText = "";
 
-                // Intent mapping for structured cards and open-ended dialogue without quotes or repetition
-                if (lowerText.includes('card 01') || lowerText.includes('setup') || lowerText.includes('unweighting')) {
-                    responseText = "Card 01 Protocol (Setup & Unweighting): Office chairs weld the lower pelvis into a solid block. Stand up, unhook that lower spine compression, and let gravity give you an honest baseline before we touch the slab.";
-                } else if (lowerText.includes('card 02') || lowerText.includes('slab identification') || lowerText.includes('isolate') || lowerText.includes('plate')) {
-                    responseText = "Card 02 Protocol (Slab Identification): We need to locate where the concrete has set. Isolate whether your restriction lives in the lower lumbar plate or locks right across your upper shoulder yoke.";
-                } else if (lowerText.includes('card 03') || lowerText.includes('opposition') || lowerText.includes('two-handed')) {
-                    responseText = "Card 03 Protocol (Opposition Mechanics): Apply precise two-handed counter-pressure against the bone. Fascia demands structural respect—lock your hand placement firmly before attempting any shear.";
-                } else if (lowerText.includes('card 04') || lowerText.includes('lateral shear') || lowerText.includes('glide')) {
-                    responseText = "Card 04 Protocol (Lateral Shear & Glide): Now we shear the laminated fascia sideways across your rib base. When you uncouple those stuck layers, the entire chain reaction opens up.";
-                } else if (lowerText.includes('card 05') || lowerText.includes('breath') || lowerText.includes('thoracic') || lowerText.includes('ribs')) {
-                    responseText = "Card 05 Protocol (Breath Integration): Inhale deep into your floating ribs. Expand your internal thoracic volume while maintaining your mechanical opposition pressure.";
-                } else if (lowerText.includes('card 06') || lowerText.includes('neck') || lowerText.includes('skull') || lowerText.includes('cervical')) {
-                    responseText = "Card 06 Protocol (Neck Uncoupling): Uncouple your upper traps from the base of your skull. Clearing this cervical drag frees up the entire upper frame.";
-                } else if (lowerText.includes('card 07') || lowerText.includes('crown') || lowerText.includes('verification')) {
-                    responseText = "Card 07 Protocol (Crown Verification): Check your crown. How does the top of your head feel right now? That effortless vertical lightness is our only tracking metric.";
-                } else if (lowerText.includes('computer') || lowerText.includes('desk') || lowerText.includes('work') || lowerText.includes('sitting')) {
-                    responseText = "Working at a computer day in and day out will compress the thoracic cage and weld the lower back fascia down solid. When you treat the frame as a connected system rather than chasing isolated aches, everything changes. Let's look at Card 02 to locate your anchor point.";
-                } else if (lowerText.includes('pain') || lowerText.includes('hurt') || lowerText.includes('tight') || lowerText.includes('stiff')) {
-                    responseText = "When tightness or restriction sets in, it's rarely an isolated muscular knot—it's laminated fascial sheets locking down the structural chain. Let's trace that tension back to its source using Card 02, or check how your crown registers vertical alignment right now.";
+                if (lowerText.includes('where is the lock')) {
+                    responseText = "Most desk-bound frames lock down in two primary zones: the lower lumbar slab or the upper shoulder yoke. Stand tall, check where rotation feels restricted, and that's your anchor point.";
+                } else if (lowerText.includes('upper yoke or lower slab')) {
+                    responseText = "Check your breathing and neck rotation. If breathing feels shallow and upward traps feel tight, it's the upper yoke. If sitting creates a heavy deadweight across your beltline, it's the lower slab.";
+                } else if (lowerText.includes('what changes first')) {
+                    responseText = "The first thing that shifts is vertical compression off the crown. When you unhook that initial fascial restriction, your posture registers upright without forcing it.";
+                } else if (lowerText.includes('how do i tell it’s shifting') || lowerText.includes('shifting')) {
+                    responseText = "You'll feel an immediate chain-reaction glide—ribs open up, breathing deepens naturally, and your crown feels lighter and balanced.";
+                } else if (lowerText.includes('card 01') || lowerText.includes('setup') || lowerText.includes('unweighting')) {
+                    responseText = "Card 01 Protocol: Office chairs weld the lower pelvis into a solid block. Stand up, unhook that lower spine compression, and let gravity give you an honest baseline.";
+                } else if (lowerText.includes('card 02') || lowerText.includes('slab identification') || lowerText.includes('isolate')) {
+                    responseText = "Card 02 Protocol: Locate where the concrete has set. Isolate whether your restriction lives in the lower lumbar plate or locks across your upper shoulder yoke.";
+                } else if (lowerText.includes('card 03') || lowerText.includes('opposition')) {
+                    responseText = "Card 03 Protocol: Apply precise two-handed counter-pressure against the bone to anchor the tissue before shearing.";
+                } else if (lowerText.includes('card 04') || lowerText.includes('lateral shear')) {
+                    responseText = "Card 04 Protocol: Shear the laminated fascia sideways across your rib base to uncouple stuck layers.";
+                } else if (lowerText.includes('card 05') || lowerText.includes('breath')) {
+                    responseText = "Card 05 Protocol: Inhale deep into your floating ribs to expand internal thoracic volume.";
+                } else if (lowerText.includes('card 06') || lowerText.includes('neck')) {
+                    responseText = "Card 06 Protocol: Uncouple your upper traps from the base of your skull to clear cervical drag.";
+                } else if (lowerText.includes('card 07') || lowerText.includes('crown')) {
+                    responseText = "Card 07 Protocol: Check your crown. That effortless vertical lightness is our only tracking metric.";
                 } else {
-                    // Direct conversational fallback with zero quotes or echoing
-                    responseText = "That is a core piece of the puzzle. When dealing with back restrictions, we have to look at how tension propagates through the whole structural chain. Let's trace it back to your primary anchor point using Card 02, or check how your crown registers vertical alignment right now.";
+                    responseText = "When dealing with back restrictions, we look at how tension propagates through the whole structural chain. Let's trace it back to your primary anchor point, or check how your crown registers vertical alignment right now.";
                 }
 
                 appendMessage(responseText, 'assistant');
