@@ -15,6 +15,7 @@
             --accent-gold-dim: rgba(212, 175, 55, 0.1);
             --accent-green: #2ecc71;
             --accent-green-dim: rgba(46, 204, 113, 0.1);
+            --danger-color: #8b3a3a;
             --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         }
 
@@ -248,6 +249,90 @@
             text-transform: uppercase;
         }
 
+        /* Visual Evolution Illustration Panel */
+        .evolution-panel {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .evolution-graphic {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--surface-border);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .evolution-node {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .evolution-icon {
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--surface-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Before & After Comparison Grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 600px) {
+            .comparison-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .comparison-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .fan-canvas {
+            width: 100%;
+            height: 200px;
+            background-color: #121216;
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fan-canvas svg {
+            max-height: 170px;
+            width: auto;
+        }
+
         /* Protocol Grid */
         .protocol-grid {
             display: grid;
@@ -417,6 +502,10 @@
                 gap: 1rem;
                 align-items: flex-start;
             }
+            .evolution-graphic {
+                flex-direction: column;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -427,10 +516,10 @@
         <nav class="top-nav">
             <a href="https://compressed.guide" class="brand-logo">Back.Guide</a>
             <div class="nav-links">
+                <a href="#evolution">The Shift</a>
                 <a href="#protocols">Protocols</a>
-                <a href="#about">About Node</a>
+                <a href="#about">About James</a>
                 <a href="#access">Consult James</a>
-                <a href="https://compressed.guide">Master Hub</a>
             </div>
         </nav>
 
@@ -438,7 +527,7 @@
         <header>
             <h1>Slab Fascia &amp; Back Adhesions.</h1>
             <div class="site-subtitle">
-                Most persistent back pain is not a mysterious pathology or a failing disc. It is structural deadweight—the exact sensation of a heavy, laminated sheet of fascia pressing down on your frame. Your first session solving an immediate restriction is free.
+                If you are a man aged 35 to 65 who has worked at a computer for 10 years or more, your frame is compressed. The back issue you feel is just the tiny, acute tip of the iceberg; fixing it triggers a complete chain reaction to a whole new body. Your first session solving an immediate restriction with James costs nothing.
             </div>
         </header>
 
@@ -455,20 +544,82 @@
             </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message assistant">
-                    What's locked in your back today? Your first session is free. Let's isolate that lower-back slab or upper yoke and unspool it properly.
+                    Fair enough. Ten years at a screen usually welds the lower back slab down solid. What's locked today? Your first session is free—let's unspool that initial restriction and set off your frame reclamation.
                 </div>
             </div>
             <div class="chat-input-area">
                 <div class="chat-input-wrapper">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Describe your back restriction..." autofocus>
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Describe where your back is locked up..." autofocus>
                 </div>
                 <button class="send-btn" id="sendBtn">Consult the Architect</button>
             </div>
         </div>
 
+        <!-- Visual Evolution Illustration Panel -->
+        <section id="evolution">
+            <div class="section-title">01 / The Structural Reclamation Shift</div>
+            <div class="evolution-panel">
+                <div class="evolution-graphic">
+                    <div class="evolution-node">
+                        <div class="evolution-icon">01</div>
+                        <span>Compressed Desk Frame (Day 1)</span>
+                    </div>
+                    <div style="color: var(--accent-gold);">⟶</div>
+                    <div class="evolution-node">
+                        <div class="evolution-icon">02</div>
+                        <span>Chain Reaction Glide (Day 21)</span>
+                    </div>
+                    <div style="color: var(--accent-gold);">⟶</div>
+                    <div class="evolution-node">
+                        <div class="evolution-icon" style="border-color: var(--accent-gold);">03</div>
+                        <span>Sovereign New Body (Month 6)</span>
+                    </div>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                    Moving from a flattened 2D desk cage to complete frame reclamation. Solving the back adhesion triggers a total cascading reset of your physical geometry.
+                </div>
+            </div>
+        </section>
+
+        <!-- Before & After Comparison Grid (Integrated SVG Illustrations) -->
+        <section>
+            <div class="section-title">02 / The Architecture of the Shift</div>
+            <div class="comparison-grid">
+                <div class="comparison-card" style="border-color: var(--danger-color);">
+                    <div class="fan-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="45" y="25" width="70" height="110" rx="6" fill="none" stroke="#8b3a3a" stroke-width="2"/>
+                            <line x1="45" y1="50" x2="115" y2="50" stroke="#8b3a3a" stroke-width="1.5"/>
+                            <line x1="45" y1="75" x2="115" y2="75" stroke="#8b3a3a" stroke-width="2"/>
+                            <line x1="45" y1="100" x2="115" y2="100" stroke="#8b3a3a" stroke-width="1.5"/>
+                            <line x1="80" y1="25" x2="80" y2="135" stroke="#8b3a3a" stroke-width="2" stroke-dasharray="3 3"/>
+                            <text x="80" y="148" fill="#8b3a3a" font-size="9" font-family="monospace" text-anchor="middle">LAMINATED SLAB</text>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">BEFORE: THE 2D LOCKED CAGE</span>
+                    <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">Flattened &amp; Dehydrated</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
+                </div>
+
+                <div class="comparison-card" style="border-color: var(--accent-gold);">
+                    <div class="fan-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M80 20 C105 25 125 50 120 80 C115 110 100 135 80 140 C60 135 45 110 40 80 C35 50 55 25 80 20 Z" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M80 80 L45 45 M80 80 L115 45 M80 80 L38 80 M80 80 L122 80 M80 80 L50 120 M80 80 L110 120" stroke="#d4af37" stroke-width="1.2" stroke-dasharray="2 2"/>
+                            <circle cx="80" cy="80" r="14" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <text x="80" y="148" fill="#d4af37" font-size="9" font-family="monospace" text-anchor="middle">3D FANNED VOLUME</text>
+                        </svg>
+                    </div>
+                    <span style="font-size: 0.75rem; color: var(--accent-gold); font-family: monospace; display: block; margin-bottom: 0.35rem;">AFTER: THE 3D FANNED TORSO</span>
+                    <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">Expanded &amp; Sovereign</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 3D volume.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Protocol Card Section -->
         <section id="protocols">
-            <div class="section-title">01 / The Back Protocol Card</div>
+            <div class="section-title">03 / The Back Protocol Card</div>
             <div class="protocol-grid">
                 <div class="protocol-box">
                     <div class="protocol-box-num">#1</div>
@@ -490,9 +641,9 @@
 
         <!-- Trajectory Section -->
         <section>
-            <div class="section-title">02 / The Reclamation Trajectory: 1 Day to 6 Months</div>
+            <div class="section-title">04 / The Reclamation Trajectory: 1 Day to 6 Months</div>
             <div class="site-subtitle" style="font-size: 0.85rem; margin-top: -0.5rem;">
-                Moving from a rigid back slab to an expanded, fanned 3D torso.
+                What happens when you fix the tiny back adhesion and start a total chain reaction across your body.
             </div>
             <div class="trajectory-list">
                 <div class="trajectory-item">
@@ -500,40 +651,40 @@
                     <div class="trajectory-text">Initial release of the lower-back plate and skull-neck junction choke. Heavy deadweight begins to lift.</div>
                 </div>
                 <div class="trajectory-item">
-                    <div class="trajectory-day">Day 7</div>
-                    <div class="trajectory-text">Sash lines across the rib cage start shifting diagonally. Breathing volume deepens noticeably.</div>
+                    <div class="trajectory-day">Day 3</div>
+                    <div class="trajectory-text">Decompression takes hold; breathing deepens as floating rib junctions unfreeze from their box.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Day 21</div>
-                    <div class="trajectory-text">Upper yoke unpins. Shoulder blades drop back into natural tracks, neutralizing spine tension.</div>
+                    <div class="trajectory-text">Upper yoke unpins. Shoulder blades drop back into natural tracks, triggering postural stability.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Month 3</div>
-                    <div class="trajectory-text">Rib junctions unfreeze, replacing the rigid box feeling with fluid multi-directional torso mobility.</div>
+                    <div class="trajectory-text">The chain reaction spreads across the whole frame—neck elongates, hip mechanics shift, and old posture breaks.</div>
                 </div>
                 <div class="trajectory-item">
                     <div class="trajectory-day">Month 6</div>
-                    <div class="trajectory-text">Fully restored 3D fanned volume. Daily back fatigue breaks because your base geometry has changed.</div>
+                    <div class="trajectory-text">Structured baseline. A completely reclaimed framework with permanent 3D fanned volume and zero daily fatigue loops.</div>
                 </div>
             </div>
         </section>
 
-        <!-- About & Methodology -->
+        <!-- About James & Methodology -->
         <section id="about">
-            <div class="section-title">03 / About the Methodology</div>
+            <div class="section-title">05 / About James & The Methodology</div>
             <div class="text-block">
-                <p>This is not academic theory or mainstream medicine treating parts in isolation. It is an experience-led self-treatment protocol built after decades of navigating consulting rooms and ineffective massages.</p>
-                <p>You need absolute sovereignty over your own frame, free from scripted routines and corporate wellness algorithms.</p>
+                <p>Operated independently from Tenerife, Canary Islands. Built on decades of international travel, hospitality operations, and structural observation—away from the noise of corporate clinics and wellness algorithms.</p>
+                <p>After hosting thousands of guests and operating independent service businesses, the realization was simple: men aged 35–65 desk-bound for a decade don't need another generic app or scripted massage treating muscle like loose meat. They need direct access to expert mechanical logic that respects their intelligence and time.</p>
             </div>
         </section>
 
         <!-- Direct Access Payment Card -->
         <section id="access">
-            <div class="section-title">04 / Direct Access — Full Network Access</div>
+            <div class="section-title">06 / Direct Access — Full Network Access</div>
             <div class="access-card">
                 <div class="access-title">No Auto-Renew. No Hidden Traps.</div>
                 <div class="access-desc">
-                    The first problem-solving session is free. Full annual network access across all specialist nodes is €60 / $65 / £50 for 365 days, with no auto-renewal. Tracked cleanly with zero background tracking pixels or cookies.
+                    Your first problem-solving session solving an immediate restriction with James costs nothing. Full annual network access is €60 / $65 / £50 for 365 days, with no auto-renewal. Tracked cleanly with zero background tracking pixels or cookies. Access simply expires when the year ends unless renewed manually.
                 </div>
                 <button class="cta-btn">Unlock 365 Days of Access (€60 / $65 / £50) —</button>
             </div>
@@ -545,7 +696,7 @@
         <span>Operated by James Roberts, Tenerife. Specialist node of compressed.guide.</span>
         <div>
             <a href="https://compressed.guide">Master Hub</a>
-            <a href="#access">Privacy & Terms</a>
+            <a href="#">Privacy & Terms</a>
         </div>
     </footer>
 
@@ -571,7 +722,7 @@
             chatInput.value = '';
 
             setTimeout(() => {
-                appendMessage("Fair enough. Ten years at a desk usually welds the lower back slab down solid. Let's unspool that tension point properly.", 'assistant');
+                appendMessage("Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that is just the catalyst—it triggers a chain reaction across your entire frame. Let's unspool it.", 'assistant');
             }, 600);
         }
 
