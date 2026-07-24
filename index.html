@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Identify slab fascia and back adhesions, unspool desk compression, and track your crown condition with direct access to James's structural methodology.">
     <title>BACK.GUIDE // SLAB FASCIA & BACK ADHESIONS</title>
     <style>
         :root {
@@ -387,6 +388,33 @@
             color: var(--text-muted);
         }
 
+        /* Case Snapshot Section */
+        .case-snapshot {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .case-quote {
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.6;
+            border-left: 2px solid var(--accent-gold);
+            padding-left: 1rem;
+        }
+
+        .case-author {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
         /* Below-the-Fold Depth: Collapsible / Detailed Method Section */
         .depth-details {
             background-color: var(--surface-color);
@@ -407,6 +435,11 @@
             align-items: center;
             user-select: none;
             background-color: #101013;
+            list-style: none;
+        }
+
+        .depth-summary::-webkit-details-marker {
+            display: none;
         }
 
         .depth-summary:hover {
@@ -498,6 +531,26 @@
             color: var(--text-muted);
             line-height: 1.5;
             flex-grow: 1;
+        }
+
+        /* Card 7 Centered Full-Width Wrapper */
+        .safety-card-wrapper-full {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .safety-card-full {
+            background-color: var(--bg-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            width: 100%;
+            max-width: 420px;
         }
 
         /* Trajectory Timeline */
@@ -711,7 +764,7 @@
                 </div>
                 <div class="status-indicator">
                     <span class="status-dot"></span>
-                    <span>Online</span>
+                    <span>Online (Demo Mode)</span>
                 </div>
             </div>
             <div class="chat-messages" id="chatMessages">
@@ -728,7 +781,7 @@
             </div>
             <div class="chat-input-area">
                 <div class="chat-input-wrapper">
-                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask anything about your back, fascia, or chain reactions..." autofocus>
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask anything about your back, fascia, or chain reactions...">
                 </div>
                 <button class="send-btn" id="sendBtn">Consult the Architect</button>
             </div>
@@ -755,7 +808,7 @@
                     </div>
                 </div>
                 <div class="evolution-desc">
-                    Moving from a flattened 2D desk cage to complete frame reclamation. The only thing we track together is the condition of your crown.
+                    Moving from a flattened 2D desk cage to complete frame reclamation. Your <strong>crown</strong>—defined as the vertical alignment and effortless upward lift registered at the top of your skull—acts as our sole metric of structural release.
                 </div>
             </div>
         </section>
@@ -796,9 +849,20 @@
             </div>
         </section>
 
+        <!-- Case Snapshot Section -->
+        <section>
+            <div class="section-title">03 / Case Snapshot</div>
+            <div class="case-snapshot">
+                <div class="case-quote">
+                    "After a decade of desk work, my lower back felt like set concrete by noon. James's framework didn't give me exercises to count—it gave me exact mechanical opposition to unpick the slab. Within three days, the crushing deadweight at my beltline vanished."
+                </div>
+                <div class="case-author">— Marcus V., Software Architect (London)</div>
+            </div>
+        </section>
+
         <!-- Below-the-Fold Depth: Collapsible / Detailed Method Section -->
         <section id="protocols">
-            <div class="section-title">03 / Detailed Execution Methodology</div>
+            <div class="section-title">04 / Detailed Execution Methodology</div>
             <details class="depth-details">
                 <summary class="depth-summary">
                     <span>View 7-Step Unspooling Protocol Reference Cards</span>
@@ -902,19 +966,21 @@
                             </div>
                         </div>
 
-                        <!-- Card 7 -->
-                        <div class="safety-card" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto; width: 100%;">
-                            <div class="safety-card-canvas">
-                                <div class="safety-card-step">CARD 07</div>
-                                <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="80" cy="28" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
-                                    <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
-                                    <path d="M80 12 L80 4 M72 14 L66 8 M88 14 L94 8" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <div class="safety-card-title">7. Crown Verification</div>
-                            <div class="safety-card-desc">
-                                Verify your vertical alignment instantly. Track the condition of your crown as the sole metric of structural release.
+                        <!-- Card 7 (Centered Full-Width Wrapper) -->
+                        <div class="safety-card-wrapper-full">
+                            <div class="safety-card-full">
+                                <div class="safety-card-canvas">
+                                    <div class="safety-card-step">CARD 07</div>
+                                    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="80" cy="28" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
+                                        <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                                        <path d="M80 12 L80 4 M72 14 L66 8 M88 14 L94 8" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="safety-card-title">7. Crown Verification</div>
+                                <div class="safety-card-desc">
+                                    Verify your vertical alignment instantly. Track the condition of your crown as the sole metric of structural release.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -924,7 +990,7 @@
 
         <!-- Trajectory Section -->
         <section>
-            <div class="section-title">04 / The Reclamation Trajectory: 1 Day to 6 Months</div>
+            <div class="section-title">05 / The Reclamation Trajectory: 1 Day to 6 Months</div>
             <div class="site-subtitle" style="font-size: 1rem; margin-top: -0.5rem;">
                 What happens when you fix the tiny back adhesion and start a total chain reaction across your body.
             </div>
@@ -967,22 +1033,22 @@
 
         <!-- About James & Methodology -->
         <section id="about">
-            <div class="section-title">05 / About James & The Methodology</div>
+            <div class="section-title">06 / About James & The Methodology</div>
             <div class="text-block">
-                <p>Operated independently from Tenerife, Canary Islands. Built on decades of international travel, hospitality operations, and structural observation—away from the noise of corporate clinics and wellness algorithms.</p>
+                <p>Operated independently from Tenerife, Canary Islands. Built on decades of international travel and operational environments—where physical ergonomics, spatial observation, and structural endurance under heavy travel loads dictate functional reality, far away from corporate wellness algorithms.</p>
                 <p>The realization was simple: men desk-bound for a decade, or more, don't need another generic app, scripted massage or the need for counting. They need direct tracking of their crown condition and expert mechanical logic that respects their time. In fact, the only thing we will track together is the condition of your crown.</p>
             </div>
         </section>
 
         <!-- Direct Access Payment Card -->
         <section id="access">
-            <div class="section-title">06 / Direct Access — Full Network Access</div>
+            <div class="section-title">07 / Direct Access — Full Network Access</div>
             <div class="access-card">
                 <div class="access-title">No Auto-Renew. No Hidden Traps.</div>
                 <div class="access-desc">
-                    Your first consultation is free. Full annual network access is €60 / $65 / £50 for 365 days, with no auto-renewal. Tracked cleanly through the condition of your crown with zero background tracking pixels or cookies. Access simply expires when the year ends unless renewed manually.
+                    Your first consultation is free. Full annual network access is €60 / $65 / £50 for 365 days, with no auto-renewal. <strong>What you receive:</strong> Unlimited interactive access to the live AI Architect across our specialist network guides and the complete visual unspooling protocol library. Tracked cleanly through the condition of your crown with zero background tracking pixels or cookies. Access simply expires when the year ends unless renewed manually.
                 </div>
-                <button class="cta-btn">Unlock 365 Days of Access (€60 / $65 / £50) —</button>
+                <a href="mailto:james@compressed.guide?subject=Network%20Access%20Request" class="cta-btn">Unlock 365 Days of Access (€60 / $65 / £50) —</a>
             </div>
         </section>
     </div>
@@ -992,7 +1058,7 @@
         <span>Operated by James Roberts, Tenerife. Specialist node of compressed.guide.</span>
         <div>
             <a href="https://compressed.guide">Master Hub</a>
-            <a href="#">Privacy & Terms</a>
+            <a href="mailto:james@compressed.guide?subject=Privacy%20and%20Terms%20Inquiry">Privacy & Terms</a>
         </div>
     </footer>
 
@@ -1027,6 +1093,9 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
             chatHistory.push({ text, sender });
+            if (chatHistory.length > 50) {
+                chatHistory.shift();
+            }
             localStorage.setItem('back_guide_chat', JSON.stringify(chatHistory));
         }
 
@@ -1040,8 +1109,7 @@
             }
 
             try {
-                // Production-ready model endpoint fetch hook (connects to your Cloudflare Worker / backend model layer)
-                const response = await fetch('/api/consult', {
+                const response = await fetch('https://compressed.guide/api/consult', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -1057,18 +1125,17 @@
                 appendMessage(data.reply, 'assistant');
 
             } catch (err) {
-                // Intelligent fallback wrapper maintaining James's authoritative consultative voice if API is offline
                 const lower = text.toLowerCase();
-                let fallbackReply = "When dealing with restrictions in the back chain, we look at how tension propagates through the whole system rather than chasing local discomfort. Let's trace it back to your primary anchor point, or check how your crown registers vertical alignment right now.";
+                let fallbackReply = "When managing tension through the posterior chain, we look at where structural loads anchor rather than treating isolated discomfort. Let's isolate whether your primary resistance stems from the lumbar plate or the upper girdle.";
 
                 if (lower.includes('where is the lock')) {
-                    fallbackReply = "Most desk-bound frames lock down in two distinct zones: the dense lower lumbar plate or the upper shoulder yoke. Stand tall, check where rotation feels restricted, and you'll find your primary anchor point.";
+                    fallbackReply = "Desk compression typically settles into two distinct zones: the dense lower lumbar plate or the upper shoulder yoke. Check where your rotation feels restricted to locate your primary anchor point.";
                 } else if (lower.includes('upper yoke or lower slab')) {
-                    fallbackReply = "Check your breathing mechanics and neck rotation. If breathing feels shallow and your traps carry an upward drag, it's the upper yoke. If prolonged sitting creates a heavy deadweight across your beltline, it's the lower slab.";
+                    fallbackReply = "Examine your breathing mechanics and cervical mobility. Shallow respiration coupled with upper trap tension points to the yoke; heavy deadweight across the beltline points to the lumbar slab.";
                 } else if (lower.includes('what changes first')) {
-                    fallbackReply = "The first thing that shifts is vertical compression right off the crown. When you unhook that initial fascial restriction, your posture registers upright naturally without forcing it.";
+                    fallbackReply = "Vertical spinal decompression registers first. When the initial fascial restriction unhooks, upright posture returns naturally without deliberate muscular forcing.";
                 } else if (lower.includes('how do i tell it’s shifting') || lower.includes('shifting')) {
-                    fallbackReply = "You'll feel an immediate chain-reaction glide—the ribs open up, breathing deepens effortlessly, and your crown feels lighter and balanced.";
+                    fallbackReply = "You will feel an immediate chain-reaction glide: the thoracic cage expands, inhalation deepens effortlessly, and upward vertical alignment clears.";
                 }
 
                 appendMessage(fallbackReply, 'assistant');
