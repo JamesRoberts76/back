@@ -98,13 +98,13 @@
         }
 
         .site-subtitle {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-muted);
             max-width: 720px;
             line-height: 1.6;
         }
 
-        /* Active Chat Portal (Integrated) */
+        /* Active Chat Portal (Integrated & Enhanced) */
         .chat-portal-section {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
@@ -112,6 +112,7 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .chat-portal-header {
@@ -147,6 +148,13 @@
             height: 6px;
             background-color: var(--accent-green);
             border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
         }
 
         .chat-messages {
@@ -156,14 +164,21 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            scroll-behavior: smooth;
         }
 
         .message {
             max-width: 85%;
             padding: 0.85rem 1.15rem;
-            font-size: 0.875rem;
+            font-size: 1rem;
             border-radius: 6px;
             line-height: 1.5;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .message.assistant {
@@ -179,6 +194,34 @@
             color: var(--text-primary);
             align-self: flex-end;
             border-top-right-radius: 2px;
+        }
+
+        /* Short Prompt Suggestions */
+        .chat-suggestions {
+            padding: 0.75rem 1.25rem;
+            background-color: #101013;
+            border-top: 1px solid var(--surface-border);
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .suggestion-chip {
+            background-color: var(--bg-color);
+            border: 1px solid var(--surface-border);
+            color: var(--text-muted);
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-family: var(--font-mono);
+            transition: all 0.2s ease;
+        }
+
+        .suggestion-chip:hover {
+            color: var(--accent-gold);
+            border-color: var(--accent-gold);
         }
 
         .chat-input-area {
@@ -210,7 +253,7 @@
             border: none;
             color: var(--text-primary);
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 1rem;
             outline: none;
         }
 
@@ -225,7 +268,7 @@
             border-radius: 4px;
             padding: 0.6rem 1.25rem;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: opacity 0.2s;
@@ -293,6 +336,12 @@
             font-weight: bold;
         }
 
+        .evolution-desc {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
         /* Before & After Comparison Grid */
         .comparison-grid {
             display: grid;
@@ -333,6 +382,11 @@
             width: auto;
         }
 
+        .comparison-card p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
         /* Protocol Grid */
         .protocol-grid {
             display: grid;
@@ -357,13 +411,13 @@
         }
 
         .protocol-box-title {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--text-primary);
         }
 
         .protocol-box-desc {
-            font-size: 0.8rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
@@ -395,7 +449,7 @@
         }
 
         .trajectory-text {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
@@ -406,7 +460,7 @@
             border: 1px solid var(--surface-border);
             border-radius: 6px;
             padding: 1.5rem;
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
             line-height: 1.7;
             display: flex;
@@ -428,13 +482,13 @@
         }
 
         .access-title {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             font-weight: 600;
             color: var(--text-primary);
         }
 
         .access-desc {
-            font-size: 0.85rem;
+            font-size: 1rem;
             color: var(--text-muted);
             max-width: 540px;
             line-height: 1.6;
@@ -447,7 +501,7 @@
             border-radius: 4px;
             padding: 0.75rem 1.75rem;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 700;
             text-decoration: none;
             cursor: pointer;
@@ -544,8 +598,14 @@
             </div>
             <div class="chat-messages" id="chatMessages">
                 <div class="message assistant">
-                    Fair enough. Ten years at a screen usually welds the lower back slab down solid. What's locked today? Your first session is free—let's unspool that initial restriction and set off your frame reclamation.
+                    Where is your back locked today? Your first session is free—let's unspool that initial restriction.
                 </div>
+            </div>
+            <!-- Enhanced Short Prompt Suggestions (Situational, Physical, Conceptual) -->
+            <div class="chat-suggestions" id="chatSuggestions">
+                <button class="suggestion-chip" data-prompt="My lower back feels locked up from sitting all day.">Situational: Desk Lower-Back Lock</button>
+                <button class="suggestion-chip" data-prompt="How do I unspool my upper yoke and shoulder blade adhesions?">Physical: Upper Yoke Adhesion</button>
+                <button class="suggestion-chip" data-prompt="Explain how fixing this back issue triggers a full body chain reaction.">Conceptual: Frame Chain Reaction</button>
             </div>
             <div class="chat-input-area">
                 <div class="chat-input-wrapper">
@@ -575,7 +635,7 @@
                         <span>Sovereign New Body (Month 6)</span>
                     </div>
                 </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                <div class="evolution-desc">
                     Moving from a flattened 2D desk cage to complete frame reclamation. Solving the back adhesion triggers a total cascading reset of your physical geometry.
                 </div>
             </div>
@@ -597,8 +657,8 @@
                         </svg>
                     </div>
                     <span style="font-size: 0.75rem; color: var(--danger-color); font-family: monospace; display: block; margin-bottom: 0.35rem;">BEFORE: THE 2D LOCKED CAGE</span>
-                    <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">Flattened &amp; Dehydrated</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
+                    <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">Flattened &amp; Dehydrated</h3>
+                    <p>Rigid back slab pinning the spine. Zero volume, restricted breathing, and constant heavy deadweight.</p>
                 </div>
 
                 <div class="comparison-card" style="border-color: var(--accent-gold);">
@@ -611,8 +671,8 @@
                         </svg>
                     </div>
                     <span style="font-size: 0.75rem; color: var(--accent-gold); font-family: monospace; display: block; margin-bottom: 0.35rem;">AFTER: THE 3D FANNED TORSO</span>
-                    <h3 style="font-size: 1.05rem; color: var(--text-primary); margin-bottom: 0.5rem;">Expanded &amp; Sovereign</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-muted);">Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 3D volume.</p>
+                    <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.5rem;">Expanded &amp; Sovereign</h3>
+                    <p>Dynamic multi-directional fanning. Unspooled fascial sheets, restored posture, and open 3D volume.</p>
                 </div>
             </div>
         </section>
@@ -642,7 +702,7 @@
         <!-- Trajectory Section -->
         <section>
             <div class="section-title">04 / The Reclamation Trajectory: 1 Day to 6 Months</div>
-            <div class="site-subtitle" style="font-size: 0.85rem; margin-top: -0.5rem;">
+            <div class="site-subtitle" style="font-size: 1rem; margin-top: -0.5rem;">
                 What happens when you fix the tiny back adhesion and start a total chain reaction across your body.
             </div>
             <div class="trajectory-list">
@@ -704,6 +764,7 @@
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
+        const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
         function appendMessage(text, sender) {
             const div = document.createElement('div');
@@ -713,24 +774,33 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function handleSend(e) {
-            if (e) e.preventDefault();
-            const text = chatInput.value.trim();
+        function handleSend(customText) {
+            const text = (typeof customText === 'string' ? customText : chatInput.value).trim();
             if (!text) return;
 
             appendMessage(text, 'user');
-            chatInput.value = '';
+            if (typeof customText !== 'string') {
+                chatInput.value = '';
+            }
 
             setTimeout(() => {
                 appendMessage("Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that is just the catalyst—it triggers a chain reaction across your entire frame. Let's unspool it.", 'assistant');
             }, 600);
         }
 
-        sendBtn.addEventListener('click', handleSend);
+        sendBtn.addEventListener('click', () => handleSend());
         chatInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
-                handleSend(e);
+                handleSend();
             }
+        });
+
+        // Handle suggestion chip clicks
+        suggestionChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const promptText = chip.getAttribute('data-prompt');
+                handleSend(promptText);
+            });
         });
     </script>
 </body>
