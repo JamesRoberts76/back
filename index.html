@@ -104,7 +104,7 @@
             line-height: 1.6;
         }
 
-        /* Active Chat Portal (Integrated & Enhanced) */
+        /* Active Chat Portal */
         .chat-portal-section {
             background-color: var(--surface-color);
             border: 1px solid var(--surface-border);
@@ -196,7 +196,6 @@
             border-top-right-radius: 2px;
         }
 
-        /* Short Prompt Suggestions */
         .chat-suggestions {
             padding: 0.75rem 1.25rem;
             background-color: #101013;
@@ -385,6 +384,70 @@
         .comparison-card p {
             font-size: 1rem;
             color: var(--text-muted);
+        }
+
+        /* Airline Safety Card Style Demonstration Cards (Trifecta) */
+        .safety-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .safety-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .safety-card {
+            background-color: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 6px;
+            padding: 1.5Keyrem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            position: relative;
+        }
+
+        .safety-card-step {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .safety-card-canvas {
+            width: 100%;
+            height: 180px;
+            background-color: #111115;
+            border: 1px solid var(--surface-border);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .safety-card-canvas svg {
+            max-height: 150px;
+            width: auto;
+        }
+
+        .safety-card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .safety-card-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
         }
 
         /* Protocol Grid */
@@ -641,7 +704,7 @@
                     Where is your back locked today? Your first consultation is free—let's check your crown tension and unspool that initial restriction.
                 </div>
             </div>
-            <!-- Enhanced Short Prompt Suggestions -->
+            <!-- Short Prompt Suggestions -->
             <div class="chat-suggestions" id="chatSuggestions">
                 <button class="suggestion-chip" data-prompt="My lower back feels locked up from sitting all day.">Situational: Desk Lock</button>
                 <button class="suggestion-chip" data-prompt="How do I unspool my upper yoke and check my crown tension?">Physical: Upper Yoke</button>
@@ -681,7 +744,7 @@
             </div>
         </section>
 
-        <!-- Before & After Comparison Grid (Integrated SVG Illustrations) -->
+        <!-- Before & After Comparison Grid -->
         <section>
             <div class="section-title">02 / The Architecture of the Shift</div>
             <div class="comparison-grid">
@@ -717,24 +780,66 @@
             </div>
         </section>
 
-        <!-- Protocol Card Section -->
+        <!-- Airline Safety Card Style Demonstration Cards (Trifecta) -->
         <section id="protocols">
-            <div class="section-title">03 / The Back Protocol Card</div>
-            <div class="protocol-grid">
-                <div class="protocol-box">
-                    <div class="protocol-box-num">#1</div>
-                    <div class="protocol-box-title">Slab Identification</div>
-                    <div class="protocol-box-desc">Isolate the heavy upper-back yoke or dense lower-back plate pinning your spine.</div>
+            <div class="section-title">03 / Step-by-Step Execution Cards</div>
+            <div class="safety-cards-grid">
+                <!-- Card 1: Slab Identification -->
+                <div class="safety-card">
+                    <span class="safety-card-step">CARD 01</span>
+                    <div class="safety-card-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Average build human silhouette outline, standing upright -->
+                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Highlighted lower back/yoke slab zone -->
+                            <rect x="70" y="55" width="20" height="35" rx="3" fill="rgba(212, 175, 55, 0.2)" stroke="#d4af37" stroke-width="1.5"/>
+                            <!-- Target indicator chevron -->
+                            <path d="M50 72 L42 72 M46 68 L42 72 L46 76" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="safety-card-title">1. Slab Identification</div>
+                    <div class="safety-card-desc">
+                        Locate the heavy tension plate pinning your spine. Stand upright, isolate the dense zone across your lower back or upper yoke without narrative buildup.
+                    </div>
                 </div>
-                <div class="protocol-box">
-                    <div class="protocol-box-num">#2</div>
-                    <div class="protocol-box-title">Mechanical Unspooling</div>
-                    <div class="protocol-box-desc">Apply precise two-handed opposition pressure against bone, shearing laminated fascia free.</div>
+
+                <!-- Card 2: Two-Handed Opposition Mechanics -->
+                <div class="safety-card">
+                    <span class="safety-card-step">CARD 02</span>
+                    <div class="safety-card-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Human silhouette outline -->
+                            <circle cx="80" cy="28" r="10" fill="none" stroke="#88888d" stroke-width="1.5"/>
+                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Two-handed placement vectors / opposition arrows -->
+                            <path d="M55 65 L72 65 M55 61 L50 65 L55 69" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+                            <path d="M105 65 L88 65 M105 61 L110 65 L105 69" stroke="#d4af37" stroke-width="1.5" fill="none"/>
+                            <circle cx="80" cy="65" r="8" fill="none" stroke="#d4af37" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <div class="safety-card-title">2. Two-Handed Mechanics</div>
+                    <div class="safety-card-desc">
+                        Apply precise two-handed opposition pressure against bone. Shear the laminated fascia sideways, uncoupling the tissue free from the underlying rib base.
+                    </div>
                 </div>
-                <div class="protocol-box">
-                    <div class="protocol-box-num">#3</div>
-                    <div class="protocol-box-title">Crown Verification</div>
-                    <div class="protocol-box-desc">Confirm your posture opens up through how light and balanced your crown feels.</div>
+
+                <!-- Card 3: Crown Verification -->
+                <div class="safety-card">
+                    <span class="safety-card-step">CARD 03</span>
+                    <div class="safety-card-canvas">
+                        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Human silhouette outline -->
+                            <circle cx="80" cy="28" r="10" fill="none" stroke="#d4af37" stroke-width="2"/>
+                            <path d="M80 38 L80 90 M80 50 L60 70 M80 50 L100 70 M80 90 L68 135 M80 90 L92 135" fill="none" stroke="#88888d" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Crown upward release aura rays -->
+                            <path d="M80 14 L80 8 M72 16 L67 11 M88 16 L93 11" stroke="#d4af37" stroke-width="1.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="safety-card-title">3. Crown Verification</div>
+                    <div class="safety-card-desc">
+                        Verify the release instantly. Feel how light, balanced, and vertically unburdened your crown registers as the torso expands into full 3D volume.
+                    </div>
                 </div>
             </div>
         </section>
@@ -855,7 +960,6 @@
                 chatInput.value = '';
             }
 
-            // Varied contextual responses based on user input instead of returning a hardcoded duplicate string
             setTimeout(() => {
                 let responseText = "Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that triggers a chain reaction across your frame—and we check how your crown feels to track it. Let's unspool it.";
                 
