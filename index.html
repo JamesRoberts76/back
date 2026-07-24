@@ -684,15 +684,15 @@
                     Where is your back locked today? Your first consultation is free—let's check your crown tension and unspool that initial restriction.
                 </div>
             </div>
-            <!-- Short Prompt Suggestions -->
+            <!-- Short Prompt Suggestions tied to the 7-Step Cards -->
             <div class="chat-suggestions" id="chatSuggestions">
-                <button class="suggestion-chip" data-prompt="My lower back feels locked up from sitting all day.">Card 01: Setup &amp; Unweighting</button>
-                <button class="suggestion-chip" data-prompt="How do I isolate my lower plate or upper yoke slab?">Card 02: Slab Identification</button>
-                <button class="suggestion-chip" data-prompt="Walk me through the two-handed opposition mechanics.">Card 03: Opposition Mechanics</button>
-                <button class="suggestion-chip" data-prompt="How do I execute lateral shear and gliding across the ribs?">Card 04: Lateral Shear</button>
-                <button class="suggestion-chip" data-prompt="Explain the floating rib breath integration step.">Card 05: Breath Integration</button>
-                <button class="suggestion-chip" data-prompt="How do I release neck tension pulling into my skull?">Card 06: Neck Uncoupling</button>
-                <button class="suggestion-chip" data-prompt="Verify my crown feedback and vertical lift.">Card 07: Crown Verification</button>
+                <button class="suggestion-chip" data-prompt="Card 01: Walk me through setup and unweighting.">Card 01: Setup &amp; Unweighting</button>
+                <button class="suggestion-chip" data-prompt="Card 02: How do I identify my lower slab or upper yoke?">Card 02: Slab Identification</button>
+                <button class="suggestion-chip" data-prompt="Card 03: Show me the two-handed opposition mechanics.">Card 03: Opposition Mechanics</button>
+                <button class="suggestion-chip" data-prompt="Card 04: How do I perform lateral shear and gliding?">Card 04: Lateral Shear</button>
+                <button class="suggestion-chip" data-prompt="Card 05: Explain floating rib breath integration.">Card 05: Breath Integration</button>
+                <button class="suggestion-chip" data-prompt="Card 06: How do I uncouple neck tension from my skull?">Card 06: Neck Uncoupling</button>
+                <button class="suggestion-chip" data-prompt="Card 07: Let's check my crown feedback and vertical lift.">Card 07: Crown Verification</button>
             </div>
             <div class="chat-input-area">
                 <div class="chat-input-wrapper">
@@ -963,7 +963,7 @@
         const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
         let userUuid = localStorage.getItem('sovereign_user_uuid') || 'user_' + Math.random().toString(36).substring(2, 11);
-        localStorage.setItem('sovereign_user_uuid', userUuid);
+        localStorage.setItem('sovereyn_user_uuid', userUuid);
 
         let chatHistory = JSON.parse(localStorage.getItem('back_guide_chat')) || [];
 
@@ -1002,20 +1002,24 @@
                 let responseText = "Fair enough. Ten years at a screen usually welds the lower back slab down solid. Fixing that triggers a chain reaction across your frame—and we check how your crown feels to track it. Let's unspool it.";
                 
                 const lowerText = text.toLowerCase();
-                if (lowerText.includes('setup') || lowerText.includes('unweighting') || lowerText.includes('sitting')) {
+                
+                // Match specifically to the 7-card sequence and user terms
+                if (lowerText.includes('card 01') || lowerText.includes('setup') || lowerText.includes('unweighting') || lowerText.includes('pelvis')) {
                     responseText = "Card 01 Protocol: Reset your pelvis and unhook your lower spine. Stand tall and let vertical compression lift off before addressing the slab.";
-                } else if (lowerText.includes('slab identification') || lowerText.includes('isolate') || lowerText.includes('plate')) {
+                } else if (lowerText.includes('card 02') || lowerText.includes('slab identification') || lowerText.includes('isolate') || lowerText.includes('plate') || lowerText.includes('yoke')) {
                     responseText = "Card 02 Protocol: Isolate your restriction. Locate whether the dense plate sits across your lower lumbar or locks into your upper shoulder yoke.";
-                } else if (lowerText.includes('opposition') || lowerText.includes('two-handed')) {
+                } else if (lowerText.includes('card 03') || lowerText.includes('opposition') || lowerText.includes('two-handed') || lowerText.includes('counter-pressure')) {
                     responseText = "Card 03 Protocol: Apply precise two-handed counter-pressure against the bone. Lock your hand placement firmly before attempting any shear.";
-                } else if (lowerText.includes('lateral shear') || lowerText.includes('glide')) {
+                } else if (lowerText.includes('card 04') || lowerText.includes('lateral shear') || lowerText.includes('glide') || lowerText.includes('shear')) {
                     responseText = "Card 04 Protocol: Shear the laminated fascia sideways across your rib base. Uncouple the stuck layers without sliding over skin.";
-                } else if (lowerText.includes('breath') || lowerText.includes('thoracic')) {
+                } else if (lowerText.includes('card 05') || lowerText.includes('breath') || lowerText.includes('thoracic') || lowerText.includes('ribs')) {
                     responseText = "Card 05 Protocol: Inhale deep into your floating ribs. Expand internal thoracic volume while holding your mechanical opposition pressure.";
-                } else if (lowerText.includes('neck') || lowerText.includes('skull')) {
+                } else if (lowerText.includes('card 06') || lowerText.includes('neck') || lowerText.includes('skull') || lowerText.includes('cervical')) {
                     responseText = "Card 06 Protocol: Uncouple your upper traps from the base of your skull. Clear the cervical drag choking upward rotation.";
-                } else if (lowerText.includes('crown') || lowerText.includes('verification')) {
+                } else if (lowerText.includes('card 07') || lowerText.includes('crown') || lowerText.includes('verification') || lowerText.includes('lift')) {
                     responseText = "Card 07 Protocol: Check your crown. How does the top of your head feel right now? That vertical lightness is our only tracking metric.";
+                } else if (lowerText.includes('hello') || lowerText.includes('hi')) {
+                    responseText = "Let's get straight to work. Select a card above or describe where your back is locked up so we can check your crown tension.";
                 }
 
                 appendMessage(responseText, 'assistant');
