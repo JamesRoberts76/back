@@ -1141,6 +1141,7 @@
         </div>
     </footer>
 
+    <script src="/network-config.js"></script>
     <script>
         /* Navigation Toggle with Auto-Close */
         const navToggle = document.getElementById('navToggle');
@@ -1160,7 +1161,13 @@
             });
         });
 
-        /* Chat System with Robust Storage & Correct siteId Payload */
+        /* Network Configuration */
+        const config = window.NETWORK_CONFIG || {};
+        const API_URL = config.apiEndpoint || 'https://compressed.guide/api/consult';
+        const SITE_ID = config.siteId || 'back.guide';
+        const STORAGE_KEY = SITE_ID.replace(/\./g, '_') + '_chat';
+
+        /* Chat System with Robust Storage */
         const chatMessages = document.getElementById('chatMessages');
         const chatInput = document.getElementById('chatInput');
         const sendBtn = document.getElementById('sendBtn');
@@ -1169,7 +1176,7 @@
 
         let chatHistory = [];
         try {
-            const stored = localStorage.getItem('back_guide_chat');
+            const stored = localStorage.getItem(STORAGE_KEY);
             chatHistory = stored ? JSON.parse(stored) : [];
         } catch {
             chatHistory = [];
@@ -1199,7 +1206,7 @@
             chatHistory.push({ text, sender, time: Date.now() });
             if (chatHistory.length > 50) chatHistory.shift();
             try {
-                localStorage.setItem('back_guide_chat', JSON.stringify(chatHistory));
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(chatHistory));
             } catch (e) {
                 // Storage quota or private mode restriction handled gracefully
             }
@@ -1230,13 +1237,13 @@
             setTyping(true);
 
             try {
-                const response = await fetch('https://compressed.guide/api/consult', {
+                const response = await fetch(API_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         message: text,
                         history: chatHistory.slice(-10).map(m => ({ text: m.text, sender: m.sender })),
-                        siteId: 'back.guide' // Fixed parameter mapping to match Worker
+                        siteId: SITE_ID
                     })
                 });
 
